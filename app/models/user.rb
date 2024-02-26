@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :goals
   has_many :submissions
-  has_many :goals_as_owner, through: :submissions, source: :goals
+  has_many :goals_as_user, through: :submissions, source: :goals
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
         #  test
