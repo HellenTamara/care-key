@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :goals_as_owner, through: :submissions, source: :goals
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+        #  test
 end
