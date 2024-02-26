@@ -10,4 +10,5 @@ class User < ApplicationRecord
   belongs_to :skin_color, class_name: "Part", optional: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validates :name, :email, :password, presence: true
 end
