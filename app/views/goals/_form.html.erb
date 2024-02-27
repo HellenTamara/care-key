@@ -1,5 +1,7 @@
 <%= simple_form_for(@goal) do |f| %>
   <%= f.label :name, 'Sleep'%>
+  <%= f.input :name, as: :hidden, input_html: { value: "Sleep" } %>
+  <%= f.input :start_date, as: :hidden, input_html: { value: Date.today } %>
   <%= f.input :duration,
   as: :radio_buttons,
   collection_wrapper_tag: :'div',
@@ -7,12 +9,16 @@
   item_wrapper_class: :'duration-hours',
   collection: 6..10
   %>
+<% end %>
+<%= simple_form_for(@goal) do |f| %>
   <%= f.label :name, 'Exercise'%>
+  <%= f.input :name, as: :hidden, input_html: { value: "Exercise" } %>
+  <%= f.input :start_date, as: :hidden, input_html: { value: Date.today } %>
   <%= f.input :frequency,
   as: :select,
   collection: 0..7
 %>
-  <%# <%= f.label :name, %>
-  <%# <%= f.input : %>
-  <%= f.submit 'Confirm' %>
 <% end %>
+<%# <%= f.label :name, %>
+<%# <%= f.input : %>
+<%# <%= f.submit 'Confirm' %> %>
