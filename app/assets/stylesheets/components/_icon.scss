@@ -1,0 +1,25 @@
+.food-icon {
+  background-color: gray;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.sleep-icon {
+  background-color: gray;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.exercise-icon {
+  background-color: gray;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.routine-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
