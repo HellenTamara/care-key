@@ -1,3 +1,5 @@
+require "open-uri"
+
 # This file should ensure the existence of records required to run the application in every environment (production,
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
@@ -9,6 +11,10 @@
 #   end
 
 # User.destroy_all
+Submission.destroy_all
+Goal.destroy_all
+Part.destroy_all
+User.destroy_all
 
 puts "Creating main users..."
 go = User.new(email: "go.suz55@gmail.com", password: "123456", name: "Go Suzuki")
@@ -75,3 +81,17 @@ end
 puts goal3.submissions.count
 
 # Seeding images:
+
+categories = %w[hair pants shirt shoes skin_color]
+
+categories.each do |category|
+  image_files = (Dir.entries("app/assets/images/parts/#{category}/") - [".", "..", ".DS_Store"])
+  p image_files
+  image_files.each do |img|
+    file = URI.open("app/assets/images/parts/#{category}/#{img}")
+    name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
+    part = Part.new(name: name, category: category)
+    part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
+    part.save
+  end
+end
