@@ -8,15 +8,70 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+# User.destroy_all
+
 puts "Creating main users..."
 go = User.new(email: "go.suz55@gmail.com", password: "123456", name: "Go Suzuki")
-go.save
+go.save!
 
-nina = User.new(email: "karenina2798@gmail.com", password: "123456", name: "Nina Wongsordjo")
-nina.save
+# 2. Create goals
+#2.1 + 2.2 date instance & goal instance
+puts "Creating goals......."
+start_date1 = Date.new(2022, 3, 5)
+end_date1 = start_date1 + 6
+goal1 = Goal.new(name: "Sleep", start_date: start_date1, end_date: end_date1, frequency: 7 )
+goal1.user = go
+goal1.save!
 
-sarah = User.new(email: "sealove14@aim.com", password: "123456", name: "Sarah Amour")
-sarah.save
+start_date2 = Date.new(2022, 3, 12)
+end_date2 = start_date2 + 3
+goal2 = Goal.new(name: "Sleep", start_date: start_date2 , end_date: end_date2, frequency: 7 )
+goal2.user = go
+goal2.save!
 
-hellen = User.new(email: "hellen.tamara@outlook.com", password: "123456", name: "Hellen Naito")
-hellen.save
+start_date3 = Date.new(2022, 3, 19)
+end_date3 = start_date3 + 5
+goal3 = Goal.new(name: "Sleep", start_date: start_date3 , end_date: end_date3, frequency: 7 )
+goal3.user = go
+goal3.save!
+
+
+# 3. Create submission using the goals
+
+# create start date and end date so
+puts "Creating submissions........."
+(goal1.start_date..goal1.end_date).each do |date| # creates a range for state date to end date
+  submission = Submission.new(date: date)
+  submission.goal = goal1
+  submission.user= go
+  submission.save!
+  # submission.goal = goal1
+  # goal: goal1 does the same thing
+  submission.save!
+  # create submission for reach date
+end
+puts goal1.submissions.count # gives you the number of instances
+
+
+(goal2.start_date..goal2.end_date).each do |date| # creates a range for state date to end date
+  # goal: goal2, user: go
+  submission = Submission.new(date: date)  # submission.goal = goal1
+  submission.goal = goal2
+  submission.user= go
+  submission.save!
+  # create submission for reach date
+end
+puts goal2.submissions.count
+
+(goal3.start_date..goal3.end_date).each do |date| # creates a range for state date to end date
+  submission = Submission.new(date: date)  # submission.goal = goal1
+  submission.goal = goal3
+  submission.user= go
+  submission.save!
+
+  submission.save!
+  # create submission for reach date
+end
+puts goal3.submissions.count
+
+# Seeding images:
