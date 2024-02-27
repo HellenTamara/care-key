@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-    
 ActiveRecord::Schema[7.1].define(version: 2024_02_26_083504) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +31,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_26_083504) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "submissions", force: :cascade do |t|
+    t.date "date"
+    t.bigint "goal_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goal_id"], name: "index_submissions_on_goal_id"
+    t.index ["user_id"], name: "index_submissions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,6 +68,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_26_083504) do
   end
 
   add_foreign_key "goals", "users"
+  add_foreign_key "submissions", "goals"
+  add_foreign_key "submissions", "users"
   add_foreign_key "users", "parts", column: "hair_id"
   add_foreign_key "users", "parts", column: "pants_id"
   add_foreign_key "users", "parts", column: "shirt_id"

@@ -1,0 +1,18 @@
+<%= simple_form_for(@goal) do |f| %>
+  <%= f.label :name, 'Sleep'%>
+  <%= f.input :duration,
+  as: :radio_buttons,
+  collection_wrapper_tag: :'div',
+  collection_wrapper_class: :'sleep-duration',
+  item_wrapper_class: :'duration-hours',
+  collection: 6..10
+  %>
+  <%= f.label :name, 'Exercise'%>
+  <%= f.input :frequency,
+  as: :select,
+  collection: 0..7
+%>
+  <%# <%= f.label :name, %>
+  <%# <%= f.input : %>
+  <%= f.submit 'Confirm' %>
+<% end %>
