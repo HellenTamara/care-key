@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_28_080854) do
-master
+ActiveRecord::Schema[7.1].define(version: 2024_02_28_113045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -102,18 +101,8 @@ master
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "hp_level"
-    t.bigint "hair_id"
-    t.bigint "shirt_id"
-    t.bigint "pants_id"
-    t.bigint "shoes_id"
-    t.bigint "skin_color_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["hair_id"], name: "index_users_on_hair_id"
-    t.index ["pants_id"], name: "index_users_on_pants_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["shirt_id"], name: "index_users_on_shirt_id"
-    t.index ["shoes_id"], name: "index_users_on_shoes_id"
-    t.index ["skin_color_id"], name: "index_users_on_skin_color_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -127,9 +116,4 @@ master
   add_foreign_key "goals", "users"
   add_foreign_key "submissions", "goals"
   add_foreign_key "submissions", "users"
-  add_foreign_key "users", "parts", column: "hair_id"
-  add_foreign_key "users", "parts", column: "pants_id"
-  add_foreign_key "users", "parts", column: "shirt_id"
-  add_foreign_key "users", "parts", column: "shoes_id"
-  add_foreign_key "users", "parts", column: "skin_color_id"
 end

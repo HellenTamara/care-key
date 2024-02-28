@@ -14,6 +14,7 @@ require "open-uri"
 Submission.destroy_all
 Goal.destroy_all
 Part.destroy_all
+Avatar.destroy_all
 User.destroy_all
 
 puts "Creating main users..."
