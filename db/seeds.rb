@@ -148,11 +148,48 @@ goal7 = Goal.new(name: "Food", start_date: start_date7, end_date: end_date7, fre
 goal7.user = go
 goal7.save!
 
+puts "Creating food goals............"
+start_date8 = Date.new(2022, 3, 12)
+end_date8 = start_date8 + 6
+goal8 = Goal.new(name: "Food", start_date: start_date8, end_date: end_date8, frequency: 21)
+goal8.user = go
+goal8.save!
+
+puts "Creating food goals............"
+start_date9 = Date.new(2022, 3, 19)
+end_date9 = start_date9 + 6
+goal9 = Goal.new(name: "Food", start_date: start_date9, end_date: end_date9, frequency: 21)
+goal9.user = go
+goal9.save!
+
+
 puts "Creating food submissions........."
 (goal7.start_date..goal7.end_date).each do |date| # creates a range for start date to end date
-  submission = Submission.new(date: date)
-  submission.goal= goal7
-  submission.user= go
-  submission.save!
+  rand(1..3).times do
+    submission = Submission.new(date: date)
+    submission.goal= goal7
+    submission.user= go
+    submission.save!
+  end
 end
-puts "Should be 21........Food goal submission count: #{goal7.submissions.count}"
+puts "Random number of times eaten in a week ........Food goal submission count: #{goal7.submissions.count}"
+
+(goal8.start_date..goal8.end_date).each do |date| # creates a range for start date to end date
+  rand(1..3).times do
+    submission = Submission.new(date: date)
+    submission.goal= goal8
+    submission.user= go
+    submission.save!
+  end
+end
+puts "Random number of times eaten in a week ........Food goal submission count: #{goal8.submissions.count}"
+
+(goal9.start_date..goal9.end_date).each do |date| # creates a range for start date to end date
+  rand(1..3).times do
+    submission = Submission.new(date: date)
+    submission.goal= goal9
+    submission.user= go
+    submission.save!
+  end
+end
+puts "Random number of times eaten in a week ........Food goal submission count: #{goal9.submissions.count}"
