@@ -4,6 +4,17 @@
 }
 
 .point-bar {
-  height: 30px;
-  background-color: black;
+  height: 40px;
+  width: 110px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #FDF5D0;
+  border: 2px solid #FFE143;
+  border-radius: 20px;
+    p {
+      right: 30px;
+      position: absolute;
+      margin: 0;
+    }
 }

@@ -4,29 +4,42 @@
 <div class="container d-flex">
       <div class="hp-bar ms-3" style="flex-grow: 7"></div>
       <span style="flex-grow: 1"></span>
-      <div class="point-bar me-3" style="flex-grow: 3"></div>
+      <div class="point-bar me-3">
+        <%= image_tag 'coins/coin.png', class: "coin-icon"%>
+        <p>1000</p>
+      </div>
 </div>
   <div class="container d-flex justify-content-center mt-5">
     <div class="avatar-card"></div>
   </div>
-  <div class="routine-icons container mt-4">
-    <div class="food-icon"></div>
-    <div class="sleep-icon"></div>
-    <div class="exercise-icon"></div>
+  <div class="routine-icons container mt-2">
+    <div class="progress-circle">
+      <div class="food-icon"></div>
+    </div>
+    <div class="progress-circle">
+      <div class="sleep-icon"></div>
+    </div>
+    <div class="progress-circle">
+      <div class="exercise-icon"></div>
+    </div>
   </div>
 
 
-<div class="navbar d-flex container">
-  <span style="font-size: 2em; color: white;">
-    <i class="fa-solid fa-clock-rotate-left"></i>
-  </span>
-  <span style="font-size: 2em; color: white;">
-    <i class="fa-solid fa-user"></i>
-  </span>
-  <span style="font-size: 2em; color: white;">
-    <i class="fa-solid fa-chart-simple"></i>
-  </span>
-  <span style="font-size: 2em; color: white;">
-   <i class="fa-solid fa-gear"></i>
-  </span>
-</div>
+<%# <% if user_signed_in? %>
+    <div class="navbar d-flex container">
+      <span style="font-size: 2em; color: white;">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+      </span>
+      <span style="font-size: 2em; color: white;">
+        <i class="fa-solid fa-user"></i>
+      </span>
+      <span style="font-size: 2em; color: white;">
+        <i class="fa-solid fa-chart-simple"></i>
+      </span>
+      <span style="font-size: 2em; color: white;">
+      <i class="fa-solid fa-gear"></i>
+      </span>
+    </div>
+<%# <% else %>
+     <%# <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+<%# <% end %>
