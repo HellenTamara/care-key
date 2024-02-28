@@ -6,5 +6,5 @@ class Goal < ApplicationRecord
   # A goal can only have one user
   validates :name, presence: true
   validates :start_date, presence: true
-  validates :frequency, presence: true
+  # validates :frequency, presence: true
 end

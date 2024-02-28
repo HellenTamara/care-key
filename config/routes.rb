@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "/home", to: "pages#home", as: :home
   get "/avatar/edit", to: "pages#edit", as: :edit_avatar
   patch "/avatar", to: "pages#update"
-  resources :goals, only: [:new, :create, :index] do
+  resources :goals, only: [:create, :index] do
     resources :submissions, only: [:create]
   end
 end

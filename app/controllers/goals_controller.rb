@@ -1,9 +1,9 @@
 class GoalsController < ApplicationController
   def index
-    @goals = current_user.goals
-  end
-
-  def new
+    # @goals = current_user.goals
+    @goal_sleep = current_user.current_sleep_goal
+    @goal_exercise = current_user.current_exercise_goal
+    @goal_eating = current_user.current_eating_goal
     @goal = Goal.new
   end
 
@@ -11,7 +11,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
     @goal.user = current_user
     if @goal.save
-      redirect_to home_path()
+      redirect_to goals_path()
     else
       render :new, status: :unprocessable_entity
     end

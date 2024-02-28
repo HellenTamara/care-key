@@ -11,4 +11,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :email, :password, presence: true
+
+  def current_sleep_goal
+    goals.where(name: "Sleep").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
+  end
+
+  def current_exercise_goal
+    goals.where(name: "Exercise").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
+  end
+
+  def current_eating_goal
+    goals.where(name: "Eating").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
+  end
 end
