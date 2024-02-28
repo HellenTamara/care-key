@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_commit :create_avatar
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :goals
@@ -12,4 +13,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :email, :password, presence: true
+
+  def create_avatar
+    avatar = Avatar.new(user: self)
+    avatar.save
+  end
 end

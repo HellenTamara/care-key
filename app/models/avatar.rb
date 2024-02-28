@@ -1,8 +1,8 @@
 class Avatar < ApplicationRecord
   belongs_to :user
-  has_one :hair, class_name: "Part", optional: true
-  has_one :shirt, class_name: "Part", optional: true
-  has_one :shoes, class_name: "Part", optional: true
-  has_one :pants, class_name: "Part", optional: true
-  has_one :skin_color, class_name: "Part", optional: true
+  belongs_to :hair, class_name: "Part", optional: true
+  belongs_to :shirt, class_name: "Part", optional: true
+  belongs_to :shoes, class_name: "Part", optional: true
+  belongs_to :pants, class_name: "Part", optional: true
+  belongs_to :skin_color, class_name: "Part", optional: true
 end
