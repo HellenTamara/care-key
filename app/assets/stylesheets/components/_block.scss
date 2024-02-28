@@ -1,8 +1,16 @@
 .block-color {
   background-color: #38C6C2;
-  height: 70px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+.speech-bubble {
+  width: 100px;
+  height: 100px;
+  background-color: #38C6C2;
+  position: absolute;
+  top: 150px;
 }

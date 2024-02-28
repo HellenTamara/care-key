@@ -1,4 +1,4 @@
-<div class="block-color d-flex mb-5">
+<div class="block-color d-flex mb-4">
   <h3>Hi, name!</h3>
 </div>
 <div class="container d-flex">
@@ -6,39 +6,60 @@
       <span style="flex-grow: 1"></span>
       <div class="point-bar me-3">
         <%= image_tag 'coins/coin.png', class: "coin-icon"%>
+        <%# placeholder text below, can interpolate %>
         <p>1000</p>
       </div>
 </div>
   <div class="container d-flex justify-content-center mt-5">
     <div class="avatar-card"></div>
+    <div class="speech-bubble">
+    </div>
   </div>
-  <div class="routine-icons container mt-2">
-    <div class="progress-circle">
-      <div class="food-icon"></div>
+  <div class="routine-icons container mt-4">
+    <div class="progress-circle-food">
+      <div class="food-icon d-flex justify-content-center align-items-center">
+        <i class="fa-solid fa-burger" style="font-size: 2em; color: white;"></i>
+      </div>
     </div>
-    <div class="progress-circle">
-      <div class="sleep-icon"></div>
+    <div class="progress-circle-sleep">
+      <div class="sleep-icon d-flex justify-content-center align-items-center">
+        <i class="fa-solid fa-moon" style="font-size: 2em; color: white;"></i>
+      </div>
     </div>
-    <div class="progress-circle">
-      <div class="exercise-icon"></div>
+    <div class="progress-circle-exercise">
+      <div class="exercise-icon d-flex justify-content-center align-items-center">
+        <i class="fa-solid fa-dumbbell" style="font-size: 2em; color: white;"></i>
+      </div>
     </div>
   </div>
 
 
 <%# <% if user_signed_in? %>
     <div class="navbar d-flex container">
+      <%# will link to goals index %>
+      <%= link_to new_user_session_path do %>
       <span style="font-size: 2em; color: white;">
         <i class="fa-solid fa-clock-rotate-left"></i>
       </span>
+      <%end%>
+      <%# will link to avatar edit %>
+      <%= link_to new_user_session_path do %>
       <span style="font-size: 2em; color: white;">
         <i class="fa-solid fa-user"></i>
       </span>
+      <%end%>
+      <%# will link to submission index %>
+       <%= link_to new_user_session_path do %>
       <span style="font-size: 2em; color: white;">
         <i class="fa-solid fa-chart-simple"></i>
       </span>
+      <%end%>
+      <%# will link to settings (log-out) %>
+       <%= link_to new_user_session_path do %>
       <span style="font-size: 2em; color: white;">
       <i class="fa-solid fa-gear"></i>
       </span>
+      <%end%>
     </div>
 <%# <% else %>
      <%# <%= link_to "Login", new_user_session_path, class: "nav-link" %>
