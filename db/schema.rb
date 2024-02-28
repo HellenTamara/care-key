@@ -86,6 +86,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_080854) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "achieved"
     t.index ["goal_id"], name: "index_submissions_on_goal_id"
     t.index ["user_id"], name: "index_submissions_on_user_id"
   end
