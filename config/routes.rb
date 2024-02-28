@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get "/avatar/edit", to: "pages#edit", as: :edit_avatar
   patch "/avatar", to: "pages#update"
   resources :goals, only: [:new, :create, :index] do
-    resources :submissions, only: [:create]
+    resources :submissions, only: [:create, :index]
   end
 end
