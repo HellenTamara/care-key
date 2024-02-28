@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :goals
   has_many :submissions
+  has_one :avatar
   belongs_to :hair, class_name: "Part", optional: true
   belongs_to :shirt, class_name: "Part", optional: true
   belongs_to :shoes, class_name: "Part", optional: true
