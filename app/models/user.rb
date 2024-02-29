@@ -12,8 +12,9 @@ class User < ApplicationRecord
 
   def create_avatar
     avatar = Avatar.create(user: self)
+    avatar.coins = 1000
   end
-    
+
   def current_sleep_goal
     goals.where(name: "Sleep").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
   end

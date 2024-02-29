@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_28_141147) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_29_082709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_141147) do
     t.bigint "hair_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "coins"
     t.index ["hair_id"], name: "index_avatars_on_hair_id"
     t.index ["pants_id"], name: "index_avatars_on_pants_id"
     t.index ["shirt_id"], name: "index_avatars_on_shirt_id"
