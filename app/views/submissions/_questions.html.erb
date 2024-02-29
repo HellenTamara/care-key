@@ -1,0 +1,11 @@
+<% if @submission_sleep.nil? %>
+    <%= render "submissions/form", goal: @goal_sleep, message: "Did you sleep #{@goal_sleep.duration} hrs?" %>
+  <% elsif @submission_exercise.nil? %>
+    <%= render "submissions/form", goal: @goal_exercise, message: "Did you exercise today?" %>
+  <% elsif @submission_eating.length == 0 %>
+    <%= render "submissions/form", goal: @goal_eating, message: "Did you eat breakfast today?" %>
+  <% elsif @submission_eating.length == 1 %>
+    <%= render "submissions/form", goal: @goal_eating, message: "Did you eat lunch today?" %>
+  <% elsif @submission_eating.length == 2 %>
+    <%= render "submissions/form", goal: @goal_eating, message: "Did you eat dinner today?" %>
+<% end %>
