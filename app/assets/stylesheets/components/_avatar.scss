@@ -10,24 +10,113 @@
 .avatar-hair {
   width: 100%;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8%;
 }
 
 .avatar-shoes {
   width: 100%;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8%;
 }
 
 .avatar-skin-color {
   width: 100%;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8%;
 }
 
 .avatar-pants {
   width: 100%;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8%;
 }
 
 .avatar-shirt {
   width: 100%;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8%;
+}
+
+.avatar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  background-color: #FDF5D0;
+  border: 4px solid #EFB622;
+  border-radius: 15px;
+  height: 100px;
+}
+
+.avatar-option-card {
+  height: 80px;
+  width: 80px;
+  background-color: white;
+  border-radius: 10px;
+  gap: 5px;
+    .img-card {
+      overflow: hidden;
+    }
+}
+
+.avatar-edit {
+  position: relative;
+  flex-grow: 1;
+}
+
+.avatar-hair-op {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5%;
+}
+
+.avatar-shoes-op {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5%;
+}
+
+.avatar-skin-color-op {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5%;
+}
+
+.avatar-pants-op {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5%;
+}
+
+.avatar-shirt-op {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5%;
+}
+
+.avatar-edit-bg {
+  height: 100vh;
+  padding-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  background-color: #FDF5D0;
 }
