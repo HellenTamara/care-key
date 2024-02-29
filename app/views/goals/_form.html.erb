@@ -1,0 +1,29 @@
+<%= simple_form_for(@goal, html: {data:{controller: 'autosave'}}) do |f| %>
+  <%= f.label :name, 'Sleep'%>
+  <%= f.input :name, as: :hidden, input_html: { value: "Sleep" } %>
+  <%= f.input :start_date, as: :hidden, input_html: { value: Date.today } %>
+  <%= f.input :duration,
+  as: :range, input_html: { min: 0, max: 10, data:{action: 'change->autosave#save'} }
+  # wrapper_html: :'div',
+  # wrapper_class: :'data-controler',
+  # item_wrapper_class: :'slider'
+  # min: 0,
+  # max: 10
+  # collection: 0..10
+  %>
+  <%# <%= f.submit 'Confirm' %>
+<% end %>
+<%= simple_form_for(@goal, html: {data:{controller: 'autosave'}}) do |f| %>
+  <%= f.label :name, 'Exercise'%>
+  <%= f.input :name, as: :hidden, input_html: { value: "Exercise" } %>
+  <%= f.input :start_date, as: :hidden, input_html: { value: Date.today } %>
+  <%= f.input :frequency,
+  as: :range, input_html: { min: 0, max: 7, data:{action: 'change->autosave#save'}}
+  # min: 0,
+  # max: 7
+  # collection: 0..10
+  %>
+  <%# <%= f.submit 'Confirm' %>
+<% end %>
+<%# <%= f.label :name, %>
+<%# <%= f.input : %>
