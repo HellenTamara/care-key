@@ -29,6 +29,6 @@ class User < ApplicationRecord
   end
 
   def current_eating_goal
-    goals.where(name: "Food").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
+    goals.where(name: "Eating").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
   end
 end
