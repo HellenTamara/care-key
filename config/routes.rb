@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "/home", to: "pages#home", as: :home
+  # get "/home", to: "pages#home", as: :home
   # get "/avatar/edit", to: "pages#edit", as: :edit_avatar
   # patch "/avatar", to: "pages#update"
   resources :avatars, only: [:edit, :update]

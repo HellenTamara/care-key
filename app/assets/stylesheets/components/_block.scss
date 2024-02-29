@@ -6,12 +6,13 @@
   align-items: center;
   color: white;
   border-bottom: 6px solid #008C9B;
+  position: relative;
 }
 
 .speech-bubble {
   width: 100px;
   height: 100px;
-  background-color: #38C6C2;
+
   position: absolute;
   top: 150px;
 }
