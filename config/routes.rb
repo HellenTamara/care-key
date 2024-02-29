@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/home", to: "pages#home", as: :home
-  get "/avatar/edit", to: "pages#edit", as: :edit_avatar
-  patch "/avatar", to: "pages#update"
-
-  resources :goals, only: [:create, :index] do
-    resources :submissions, only: [:create]
+  # get "/avatar/edit", to: "pages#edit", as: :edit_avatar
+  # patch "/avatar", to: "pages#update"
+  resources :avatars, only: [:edit, :update]
+  resources :goals, only: [:new, :create, :index] do
+    resources :submissions, only: [:create, :index]
   end
 end

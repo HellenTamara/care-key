@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_28_040100) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_28_080854) do
+master
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +41,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_040100) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "avatars", force: :cascade do |t|
+    t.string "name"
+    t.integer "hp_level"
+    t.bigint "user_id", null: false
+    t.bigint "skin_color_id"
+    t.bigint "shirt_id"
+    t.bigint "shoe_id"
+    t.bigint "pants_id"
+    t.bigint "hair_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hair_id"], name: "index_avatars_on_hair_id"
+    t.index ["pants_id"], name: "index_avatars_on_pants_id"
+    t.index ["shirt_id"], name: "index_avatars_on_shirt_id"
+    t.index ["shoe_id"], name: "index_avatars_on_shoe_id"
+    t.index ["skin_color_id"], name: "index_avatars_on_skin_color_id"
+    t.index ["user_id"], name: "index_avatars_on_user_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -98,6 +118,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_040100) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "avatars", "parts", column: "hair_id"
+  add_foreign_key "avatars", "parts", column: "pants_id"
+  add_foreign_key "avatars", "parts", column: "shirt_id"
+  add_foreign_key "avatars", "parts", column: "shoe_id"
+  add_foreign_key "avatars", "parts", column: "skin_color_id"
+  add_foreign_key "avatars", "users"
   add_foreign_key "goals", "users"
   add_foreign_key "submissions", "goals"
   add_foreign_key "submissions", "users"

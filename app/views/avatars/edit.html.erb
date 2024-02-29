@@ -1,0 +1,9 @@
+<h1>Options</h1>
+<div data-controller="avatar-options"  data-avatar-options-avatar-value="<%= @user.avatar.id %>">
+  <div data-avatar-options-target="form"></div>
+  <ul class="d-flex">
+    <% @categories.each do |category| %>
+      <li data-action="click->avatar-options#select" value="<%= category %>"><%= cl_image_tag @parts.where(category: category).first.photo.key, height: 200 %></li>
+    <% end %>
+  </ul>
+</div>
