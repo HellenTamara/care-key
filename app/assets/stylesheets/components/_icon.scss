@@ -1,0 +1,32 @@
+.food-icon {
+  background-color: #A6E1DA;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.sleep-icon {
+  background-color: #A6E1DA;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.exercise-icon {
+  background-color: #A6E1DA;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.routine-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.coin-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 10px;
+}
