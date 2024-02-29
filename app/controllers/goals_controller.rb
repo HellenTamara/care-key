@@ -17,6 +17,9 @@ class GoalsController < ApplicationController
     end
   end
 
+  def dashboard
+  end
+
   private
 
   def goal_params
