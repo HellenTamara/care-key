@@ -1,0 +1,17 @@
+ <%# _form.html.erb - its a form for submission%>
+
+<p>Did you eat??? This info is all to be rendered in a popup box</p>
+<%# This kinda works %>
+<%#= simple_form_for @submission, url: goal_submissions_path do |f| %>
+  <%#= f.submit 'YES', submit_html: { value: true } %>
+  <%#= f.submit 'NO', submit_html: { value: false } %>
+<%# end %>
+
+<%= simple_form_for @submission, url: goal_submissions_path do |f| %>
+  <%= f.input :achieved, as: :hidden, input_html: { value: true } %>
+  <%= f.submit 'YES', class: 'btn btn-info' %>
+<% end %>
+<%= simple_form_for @submission, url: goal_submissions_path do |f| %>
+  <%= f.input :achieved, as: :hidden, input_html: { value: false } %>
+  <%= f.submit 'NO', class: 'btn btn-info' %>
+<% end %>
