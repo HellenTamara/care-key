@@ -13,7 +13,7 @@ class User < ApplicationRecord
   def create_avatar
     avatar = Avatar.create(user: self)
   end
-    
+
   def current_sleep_goal
     goals.where(name: "Sleep").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
   end
@@ -23,6 +23,6 @@ class User < ApplicationRecord
   end
 
   def current_eating_goal
-    goals.where(name: "Eating").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
+    goals.where(name: "Food").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
   end
 end
