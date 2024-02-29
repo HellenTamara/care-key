@@ -16,13 +16,13 @@ class SubmissionsController < ApplicationController
     # @submission.goal = Goal.new()
     # How is it going to know its the exact goal you're trying to submit??
     # need to give it a date from the goal itself
-    submission = Submission.new(params[:goal_id])
-    @date = Goal.find(params["goal_id"].date_id)
-    @goal = Goal.find(params["goal_id"])
-    submission.goal = @goal
-    submission.user = current_user
-    submission.save
-    raise
+    # submission = Submission.new(params[:goal_id])
+    # @date = Goal.find(params["goal_id"].date_id)
+    # @goal = Goal.find(params["goal_id"])
+    # submission.goal = @goal
+    # submission.user = current_user
+    # submission.save
+    # raise
   end
 
   # Copy paste this and delete this before pushing (remember you're still on the created-submission-forms-branch)
@@ -35,9 +35,9 @@ class SubmissionsController < ApplicationController
     submission.user = current_user
     if submission.save
       # where do I want to redirect to? home path??
-      redirect_to home_path()
+      redirect_to home_path(), notice: "Well done!"
     else
-      raise
+      redirect_to home_path(), notice: "Sorry we're having issues"
       # render the form???
       # render "shelters/show", status: :unprocessable_entity
     end
