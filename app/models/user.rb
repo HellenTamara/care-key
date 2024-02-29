@@ -12,17 +12,11 @@ class User < ApplicationRecord
 
   def create_avatar
     avatar = Avatar.create(user: self)
-    p avatar
     avatar.hair = Part.where(category: "hair").first
-    p avatar
     avatar.shoes= Part.where(category: "shoes").first
-    p avatar
     avatar.pants = Part.where(category: "pants").first
-    p avatar
     avatar.shirt = Part.where(category: "shirt").first
-    p avatar
     avatar.skin_color = Part.where(category: "skin_color").first
-    p avatar
     avatar.save
   end
 
