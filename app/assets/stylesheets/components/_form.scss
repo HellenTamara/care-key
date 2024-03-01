@@ -1,0 +1,13 @@
+.image-radio {
+  display: none;
+}
+
+label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.image-radio:checked + img {
+  border: 3px solid #38C6C2;
+  border-radius: 5px;
+}

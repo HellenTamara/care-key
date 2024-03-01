@@ -1,13 +1,13 @@
 <%= simple_form_for @avatar do |f| %>
   <fieldset>
     <div class="radio">
-      <%= f.association "#{category}", as: :radio_buttons, collection: @parts.where(category: category) %>
-      <% @parts.where(category: category).each do |part| %>
-        <%= f.label "#{category}_#{part.id}" do %>
+      <% Part.where(category: category).each do |part| %>
+        <%= f.label "#{category}_id_#{part.id}" do %>
+          <%= f.radio_button "#{category}_id", part.id, class: "image-radio" %>
           <%= cl_image_tag part.photo.key, height: 200 %>
         <% end %>
       <% end %>
     </div>
   </fieldset>
-  <%= f.button :submit, class: 'btn btn-primary' %>
+  <%= f.submit 'Update', class: 'btn btn-primary' %>
 <% end %>

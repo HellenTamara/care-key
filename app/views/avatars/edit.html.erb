@@ -1,9 +1,27 @@
-<h1>Options</h1>
-<div data-controller="avatar-options"  data-avatar-options-avatar-value="<%= @user.avatar.id %>">
-  <div data-avatar-options-target="form"></div>
-  <ul class="d-flex">
-    <% @categories.each do |category| %>
-      <li data-action="click->avatar-options#select" value="<%= category %>"><%= cl_image_tag @parts.where(category: category).first.photo.key, height: 200 %></li>
-    <% end %>
-  </ul>
+<div class="avatar-edit-bg">
+<div class="block-color">
+<h3>Update Your Avatar</h3>
 </div>
+<p class="mt-3">Select a category to change your avatar</p>
+<div>
+<%# name of user needs to be implemented here %>
+<%# pen icon should link to updating name (pop-up?)%>
+<h3 id="header">Edit Name <i class="fa-solid fa-pencil"></i></h3>
+</div>
+ <div class="container d-flex justify-content-center avatar-edit">
+      <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color-op', :style => 'width: 80%;'%>
+      <%= cl_image_tag @user.avatar.hair.photo.key, :class => 'avatar-hair-op', :style => 'width: 80%;'%>
+      <%= cl_image_tag @user.avatar.pants.photo.key, :class => 'avatar-pants-op', :style => 'width: 80%;'%>
+      <%= cl_image_tag @user.avatar.shirt.photo.key, :class => 'avatar-shirt-op', :style => 'width: 80%;' %>
+      <%= cl_image_tag @user.avatar.shoes.photo.key, :class => 'avatar-shoes-op', :style => 'width: 80%;'%>
+  </div>
+<div data-controller="avatar-options"  data-avatar-options-avatar-value="<%= @user.avatar.id %>">
+  <div class="avatar-grid">
+    <% @categories.each do |category| %>
+      <div data-action="click->avatar-options#select" value="<%= category %>">
+      <button data-bs-toggle="modal" data-bs-target="#category-option-<%= category%>">
+      <%= cl_image_tag @parts.where(category: category).first.photo.key, class: 'avatar-option-card' %></button>
+      <%= render "avatars/modal", category: category %>
+      </div>
+    <% end %>
+  </div>

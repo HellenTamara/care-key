@@ -1,10 +1,5 @@
 class SubmissionsController < ApplicationController
   def index
-    # @user = current_user
-    # @submission = Submission.new
-
-    #code from index
-    @goal = Goal.find(params["goal_id"])
     @submissions = Submission.all
     @submission = @submissions.first
 

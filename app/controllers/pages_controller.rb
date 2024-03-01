@@ -1,20 +1,25 @@
 class PagesController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home ]
   def home
     @user = current_user
-    @goal_sleep = current_user.current_sleep_goal
-    @goal_exercise = current_user.current_exercise_goal
-    @goal_eating = current_user.current_eating_goal
-    @submission = Submission.new
-    # Checking if we have submission for sleep today
-    @submission_sleep = Submission.find_by(user: current_user, goal: @goal_sleep, date: Date.today)
 
-    # If the submission sleep goal is nil, show the form to create one
+    @sleep_goal = @user.goals.where(name: "Sleep").last
+    @food_goal = @user.goals.where(name: "Food").last
+    @exercise_goal = @user.goals.where(name: "Exercise").last
 
-    # Checking if we have submission for exercise submission today
-    @submission_exercise = Submission.find_by(user: current_user, goal: @goal_exercise, date: Date.today)
+    @sleep_frequency = @sleep_goal.frequency
+    @food_frequency = @food_goal.frequency
+    @exercise_frequency = @exercise_goal.frequency
 
-    # All submissions for food today
-    @submission_eating = Submission.where(user: current_user, goal: @goal_eating, date: Date.today)
+
+    @sleep_achieved_amount = @sleep_goal.submissions.where(achieved: true)
+    @food_achieved_amount = @food_goal.submissions.where(achieved: true)
+    @exercise_achieved_amount = @exercise_goal.submissions.where(achieved: true)
+
+    @sleep_percentage = (@sleep_achieved_amount.count * 100) / @sleep_frequency
+    @food_percentage = (@food_achieved_amount.count * 100)  / @food_frequency
+    @exercise_percentage = (@exercise_achieved_amount.count * 100)  / @exercise_frequency
+
+    @hp_bar_level = (300 - @sleep_percentage - @food_percentage - @exercise_percentage) / 3
   end
 end
