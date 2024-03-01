@@ -1,0 +1,24 @@
+.sub-progress {
+  display: grid;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sub-progress-card {
+  width: 300px;
+  height: 80px;
+  border-radius: 5px;
+  border: 4px solid #38C6C2;
+  padding-left: 10px;
+}
+
+#food {
+  background-color: #F6DE68
+}
+#exercise {
+  background-color: #5bd6d2;
+}
+
+#sleep{
+  background-color: #FF6073;
+}
