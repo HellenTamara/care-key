@@ -18,7 +18,6 @@ Part.destroy_all
 User.destroy_all
 
 # Seeding images:
-
 categories = %w[hair pants shirt shoes skin_color]
 
 categories.each do |category|
@@ -34,8 +33,11 @@ categories.each do |category|
 end
 
 puts "Creating main users..."
-go = User.new(email: "go.suz55@gmail.com", password: "123456", name: "Go Suzuki")
+go = User.new(email: "go.suz55@gmail.com", password: "123456", name: "Go")
 go.save!
+
+hellen = User.new(email: "hellen.tamara@outlook.com", password: "123456", name: "Hellen")
+hellen.save!
 
 # 2. Create goals
 #2.1 + 2.2 date instance & goal instance

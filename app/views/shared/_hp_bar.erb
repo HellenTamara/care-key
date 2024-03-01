@@ -1,0 +1,10 @@
+<div class="container d-flex">
+  <div class="hp-bar ms-3" style="flex-grow: 7">
+    <% if @hp_bar_level < 40 %>
+      <%= image_tag 'health_bar/danger_hp.png', class: "health-bar" %>
+    <% elsif @hp_bar_level < 100 %>
+      <%= image_tag 'health_bar/warning_hp.png', class: "health-bar"%>
+    <% else %>
+      <%= image_tag 'health_bar/healthy_hp.png', class: "health-bar"%>
+    <% end %>
+  </div>
