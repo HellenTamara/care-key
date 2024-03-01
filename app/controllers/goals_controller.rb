@@ -13,7 +13,7 @@ class GoalsController < ApplicationController
     if @goal.save
       redirect_to home_path()
     else
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 
