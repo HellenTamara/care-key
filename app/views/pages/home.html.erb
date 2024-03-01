@@ -4,11 +4,12 @@
       <i class="fa-solid fa-gear"></i>
     </div>
   <%end%>
-  <h3>Hi, <%= current_user.avatar.name %>!</h3>
+  <h3>Hi, <%= current_user.name %>!</h3>
   <%= render "/submissions/questions" %>
 </div>
 <div class="container d-flex">
   <div class="hp-bar ms-3" style="flex-grow: 7">
+  <%# <%= @hp_bar_level %>
     <% if @hp_bar_level < 40 %>
       <%= image_tag 'health_bar/danger_hp.png', class: "health-bar" %>
     <% elsif @hp_bar_level < 100 %>
