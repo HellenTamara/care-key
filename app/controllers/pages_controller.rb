@@ -20,7 +20,7 @@ class PagesController < ApplicationController
       @sleep_percentage = (@sleep_achieved_amount.count * 100) / @sleep_frequency
       @food_percentage = (@food_achieved_amount.count * 100)  / @food_frequency
       @exercise_percentage = (@exercise_achieved_amount.count * 100)  / @exercise_frequency
-
+      
       @hp_bar_level = (300 - @sleep_percentage - @food_percentage - @exercise_percentage) / 3
     end
   end
