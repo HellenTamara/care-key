@@ -1,1 +1,25 @@
-<h1>I'm a dashboard</h1>
+<div class="block-color d-flex mb-4">
+  <h3>Dashboard</h3>
+</div>
+<div class="hp-bar-frame">
+<%= image_tag "health_bar/healthy_hp.png" %>
+</div>
+
+<div class="sub-calendar">
+  <div class="sub-days">
+  </div>
+  <div class="sub-progress">
+  <div class="sub-progress-card d-flex justify-content-center align-items-center" id="food">
+      <i class="fa-solid fa-burger" style="font-size: 3em; color: white;"></i>
+      <%= image_tag 'health_bar/warning_hp.png'%>
+  </div>
+  <div class="sub-progress-card d-flex justify-content-center align-items-center" id="sleep">
+      <i class="fa-solid fa-moon" style="font-size: 3em; color: white;"></i>
+      <%= image_tag 'health_bar/danger_hp.png'%>
+    </div>
+  <div class="sub-progress-card d-flex justify-content-center align-items-center" id="exercise">
+      <i class="fa-solid fa-dumbbell" style="font-size: 3em; color: white;"></i>
+      <%= image_tag 'health_bar/healthy_hp.png'%>
+    </div>
+  </div>
+</div>
