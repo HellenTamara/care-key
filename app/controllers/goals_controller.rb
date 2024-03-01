@@ -17,7 +17,7 @@ class GoalsController < ApplicationController
 
     if @goal.update(goal_params)
       redirect_to goals_path
-      flash[:notice] = "Goal updated"
+      flash[:notice] = "Your new goal was saved!"
     else
       render :index, status: :unprocessable_entity
     end
