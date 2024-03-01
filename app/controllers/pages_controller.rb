@@ -17,12 +17,11 @@ class PagesController < ApplicationController
     @food_achieved_amount = @goal_eating.submissions.where(achieved: true)
     @exercise_achieved_amount = @goal_exercise.submissions.where(achieved: true)
 
-      @sleep_percentage = (@sleep_achieved_amount.count * 100) / @sleep_frequency
-      @food_percentage = (@food_achieved_amount.count * 100)  / @food_frequency
-      @exercise_percentage = (@exercise_achieved_amount.count * 100)  / @exercise_frequency
-      
-      @hp_bar_level = (300 - @sleep_percentage - @food_percentage - @exercise_percentage) / 3
-    end
+    @sleep_percentage = (@sleep_achieved_amount.count * 100) / @sleep_frequency
+    @food_percentage = (@food_achieved_amount.count * 100)  / @food_frequency
+    @exercise_percentage = (@exercise_achieved_amount.count * 100)  / @exercise_frequency
+
+    @hp_bar_level = (@sleep_percentage + @food_percentage + @exercise_percentage)
   end
 
   # def landing
