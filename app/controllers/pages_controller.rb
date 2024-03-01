@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [ :home ]
+
+  # Added comment for pull request
   def home
     @user = current_user
     @goal_sleep = current_user.current_sleep_goal
