@@ -1,9 +1,10 @@
-<%= simple_form_for(@goal, html: {data:{controller: 'autosave'}}) do |f| %>
+<%= simple_form_for(@goal_sleep, html: {data:{controller: 'autosave', controller: 'slider'}}) do |f| %>
   <%= f.label :name, 'Sleep'%>
   <%= f.input :name, as: :hidden, input_html: { value: "Sleep" } %>
   <%= f.input :start_date, as: :hidden, input_html: { value: Date.today } %>
+  <p data-slider-target="number"> <%= @goal_sleep.duration %> </p>
   <%= f.input :duration,
-  as: :range, input_html: { min: 0, max: 10, data:{action: 'change->autosave#save'} }
+  as: :range, input_html: { min: 5, max: 10, data:{action: 'change->autosave#save', action: 'change->slider#update'} }
   # wrapper_html: :'div',
   # wrapper_class: :'data-controler',
   # item_wrapper_class: :'slider'
@@ -11,19 +12,20 @@
   # max: 10
   # collection: 0..10
   %>
-  <%# <%= f.submit 'Confirm' %>
+  <%= f.submit 'Confirm'%>
 <% end %>
-<%= simple_form_for(@goal, html: {data:{controller: 'autosave'}}) do |f| %>
+<%= simple_form_for(@goal_exercise, html: {data:{controller: 'autosave', controller: 'slider'}}) do |f| %>
   <%= f.label :name, 'Exercise'%>
   <%= f.input :name, as: :hidden, input_html: { value: "Exercise" } %>
   <%= f.input :start_date, as: :hidden, input_html: { value: Date.today } %>
+  <p data-slider-target="number"> <%= @goal_exercise.frequency %> </p>
   <%= f.input :frequency,
-  as: :range, input_html: { min: 0, max: 7, data:{action: 'change->autosave#save'}}
+  as: :range, input_html: { min: 0, max: 7, data:{action: 'change->autosave#save', action: 'change->slider#update'}}
   # min: 0,
   # max: 7
   # collection: 0..10
   %>
-  <%# <%= f.submit 'Confirm' %>
+  <%= f.submit 'Confirm' %>
 <% end %>
 <%# <%= f.label :name, %>
 <%# <%= f.input : %>
