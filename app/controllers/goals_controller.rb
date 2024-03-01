@@ -1,10 +1,10 @@
 class GoalsController < ApplicationController
   def index
     # @goals = current_user.goals
+    @goal = Goal.new
     @goal_sleep = current_user.current_sleep_goal
     @goal_exercise = current_user.current_exercise_goal
     @goal_eating = current_user.current_eating_goal
-    @goal = Goal.new
   end
 
   def update
