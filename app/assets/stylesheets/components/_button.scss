@@ -2,4 +2,44 @@
   background-color: #38C6C2;
   border-radius: 15px;
   border: none;
+  color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.button-blue-lg {
+  background-color: #38C6C2;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+    .button-text-lg {
+      font-size: x-large;
+    }
+}
+
+
+.button-pink-lg {
+  background-color: #FF6073;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+    .button-text-lg {
+      font-size: x-large;
+    }
+}
+
+.landing-buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }

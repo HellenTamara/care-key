@@ -1,3 +1,11 @@
+
 <h1>This is the landing page</h1>
-<%= link_to 'Sign up', new_user_session_path, :class => 'button-blue' %>
-<%= link_to 'Login', new_user_registration_path %>
+<div class="landing-buttons-container">
+<%= link_to new_user_session_path do%>
+<button class="button-blue-lg"><span class="button-text-lg">Login</span></button>
+<% end %>
+<%= link_to new_user_registration_path do%>
+<button class= "button-pink-lg"><span class="button-text-lg">Sign Up</span></button>
+<% end %>
+
+</div>

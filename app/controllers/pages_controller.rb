@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :landing ]
   def home
     @user = current_user
 
@@ -21,5 +21,8 @@ class PagesController < ApplicationController
     @exercise_percentage = (@exercise_achieved_amount.count * 100)  / @exercise_frequency
 
     @hp_bar_level = (300 - @sleep_percentage - @food_percentage - @exercise_percentage) / 3
+  end
+
+  def landing
   end
 end
