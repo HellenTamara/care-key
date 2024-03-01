@@ -113,10 +113,8 @@
   bottom: -5%;
 }
 
-.avatar-edit-bg {
-  height: 100vh;
-  padding-bottom: 120px;
-  display: flex;
-  flex-direction: column;
-  background-color: #FDF5D0;
+.avatar-landing-full {
+  width: 80%;
+  position: absolute;
+  transform: translatey(-5%);
 }

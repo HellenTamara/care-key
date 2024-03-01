@@ -1,18 +1,12 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
   def home
-    @user = current_user
+    if user_signed_in?
+      @user = current_user
+
     @goal_sleep = current_user.current_sleep_goal
     @goal_exercise = current_user.current_exercise_goal
     @goal_eating = current_user.current_eating_goal
-    @submission = Submission.new
-
-    # Checking if we have submission for sleep today
-    @submission_sleep = Submission.find_by(user: current_user, goal: @goal_sleep, date: Date.today)
-    # Checking if we have submission for exercise submission today
-    @submission_exercise = Submission.find_by(user: current_user, goal: @goal_exercise, date: Date.today)
-    # All submissions for food today
-    @submission_eating = Submission.where(user: current_user, goal: @goal_eating, date: Date.today)
 
     @sleep_frequency = @goal_sleep.frequency
     @food_frequency = @goal_eating.frequency
@@ -27,6 +21,9 @@ class PagesController < ApplicationController
     @food_percentage = (@food_achieved_amount.count * 100)  / @food_frequency
     @exercise_percentage = (@exercise_achieved_amount.count * 100)  / @exercise_frequency
 
-    @hp_bar_level = (300 - @sleep_percentage - @food_percentage - @exercise_percentage) / 3
+    @hp_bar_level = (@sleep_percentage + @food_percentage + @exercise_percentage)
   end
+
+  # def landing
+  # end
 end
