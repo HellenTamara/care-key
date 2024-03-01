@@ -23,7 +23,7 @@ class PagesController < ApplicationController
 
     @hp_bar_level = (@sleep_percentage + @food_percentage + @exercise_percentage)
   end
-
+  end
   # def landing
   # end
 end
