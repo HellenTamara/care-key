@@ -21,14 +21,14 @@ class User < ApplicationRecord
   end
 
   def current_sleep_goal
-    goals.where(name: "Sleep").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
+    goals.where(name: "Sleep").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today) || Goal.create(name: 'Sleep', start_date: Date.today, end_date: Date.today + 6, frequency: 7, user: self, duration: 8)
   end
 
   def current_exercise_goal
-    goals.where(name: "Exercise").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
+    goals.where(name: "Exercise").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today) || Goal.create(name: 'Exercise', start_date: Date.today, end_date: Date.today + 6, frequency: 3, user: self)
   end
 
   def current_eating_goal
-    goals.where(name: "Eating").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today)
+    goals.where(name: "Food").find_by("start_date <=? AND end_date >= ?", Date.today, Date.today) || Goal.create(name: 'Food', start_date: Date.today, end_date: Date.today + 6, frequency: 21, user: self)
   end
 end
