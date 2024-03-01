@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
   def home
-    @user = current_user
+    if user_signed_in?
+      @user = current_user
 
     @goal_sleep = current_user.current_sleep_goal
     @goal_exercise = current_user.current_exercise_goal
     @goal_eating = current_user.current_eating_goal
-
 
     @sleep_frequency = @goal_sleep.frequency
     @food_frequency = @goal_eating.frequency
@@ -23,4 +23,7 @@ class PagesController < ApplicationController
 
     @hp_bar_level = (@sleep_percentage + @food_percentage + @exercise_percentage)
   end
+
+  # def landing
+  # end
 end

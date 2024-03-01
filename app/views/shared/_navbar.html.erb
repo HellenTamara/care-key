@@ -10,18 +10,15 @@
         <i class="fa-solid fa-user"></i>
       </span>
       <%end%>
-      <%# will link to submission index %>
-       <%= link_to '#' do %>
+       <%= link_to dashboard_path do %>
       <span style="font-size: 2em; color: white;">
         <i class="fa-solid fa-chart-simple"></i>
       </span>
       <%end%>
-       <%= link_to home_path do %>
+       <%= link_to root_path do %>
       <span style="font-size: 2em; color: white;">
       <i class="fa-solid fa-house"></i>
       </span>
       <%end%>
     </div>
-<% else %>
-    <%= link_to "Login", new_user_session_path, class: "nav-link" %>
 <% end %>
