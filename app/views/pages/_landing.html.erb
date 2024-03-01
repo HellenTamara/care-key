@@ -1,5 +1,13 @@
-
-<h1>This is the landing page</h1>
+<div class="landing-pg-bg">
+<div class="container d-flex justify-content-center">
+  <h1 class="mt-4"style="color: white; position: relative; top: 30px;">Care-Key</h1>
+</div>
+<div class="container d-flex justify-content-center">
+  <%= image_tag 'avatar_full/full_avatar_image.png', class: "avatar-landing-full"%>
+</div>
+<div class="text-container">
+  <p>In today's fast-paced world, finding time for self-care can be challenging, but Care-Key is here to change that. Tailored to help individuals like you, seeking balance amidst the chaos, this app is your personal routine tracking journey.</p>
+</div>
 <div class="landing-buttons-container">
 <%= link_to new_user_session_path do%>
 <button class="button-blue-lg"><span class="button-text-lg">Login</span></button>
@@ -7,5 +15,5 @@
 <%= link_to new_user_registration_path do%>
 <button class= "button-pink-lg"><span class="button-text-lg">Sign Up</span></button>
 <% end %>
-
+</div>
 </div>
