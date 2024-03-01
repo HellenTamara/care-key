@@ -11,3 +11,10 @@ label {
   border: 3px solid #38C6C2;
   border-radius: 5px;
 }
+
+.submission-form {
+ position: absolute;
+ display: flex;
+ background-color: #38C6C2;
+ z-index: 9999;
+}

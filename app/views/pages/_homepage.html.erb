@@ -6,7 +6,6 @@
   <%end%>
   <h3>Hi, <%= current_user.avatar.name %>!</h3>
 </div>
- <%= render "/submissions/questions" %>
 <div class="container d-flex">
   <div class="hp-bar ms-3" style="flex-grow: 7">
     <% if @hp_bar_level < 40 %>
@@ -24,6 +23,7 @@
     <p>1000</p>
   </div>
 </div>
+ <%= render "/submissions/questions" %>
 <div class="container d-flex justify-content-center mt-5">
   <div class="avatar-card">
     <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color'%>
