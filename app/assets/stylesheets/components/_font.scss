@@ -38,3 +38,13 @@ p {
   font-size: 16px;
   text-align: center;
 }
+
+.text-container {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  position: fixed;
+  bottom: 17%;
+  margin-left: 30px;
+  margin-right: 30px;
+}
