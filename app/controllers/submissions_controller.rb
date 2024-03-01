@@ -1,8 +1,8 @@
 class SubmissionsController < ApplicationController
   def index
+    @goal = Goal.find(params["goal_id"])
     @submissions = Submission.all
     @submission = @submissions.first
-
     # code from create
 
 
@@ -23,16 +23,19 @@ class SubmissionsController < ApplicationController
   # Copy paste this and delete this before pushing (remember you're still on the created-submission-forms-branch)
   def create
     submission = Submission.new(submission_params) # needs to be getting date through some params i think -> Ideally want it to be getting it through the seeded data. Submission.start_date????
-
     # uncomment here later
     @goal = Goal.find(params["goal_id"])
     submission.goal= @goal
     submission.user = current_user
+
     if submission.save
       # where do I want to redirect to? home path??
-      redirect_to home_path(), notice: "Well done!"
+      raise
+      redirect_to home_path, notice: "Thank you"
+
+      # but doesn't change anything
     else
-      redirect_to home_path(), notice: "Sorry we're having issues"
+      redirect_to home_path, notice: "Sorry we're having issues"
       # render the form???
       # render "shelters/show", status: :unprocessable_entity
     end
