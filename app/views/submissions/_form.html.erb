@@ -11,12 +11,12 @@
 <%= simple_form_for [goal, @submission] do |f| %>
   <%= f.input :achieved, as: :hidden, input_html: { value: true } %>
   <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
-  <%= f.submit 'YES', class: 'btn btn-info' %>
+  <%= f.submit 'YES', class: 'button-yes' %>
 <% end %>
 <%= simple_form_for [goal, @submission] do |f| %>
   <%= f.input :achieved, as: :hidden, input_html: { value: false } %>
   <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
-  <%= f.submit 'NO', class: 'btn btn-info' %>
+  <%= f.submit 'NO', class: 'button-no' %>
 <% end %>
 </div>
 </div>
