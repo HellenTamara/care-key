@@ -3,10 +3,6 @@
 //   background-color: gray;
 // }
 
-.health-bar {
-  width: 90%;
-}
-
 .point-bar {
   height: 40px;
   width: 110px;
@@ -16,14 +12,27 @@
   background-color: #FDF5D0;
   border: 3px solid #FFE143;
   border-radius: 20px;
-    p {
-      right: 30px;
-      position: absolute;
-      margin: 0;
-    }
+
+  p {
+    right: 30px;
+    position: absolute;
+    margin: 0;
+  }
 }
 
 .hp-bar-frame {
   display: flex;
   justify-content: center;
+}
+
+
+.hp-bar-outline {
+  height: 31px;
+  width: 205px;
+  border-radius: 15px;
+}
+
+.hp-bar-inner {
+  height: 23px;
+  border-radius: 15px;
 }
