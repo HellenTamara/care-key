@@ -11,6 +11,7 @@
  <div class="container d-flex justify-content-center avatar-edit">
       <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color-op', :style => 'width: 70%;'%>
       <%= cl_image_tag @user.avatar.hair.photo.key, :class => 'avatar-hair-op', :style => 'width: 70%;'%>
+      <%= image_tag "expressions/Avatar_expression_happy.png", :class => 'avatar-expression-op', :style => 'width: 70%;' %>
       <%= cl_image_tag @user.avatar.pants.photo.key, :class => 'avatar-pants-op', :style => 'width: 70%;'%>
       <%= cl_image_tag @user.avatar.shirt.photo.key, :class => 'avatar-shirt-op', :style => 'width: 70%;' %>
       <%= cl_image_tag @user.avatar.shoes.photo.key, :class => 'avatar-shoes-op', :style => 'width: 70%;'%>

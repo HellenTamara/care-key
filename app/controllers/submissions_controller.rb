@@ -31,6 +31,7 @@ class SubmissionsController < ApplicationController
     if @submission.save
       # where do I want to redirect to? home path??
       redirect_to root_path, notice: "Thank you"
+      # @submission.goal.name
 
       # but doesn't change anything
     else
