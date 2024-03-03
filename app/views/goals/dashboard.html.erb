@@ -1,25 +1,64 @@
 <div class="block-color d-flex mb-4">
   <h3>Dashboard</h3>
 </div>
+<h4 id="align-center">My Health Points</h4>
 <div class="hp-bar-frame">
-<%= image_tag "health_bar/healthy_hp.png" %>
+<%= render "pages/healthbar" %>
 </div>
 
-<div class="sub-calendar">
+<div class="sub-calendar mb-3">
   <div class="sub-days">
   </div>
   <div class="sub-progress">
-  <div class="sub-progress-card d-flex justify-content-center align-items-center" id="food">
-      <i class="fa-solid fa-burger" style="font-size: 3em; color: white;"></i>
-      <%= image_tag 'health_bar/warning_hp.png'%>
-  </div>
-  <div class="sub-progress-card d-flex justify-content-center align-items-center" id="sleep">
-      <i class="fa-solid fa-moon" style="font-size: 3em; color: white;"></i>
-      <%= image_tag 'health_bar/danger_hp.png'%>
+    <h4>-Dates- Progress</h4>
+    <div class="sub-progress-card d-flex justify-content-center align-items-center" style = "<% if @food_percentage_today < 40 %><%= "background-color: #FFB5BE; border: 4px #FF6073 solid;" %><% elsif @food_percentage_today< 80 %><%= "background-color: #F6DE68; border: 4px #FF6073 solid;" %><% else %><%= "background-color: #A7E0DE; border: 4px #008C9B solid;" %><% end %>">
+      <span id="icon">
+        <i class="fa-solid fa-burger" style="font-size: 2em; color: white;"></i>
+      </span>
+        <div class="hp-bar-dashboard-outline">
+        <div class="hp-bar-inner" style="width: <%= @food_percentage_today%>%; <% if @food_percentage_today < 40 %><%= "background-color: #FF6073;" %><% elsif @food_percentage_today< 80 %><%= "background-color: #FFB5BE;" %><% else %><%= "background-color: #008C9B;" %><% end %>">
+        </div>
+        </div>
     </div>
-  <div class="sub-progress-card d-flex justify-content-center align-items-center" id="exercise">
-      <i class="fa-solid fa-dumbbell" style="font-size: 3em; color: white;"></i>
-      <%= image_tag 'health_bar/healthy_hp.png'%>
+   <div class="sub-progress-card d-flex justify-content-center align-items-center" style = "<% if @food_percentage_today < 40 %><%= "background-color: #FF6073; border: 4px #FF6073 solid;" %><% elsif @food_percentage_today< 80 %><%= "background-color: #FDF5D0; 4px #FF6073 solid;" %><% else %><%= "background-color: #A7E0DE; border: 4px #008C9B solid;" %><% end %>">
+      <span id="icon">
+        <i class="fa-solid fa-moon" style="font-size: 2em; color: white;"></i>
+      </span>
+        <div class="hp-bar-dashboard-outline">
+          <div class="hp-bar-inner" style="width: <%= @sleep_percentage_today%>%; <% if @sleep_percentage_today < 40 %><%= "background-color: #FFB5BE;" %><% elsif @sleep_percentage_today< 80 %><%= "background-color: #FFB5BE;" %><% else %><%= "background-color: #008C9B;" %><% end %>">
+          </div>
+        </div>
+  </div>
+  <div class="sub-progress-card d-flex justify-content-center align-items-center" style = "<% if @exercise_percentage < 40 %><%= "background-color: #FFB5BE; border: 4px #FF6073 solid;" %><% elsif @exercise_percentage< 80 %><%= "background-color: #FDF5D0; 4px #FF6073 solid;" %><% else %><%= "background-color: #A7E0DE; border: 4px #008C9B solid;" %><% end %>">
+      <span id="icon">
+      <i class="fa-solid fa-dumbbell" style="font-size: 2em; color: white;"></i>
+      </span>
+      <div class="hp-bar-dashboard-outline">
+        <div class="hp-bar-inner" style= "width: <%= @exercise_percentage%>%;<% if @exercise_percentage < 40 %><%= "background-color: #FF6073;" %><% elsif @exercise_percentage< 80 %><%= "background-color: #FFB5BE;" %><% else %><%= "background-color: #008C9B;" %><% end %>">
+        </div>
+      </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<h4 id="align-center">My Achievements</h4>
+<div class="container achievement-container mt-1">
+  <div class="sub-achievement-grid">
+    <div class="achievement-circle">
+    </div>
+      <div class="achievement-circle">
+    </div>
+      <div class="achievement-circle" id="dashed">
+    </div>
+  </div>
+  <div class="sub-achievement-grid">
+    <div class="achievement-circle" id="dashed">
+    </div>
+      <div class="achievement-circle" id="dashed">
+    </div>
+      <div class="achievement-circle" id="dashed">
     </div>
   </div>
 </div>

@@ -1,0 +1,4 @@
+<div class="hp-bar-outline" style="<% if @hp_bar_level < 40 %><%= "border: 4px #FF6073 solid;" %><% elsif @hp_bar_level < 80 %><%= "border: 4px #F6DE68 solid;" %><% else %><%= "border: 4px #74B9A8 solid;" %><% end %>">
+      <div class="hp-bar-inner" style="width: <%= @hp_bar_level%>%; <% if @hp_bar_level < 40 %><%= "background-color: #FFB5BE;" %><% elsif @hp_bar_level < 80 %><%= "background-color: #FDF5D0;" %><% else %><%= "background-color: #A7E0DE;" %><% end %>">
+      </div>
+</div>
