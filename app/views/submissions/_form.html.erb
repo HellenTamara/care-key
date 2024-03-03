@@ -1,5 +1,6 @@
  <%# _form.html.erb - its a form for submission%>
-
+ <div class="d-flex justify-content-center w-100">
+<div class="submission-form">
 <p><%= message %></p>
 <%# This kinda works %>
 <%#= simple_form_for @submission, url: goal_submissions_path do |f| %>
@@ -17,3 +18,5 @@
   <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
   <%= f.submit 'NO', class: 'btn btn-info' %>
 <% end %>
+</div>
+</div>
