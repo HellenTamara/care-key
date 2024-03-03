@@ -25,6 +25,10 @@ class PagesController < ApplicationController
     @food_frequency = @goal_eating.frequency
     @exercise_frequency = @goal_exercise.frequency
 
+    date = Date.today
+
+    @sleep_percentage_today = (@goal_sleep.submissions.where(["achieved = ? and date = ?",  true,  date]).count * 100) / (@sleep_frequency / 7) #this is based on daily goals
+    @food_percentage_today = (@goal_eating.submissions.where(["achieved = ? and date = ?",  true,  date]).count * 100) / (@food_frequency / 7) #this is based on daily goals
 
     @sleep_achieved_amount = @goal_sleep.submissions.where(achieved: true)
     @food_achieved_amount = @goal_eating.submissions.where(achieved: true)
@@ -34,7 +38,7 @@ class PagesController < ApplicationController
     @food_percentage = (@food_achieved_amount.count * 100)  / @food_frequency
     @exercise_percentage = (@exercise_achieved_amount.count * 100)  / @exercise_frequency
 
-    @hp_bar_level = (@sleep_percentage + @food_percentage + @exercise_percentage)
+    @hp_bar_level = (@sleep_percentage + @food_percentage + @exercise_percentage) #this is based on the week goals
     end
   end
   # def landing
