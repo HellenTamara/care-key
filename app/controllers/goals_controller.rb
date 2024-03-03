@@ -14,7 +14,6 @@ class GoalsController < ApplicationController
 
     @goal = Goal.find(params[:id])
 
-
     if @goal.update(goal_params)
       redirect_to goals_path
       flash[:notice] = "Your new goal was saved!"

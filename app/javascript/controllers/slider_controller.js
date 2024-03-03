@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="slider"
 export default class extends Controller {
-  static targets = ["sleep", "exercise"]
+  static targets = ["sleep", "exercise", "food"]
 
   connect() {
 
@@ -14,4 +14,7 @@ export default class extends Controller {
   exerciseupdate(event) {
   this.exerciseTarget.innerText = `${event.currentTarget.value} times a week`
 }
+  eatingupdate(event) {
+    this.foodTarget.innerText = `${event.currentTarget.value} times a day`
+  }
 }
