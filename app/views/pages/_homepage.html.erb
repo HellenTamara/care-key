@@ -7,14 +7,11 @@
   <h3>Hi, <%= current_user.avatar.name %>!</h3>
 </div>
 <div class="container d-flex">
+  <%# HP bar works based on hp_bar_level (weekly goals) %>
   <div class="hp-bar ms-3" style="flex-grow: 7">
-    <% if @hp_bar_level < 40 %>
-      <%= image_tag 'health_bar/danger_hp.png', class: "health-bar" %>
-    <% elsif @hp_bar_level < 100 %>
-      <%= image_tag 'health_bar/warning_hp.png', class: "health-bar"%>
-    <% else %>
-      <%= image_tag 'health_bar/healthy_hp.png', class: "health-bar"%>
-    <% end %>
+    <div class="hp-bar-outline" style="<% if @hp_bar_level < 40 %><%= "border: 4px #FF6073 solid;" %><% elsif @hp_bar_level < 80 %><%= "border: 4px #B88D1C solid;" %><% else %><%= "border: 4px #74B9A8 solid;" %><% end %>">
+      <div class="hp-bar-inner" style="width: <%= @hp_bar_level%>%; <% if @hp_bar_level < 40 %><%= "background-color: #FFB5BE;" %><% elsif @hp_bar_level < 80 %><%= "background-color: #FDF5D0;" %><% else %><%= "background-color: #A7E0DE;" %><% end %>"></div>
+    </div>
   </div>
   <span style="flex-grow: 1"></span>
   <div class="point-bar me-3">
@@ -23,7 +20,7 @@
     <p>1000</p>
   </div>
 </div>
- <%= render "/submissions/questions" %>
+<%= render "/submissions/questions" %>
 <div class="container d-flex justify-content-center mt-5">
   <div class="avatar-card">
     <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color'%>
@@ -36,18 +33,21 @@
   </div>
 </div>
 <div class="routine-icons container mt-1">
+  <%# Food goals based on daily goals %>
   <div class="progress-circle-food" style="background:
-    radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient(<% if @food_percentage < 40 %><%= '#FF6073'%><% elsif @food_percentage < 80 %><%= '#F6DE68' %><% else %><%= '#38C6C2'%><% end %> <%= @food_percentage%>%, <% if @food_percentage < 40 %><%= '#FFB5BE'%><% elsif @food_percentage < 80 %><%= '#FDF5D0' %><% else %><%= '#A6E1DA'%><% end %> 0);">
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient(<% if @food_percentage_today < 40 %><%= '#FF6073'%><% elsif @food_percentage_today < 80 %><%= '#F6DE68' %><% else %><%= '#38C6C2'%><% end %> <%= @food_percentage_today%>%, <% if @food_percentage_today < 40 %><%= '#FFB5BE'%><% elsif @food_percentage_today < 80 %><%= '#FDF5D0' %><% else %><%= '#A6E1DA'%><% end %> 0);">
     <div class="food-icon d-flex justify-content-center align-items-center">
       <i class="fa-solid fa-burger" style="font-size: 2em; color: white;"></i>
     </div>
   </div>
+  <%# Sleep goals based on daily goals %>
   <div class="progress-circle-sleep" style="background:
-    radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient(<% if @sleep_percentage < 40 %><%= '#FF6073'%><% elsif @sleep_percentage < 80 %><%= '#F6DE68' %><% else %><%= '#38C6C2'%><% end %> <%= @sleep_percentage%>%, <% if @sleep_percentage < 40 %><%= '#FFB5BE'%><% elsif @sleep_percentage < 80 %><%= '#FDF5D0' %><% else %><%= '#A6E1DA'%><% end %> 0);">
+    radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient(<% if @sleep_percentage_today < 40 %><%= '#FF6073'%><% elsif @sleep_percentage_today < 80 %><%= '#F6DE68' %><% else %><%= '#38C6C2'%><% end %> <%= @sleep_percentage_today%>%, <% if @sleep_percentage_today < 40 %><%= '#FFB5BE'%><% elsif @sleep_percentage_today < 80 %><%= '#FDF5D0' %><% else %><%= '#A6E1DA'%><% end %> 0);">
     <div class="sleep-icon d-flex justify-content-center align-items-center">
       <i class="fa-solid fa-moon" style="font-size: 2em; color: white;"></i>
     </div>
   </div>
+  <%# Exercise goals based on weekly goals %>
   <div class="progress-circle-exercise" style="background:
     radial-gradient(closest-side, white 79%, transparent 80% 100%),conic-gradient(<% if @exercise_percentage < 40 %><%= '#FF6073'%><% elsif @exercise_percentage < 80 %><%= '#F6DE68' %><% else %><%= '#38C6C2'%><% end %> <%= @exercise_percentage%>%, <% if @exercise_percentage < 40 %><%= '#FFB5BE'%><% elsif @exercise_percentage < 80 %><%= '#FDF5D0' %><% else %><%= '#A6E1DA'%><% end %> 0);">
     <div class="exercise-icon d-flex justify-content-center align-items-center">
