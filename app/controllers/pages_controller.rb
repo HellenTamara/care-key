@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     if user_signed_in?
       @user = current_user
 
+
     @goal_sleep = current_user.current_sleep_goal
     @goal_exercise = current_user.current_exercise_goal
     @goal_eating = current_user.current_eating_goal
@@ -18,8 +19,6 @@ class PagesController < ApplicationController
 
     # All submissions for food today
     @submission_eating = Submission.where(user: current_user, goal: @goal_eating, date: Date.today)
-
-
 
     @sleep_frequency = @goal_sleep.frequency
     @food_frequency = @goal_eating.frequency
@@ -39,8 +38,13 @@ class PagesController < ApplicationController
     @exercise_percentage = (@exercise_achieved_amount.count * 100)  / @exercise_frequency
 
     @hp_bar_level = (@sleep_percentage + @food_percentage + @exercise_percentage) #this is based on the week goals
+    respond_to do |format|
+      format.html
+      # format.text { render partial: "form", locals: {category: params[:category], parts: @parts}, formats: [:html] }
+      format.text { render partial: "pages/submission_expressions", locals: {goal: params["goal"], formats: [:html] }}
     end
   end
   # def landing
   # end
+end
 end
