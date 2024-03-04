@@ -29,12 +29,12 @@
           </div>
         </div>
   </div>
-  <div class="sub-progress-card d-flex justify-content-center align-items-center" style = "<% if @exercise_percentage < 40 %><%= "background-color: #FFB5BE; border: 4px #FF6073 solid;" %><% elsif @exercise_percentage< 80 %><%= "background-color: #FDF5D0; 4px #FF6073 solid;" %><% else %><%= "background-color: #A7E0DE; border: 4px #008C9B solid;" %><% end %>">
+  <div class="sub-progress-card d-flex justify-content-center align-items-center" style = "<% if @exercise_percentage < 40 %><%= "background-color: #FFB5BE; border: 4px #FF6073 solid;" %><% elsif @exercise_percentage< 80 %><%= "background-color: #FDF5D0; border: 4px #F6DE68 solid;" %><% else %><%= "background-color: #A7E0DE; border: 4px #008C9B solid;" %><% end %>">
       <span id="icon">
       <i class="fa-solid fa-dumbbell" style="font-size: 2em; color: white;"></i>
       </span>
       <div class="hp-bar-dashboard-outline">
-        <div class="hp-bar-inner" style= "width: <%= @exercise_percentage%>%;<% if @exercise_percentage < 40 %><%= "background-color: #FF6073;" %><% elsif @exercise_percentage< 80 %><%= "background-color: #FFB5BE;" %><% else %><%= "background-color: #008C9B;" %><% end %>">
+        <div class="hp-bar-inner" style= "width: <%= @exercise_percentage%>%;<% if @exercise_percentage < 40 %><%= "background-color: #FF6073;" %><% elsif @exercise_percentage< 80 %><%= "background-color: #F6DE68;" %><% else %><%= "background-color: #008C9B;" %><% end %>">
         </div>
       </div>
   </div>
