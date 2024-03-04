@@ -30,7 +30,14 @@
 
 .setting-icon {
   position: absolute;
-  left: 80%;
-  transform: translateX(100%);
   bottom: 15%;
+}
+
+#setting {
+  left: 77%;
+  transform: translateX(100%);
+}
+
+#shop {
+  right: 85%;
 }

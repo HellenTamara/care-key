@@ -1,7 +1,12 @@
 <div class="block-color d-flex mb-4">
   <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
-    <div class="setting-icon" style="font-size: 2em; color: white;">
+    <div class="setting-icon" id="setting" style="font-size: 2em; color: white;">
       <i class="fa-solid fa-gear"></i>
+    </div>
+  <%end%>
+  <%= link_to shop_path do %>
+    <div class="setting-icon" id="shop" style="font-size: 2em; color: white;">
+      <i class="fa-solid fa-bag-shopping"></i>
     </div>
   <%end%>
   <h3>Hi, <%= current_user.avatar.name %>!</h3>

@@ -22,6 +22,9 @@ class AvatarsController < ApplicationController
     end
   end
 
+  def shop
+  end
+
   private
   def strong_params
     params.require(:avatar).permit(:name, :hair_id, :pants_id, :shirt_id, :skin_color_id, :shoes_id, :hp_level)
