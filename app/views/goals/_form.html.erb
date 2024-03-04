@@ -38,7 +38,7 @@
   <%= f.input :start_date, as: :hidden, input_html: { value: Date.today } %>
   <p data-slider-target="food"> <%= @goal_eating.frequency / 7 %> times a day</p>
   <%= f.input :frequency,
-  as: :range, input_html: { min: 0, max: 7, data:{action: 'change->autosave#save', action: 'change->slider#eatingupdate'}}
+  as: :range, input_html: { value: @goal_eating.frequency/7, min: 0, max: 7, data:{action: 'change->autosave#save', action: 'change->slider#eatingupdate'}}
   # min: 0,
   # max: 7
   # collection: 0..10

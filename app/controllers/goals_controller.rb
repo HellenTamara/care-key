@@ -13,8 +13,10 @@ class GoalsController < ApplicationController
     # @goal_eating = current_user.current_eating_goal
 
     @goal = Goal.find(params[:id])
+    @goal.assign_attributes(goal_params)
+    @goal.frequency = goal_params[:frequency].to_i * 7 if @goal.name == "Food"
 
-    if @goal.update(goal_params)
+    if @goal.save
       redirect_to goals_path
       flash[:notice] = "Your new goal was saved!"
     else
