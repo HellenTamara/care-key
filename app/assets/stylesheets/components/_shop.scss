@@ -1,0 +1,22 @@
+.shop-card-option {
+  display: flex;
+  background-color: #FDF5D0;
+  border: 4px solid #EFB622;
+  border-radius: 15px;
+  height: 150px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop-grid {
+  display: grid;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin: 10px;
+  grid-template-columns: 1fr 1fr;
+  height: 400px;
+}
