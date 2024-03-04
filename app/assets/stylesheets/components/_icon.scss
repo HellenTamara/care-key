@@ -1,25 +1,19 @@
 .food-icon {
-  background-color: #A6E1DA;
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  border: 5px solid #008C9B;
 }
 
 .sleep-icon {
-  background-color: #A6E1DA;
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  border: 5px solid #008C9B;
 }
 
 .exercise-icon {
-  background-color: #A6E1DA;
   height: 60px;
   width: 60px;
   border-radius: 50%;
-  border: 5px solid #008C9B;
 }
 
 .routine-icons {
@@ -36,7 +30,14 @@
 
 .setting-icon {
   position: absolute;
-  left: 80%;
-  transform: translateX(100%);
   bottom: 15%;
+}
+
+#setting {
+  left: 77%;
+  transform: translateX(100%);
+}
+
+#shop {
+  right: 85%;
 }

@@ -1,24 +1,60 @@
 .sub-progress {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 10px;
+  margin-top: 30px;
 }
 
 .sub-progress-card {
   width: 300px;
-  height: 80px;
+  height: 60px;
   border-radius: 5px;
-  border: 4px solid #38C6C2;
+  // border: 4px solid #38C6C2;
   padding-left: 10px;
+    #icon {
+      position: fixed;
+      left: 20%;
+    }
+    #sleep {
+      left: 25%;
+    }
+    #food {
+      left: 25%;
+    }
 }
 
-#food {
-  background-color: #F6DE68
-}
-#exercise {
-  background-color: #5bd6d2;
+.achievement-container {
+  width: 300px;
+  height: 190px;
+  border-radius: 5px;
+  border: 4px solid #F6DE68;
+  background-color: #FDF5D0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-#sleep{
-  background-color: #FF6073;
+.sub-achievement-grid {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+  padding-top: 20px;
+}
+
+.achievement-circle {
+  width: 60px;
+  height: 60px;
+  background-color: #F6DE68;
+  border-radius: 50%;
+}
+
+#dashed {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 3px dashed gray;
 }
