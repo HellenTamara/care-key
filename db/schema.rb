@@ -58,6 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_085437) do
     t.bigint "accessories_id"
     t.index ["accessories_id"], name: "index_avatars_on_accessories_id"
     t.index ["expression_id"], name: "index_avatars_on_expression_id"
+    t.integer "coins"
     t.index ["hair_id"], name: "index_avatars_on_hair_id"
     t.index ["pants_id"], name: "index_avatars_on_pants_id"
     t.index ["shirt_id"], name: "index_avatars_on_shirt_id"
