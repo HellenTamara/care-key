@@ -14,6 +14,7 @@
   <%= render "avatars/name_modal" %>
   <div class="container d-flex justify-content-center avatar-edit">
     <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color-op', :style => 'width: 70%;'%>
+    <%= cl_image_tag @user.avatar.accessories.photo.key, :class => 'avatar-accessories-op', :style => 'width: 70%;'%>
     <%= cl_image_tag @user.avatar.hair.photo.key, :class => 'avatar-hair-op', :style => 'width: 70%;'%>
     <%= cl_image_tag @user.avatar.pants.photo.key, :class => 'avatar-pants-op', :style => 'width: 70%;'%>
     <%= cl_image_tag @user.avatar.shirt.photo.key, :class => 'avatar-shirt-op', :style => 'width: 70%;' %>

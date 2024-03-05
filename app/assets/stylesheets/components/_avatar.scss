@@ -1,4 +1,3 @@
-
 .avatar-card {
   height: 434px;
   width: 290px;
@@ -13,6 +12,15 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: -8%;
+}
+
+.avatar-accessories {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -8%;
+  z-index: 99
 }
 
 .avatar-shoes {
@@ -66,9 +74,10 @@
   background-color: white;
   border-radius: 10px;
   gap: 5px;
-    .img-card {
-      overflow: hidden;
-    }
+
+  .img-card {
+    overflow: hidden;
+  }
 }
 
 .avatar-edit {
@@ -82,6 +91,15 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: -5%;
+}
+
+.avatar-accessories-op {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5%;
+  z-index: 99
 }
 
 .avatar-shoes-op {

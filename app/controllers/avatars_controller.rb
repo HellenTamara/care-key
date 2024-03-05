@@ -17,11 +17,11 @@ class AvatarsController < ApplicationController
     # @category = "#{strong_params.keys.first}_id"
     # @part = Part.find(strong_params.values.firs
     @avatar = Avatar.find(params[:id])
-    
+
     if params[:name]
       @part = Part.find(params[:avatar].values.first)
       if !@avatar.purchased_parts.include?(@part.name) && @avatar.coins >= @part.price
-        @avatar.coins.update(@avatar.coins - @part.price)
+        @avatar.update(coins: @avatar.coins - @part.price)
         @avatar.purchased_parts.push(@part.name)
       end
     end
