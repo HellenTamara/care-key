@@ -14,6 +14,7 @@ class User < ApplicationRecord
     avatar = Avatar.create(user: self)
     avatar.coins = 1000
     avatar.hair = Part.where(category: "hair").first
+    avatar.accessories = Part.where(category: "accessories").first
     avatar.shoes = Part.where(category: "shoes").first
     avatar.pants = Part.where(category: "pants").first
     avatar.shirt = Part.where(category: "shirt").first

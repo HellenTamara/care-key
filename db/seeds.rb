@@ -42,7 +42,7 @@ shop_categories.each do |category|
     name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
     part = Part.new(name: name, category: category)
     part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
-    part.price = 10
+    part.price = 100
     part.save
   end
 end
