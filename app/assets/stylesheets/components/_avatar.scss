@@ -1,5 +1,5 @@
 .avatar-card {
-  height: 434px;
+  height: 476px;
   width: 290px;
   display: flex;
   justify-content: center;
@@ -7,7 +7,7 @@
 }
 
 .avatar-hair {
-  width: 100%;
+  width: 110%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -25,7 +25,7 @@
 }
 
 .avatar-expression {
-  width: 100%;
+  width: 110%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -33,7 +33,7 @@
 }
 
 .avatar-shoes {
-  width: 100%;
+  width: 110%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -41,7 +41,7 @@
 }
 
 .avatar-skin-color {
-  width: 100%;
+  width: 110%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -49,7 +49,7 @@
 }
 
 .avatar-pants {
-  width: 100%;
+  width: 110%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -57,7 +57,7 @@
 }
 
 .avatar-shirt {
-  width: 100%;
+  width: 110%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -65,23 +65,30 @@
 }
 
 .avatar-grid {
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
+  position: relative;
+  top: -73px;
+  left: 70px;
   background-color: #FDF5D0;
   border: 4px solid #EFB622;
   border-radius: 15px;
-  height: 100px;
+  height: 190px;
+  width: 270px;
   justify-content: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   gap: 5px;
 }
 
 .avatar-option-card {
-  height: 60px;
-  width: 60px;
+  height: 70px;
+  width: 70px;
   background-color: white;
   border-radius: 10px;
+  border: 4px solid #EFB622;
   gap: 5px;
 
   .img-card {
@@ -99,7 +106,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5%;
+  bottom: 5%;
 }
 
 
@@ -117,7 +124,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 1%;
+  bottom: 11%;
   z-index: 99;
 
 }
@@ -127,7 +134,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5%;
+  bottom: 5%;
 }
 
 .avatar-skin-color-op {
@@ -135,7 +142,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5%;
+  bottom: 5%;
 }
 
 .avatar-pants-op {
@@ -143,7 +150,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5%;
+  bottom: 5%;
 }
 
 .avatar-shirt-op {
@@ -151,7 +158,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5%;
+  bottom: 5%;
 }
 
 .avatar-landing-full {

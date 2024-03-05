@@ -1,15 +1,13 @@
 <div class="block-color d-flex mb-1">
   <h3>Dashboard</h3>
 </div>
-<p>My Health Points</p>
+  <h4 id="align-center">My Health Points</h4>
 <div class="hp-bar-frame">
 <%= render "pages/healthbar" %>
 </div>
 
-<div class="sub-calendar mb-1">
-  <div class="sub-days">
-  </div>
-    <p>Today's Progress</p>
+<div class="sub-calendar mb-1 mt-3">
+    <h4 id="align-center">Today's Progress</h4>
   <div class="sub-progress">
     <div class="sub-progress-card" style = "<%= food_background_border_color(Date.today) %>">
       <span id="icon">
@@ -39,7 +37,8 @@
       </div>
   </div>
 </div>
-<div class="container">
+<div class="container mt-3">
+<h4 id="align-center">Overview</h4>
 <%= month_calendar do |date| %>
 <%# iterate over the user goals %>
 <%# load the submissions for that date and goal %>
