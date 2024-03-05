@@ -3,25 +3,19 @@
 </div>
 <p>My coins</p>
 <div class="container d-flex justify-content-center align-items-center">
-<div class="point-bar">
+  <div class="point-bar">
     <%= image_tag 'coins/coin.png', class: "coin-icon"%>
     <%# placeholder text below, can interpolate %>
-    <p>1000</p>
+    <p><%= current_user.avatar.coins %></p>
+  </div>
 </div>
-</div>
-
 <div class="shop-grid mt-5">
-  <div class="shop-card-option">
-    <p>Tops</p>
-  </div>
-   <div class="shop-card-option">
-    <p>Bottoms</p>
-  </div>
-   <div class="shop-card-option">
-    <p>Hair</p>
-  </div>
-   <div class="shop-card-option">
-    <p>Shoes/
-    Accessories</p>
-  </div>
+  <% @categories.each do |category| %>
+    <div class="shop-card-option">
+      <button type="button" class="btn bg-transparent" style="width: 100%; height: 100%" data-bs-toggle="modal" data-bs-target="#category-option-<%= category%>" >
+        <p><%= category.capitalize %></p>
+      </button>
+      <%= render "avatars/purchase_modal", category: category %>
+    </div>
+  <% end %>
 </div>

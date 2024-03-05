@@ -1,8 +1,16 @@
-
 <%= simple_form_for @avatar do |f| %>
   <fieldset>
     <div class="radio">
-      <% Part.where(category: category).each do |part| %>
+      <% available = [] %>
+      <% @avatar.purchased_parts.each do |part| %>
+        <% if Part.find_by(name: part).category == category %>
+          <% available.push(Part.find_by(name: part)) %>
+        <% end %>
+      <% end %>
+      <% Part.where(category: category).where(price: 0).each do |part| %>
+        <% available.push(part) %>
+      <% end %>
+      <% available.each do |part| %>
         <%= f.label "#{category}_id_#{part.id}" do %>
           <%= f.radio_button "#{category}_id", part.id, class: "image-radio" %>
           <%= cl_image_tag part.photo.key, height: 200 %>
