@@ -18,7 +18,6 @@ class User < ApplicationRecord
     avatar.pants = Part.where(category: "pants").first
     avatar.shirt = Part.where(category: "shirt").first
     avatar.skin_color = Part.where(category: "skin_color").first
-    avatar.expression = Part.where(name: "expression default").first
     avatar.save
   end
 

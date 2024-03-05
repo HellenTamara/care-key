@@ -5,5 +5,4 @@ class Avatar < ApplicationRecord
   belongs_to :shoes, class_name: "Part", optional: true
   belongs_to :pants, class_name: "Part", optional: true
   belongs_to :skin_color, class_name: "Part", optional: true
-  belongs_to :expression, class_name: "Part", optional: true
 end
