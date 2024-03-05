@@ -79,3 +79,4 @@ end
 
 # Custom added
 gem "cloudinary"
+gem "line-bot-api"

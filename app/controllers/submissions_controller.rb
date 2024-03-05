@@ -27,6 +27,12 @@ class SubmissionsController < ApplicationController
     @goal = Goal.find(params["goal_id"])
     @submission.goal = @goal
     @submission.user = current_user
+    # if Time.now.strftime("%I:%M:%S") == ("11:45:00" || "16:00:00")
+    # linebot = LineService.new(ENV["LINE_ID"])
+    # message_text = ""
+    # linebot.send_message
+    # end
+
     if @submission.achieved && @submission.save
       # where do I want to redirect to? home path??
       current_user.avatar.update(coins: @coins + 50)
