@@ -54,10 +54,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_085437) do
     t.bigint "hair_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "coins"
     t.bigint "expression_id"
     t.string "purchased_parts", default: [], array: true
     t.bigint "accessories_id"
-    t.index ["expression_id"], name: "index_avatars_on_expression_id"
     t.integer "coins"
     t.index ["accessories_id"], name: "index_avatars_on_accessories_id"
     t.index ["expression_id"], name: "index_avatars_on_expression_id"

@@ -5,6 +5,7 @@ class AvatarsController < ApplicationController
     @avatar = @user.avatar
     @categories = ["hair", "pants", "shirt", "skin_color", "shoes", "accessories"]
     @parts = Part.all
+    @hp_bar_level = @user.avatar.hp_level
 
     # respond_to do |format|
     #   format.html
