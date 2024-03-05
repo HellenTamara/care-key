@@ -19,6 +19,7 @@ class User < ApplicationRecord
     avatar.shirt = Part.where(category: "shirt").first
     avatar.skin_color = Part.where(category: "skin_color").first
     # avatar.purchased_parts = ["hair short red", "hair long lightbrown", "hair long blonde", "hair short blonde", "hair short black", "hair short brown", "hair long red", "hair long black", "pants white", "pants bluejeans", "pants black", "skin color tan", "skin color black", "skin color light", "skin color brown"]
+    avatar.expression = Part.where(name: "expression default").first
     avatar.save
   end
 

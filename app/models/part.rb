@@ -7,4 +7,5 @@ class Part < ApplicationRecord
   has_one :avatar_as_shirt, foreign_key: :shirt_id
   has_one :avatar_as_skin_color, foreign_key: :skin_color_id
   has_one :avatar_as_accessories, foreign_key: :accessories_id
+  has_one :avatar_as_expression, foreign_key: :expression_id
 end
