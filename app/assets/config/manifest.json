@@ -1,5 +1,10 @@
 {
- "name": "App",
+ "name": "CareKey",
+ "url_handlers": [
+  {
+    "origin": "https://care-key-3e477239e95c.herokuapp.com/"
+  }
+],
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
