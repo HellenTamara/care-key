@@ -41,6 +41,7 @@ class PagesController < ApplicationController
 
 
       @hp_bar_level = (@sleep_percentage + @food_percentage + @exercise_percentage) #this is based on the week goals
+      current_user.avatar.update(hp_level: @hp_bar_level)
     end
   end
 
