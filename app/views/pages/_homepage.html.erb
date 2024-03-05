@@ -20,7 +20,7 @@
   <div class="point-bar me-3">
     <%= image_tag 'coins/coin.png', class: "coin-icon"%>
     <%# placeholder text below, can interpolate %>
-    <p>1000</p>
+    <p><%= current_user.avatar.coins %></p>
   </div>
 </div>
 <%= render "/submissions/questions" %>
