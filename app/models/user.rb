@@ -64,6 +64,7 @@ class User < ApplicationRecord
 
   def daily_exercise_percentage_for(date)
     goal = exercise_goal_for(date)
+    return 0 unless goal
     goal.submissions.where(["achieved = ? and date = ?", true, date]).count * 100
   end
 
