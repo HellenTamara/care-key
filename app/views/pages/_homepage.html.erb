@@ -9,7 +9,7 @@
       <i class="fa-solid fa-bag-shopping"></i>
     </div>
   <%end%>
-  <h3>Hi, <%= current_user.avatar.name ? current_user.avatar.name : "there" %>!</h3>
+  <h3>Hi, <%= current_user.avatar.name %>!</h3>
 </div>
 <div class="container d-flex">
   <%# HP bar works based on hp_bar_level (weekly goals) %>
@@ -25,24 +25,8 @@
 </div>
 <%= render "/submissions/questions" %>
 <div class="container d-flex justify-content-center mt-5">
-
-  <div class="avatar-card" data-controller="expressions" data-expressions-goal-value="<%= params[:goal] %>" data-expressions-url-value="<%= params[:expression_url] %>">
+  <div class="avatar-card">
     <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color'%>
-    <div class="facial-expression-submission show">
-      <%= cl_image_tag current_user.avatar.expression.photo.key, :class => 'avatar-expression', data: {expressions_target: "photo"}%>
-    </div>
-
-
-    <div class="facial-expression-regular hide" data-expressions-target="container">
-      <% if @hp_bar_level < 40 %>
-        <% current_user.avatar.update(expression: Part.where(name: "expression tired").last)%>
-      <% elsif @hp_bar_level < 80 %>
-        <% current_user.avatar.update(expression: Part.where(name: "expression default").last)%>
-      <% else %>
-        <% current_user.avatar.update(expression: Part.where(name: "expression happy").last)%>
-      <% end %>
-      <%= cl_image_tag current_user.avatar.expression.photo.key, :class => 'avatar-expression' %>
-    </div>
     <%= cl_image_tag @user.avatar.hair.photo.key , :class => 'avatar-hair'%>
     <%= cl_image_tag @user.avatar.pants.photo.key, :class => 'avatar-pants'%>
     <%= cl_image_tag @user.avatar.shirt.photo.key, :class => 'avatar-shirt' %>

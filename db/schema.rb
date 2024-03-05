@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.1].define(version: 2024_03_03_083912) do
-
+ActiveRecord::Schema[7.1].define(version: 2024_02_29_082709) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,8 +53,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_03_083912) do
     t.bigint "hair_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "expression_id"
-    t.index ["expression_id"], name: "index_avatars_on_expression_id"
     t.integer "coins"
     t.index ["hair_id"], name: "index_avatars_on_hair_id"
     t.index ["pants_id"], name: "index_avatars_on_pants_id"
@@ -112,7 +108,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_03_083912) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "avatars", "parts", column: "expression_id"
   add_foreign_key "avatars", "parts", column: "hair_id"
   add_foreign_key "avatars", "parts", column: "pants_id"
   add_foreign_key "avatars", "parts", column: "shirt_id"
