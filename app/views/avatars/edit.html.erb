@@ -23,7 +23,7 @@
     <%= cl_image_tag @user.avatar.shirt.photo.key, :class => 'avatar-shirt-op', :style => 'width: 70%;' %>
     <%= cl_image_tag @user.avatar.shoes.photo.key, :class => 'avatar-shoes-op', :style => 'width: 70%;'%>
   </div>
-  <div data-controller="avatar-options"  data-avatar-options-avatar-value="<%= @user.avatar.id %>" style = "height: 126px;">
+  <div data-controller="avatar-options"  data-avatar-options-avatar-value="<%= @user.avatar.id %>" style = "height: 200px;">
     <div class="avatar-grid">
       <% @categories.each do |category| %>
         <div data-action="click->avatar-options#select" value="<%= category %>">
