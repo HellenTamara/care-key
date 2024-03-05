@@ -24,7 +24,6 @@
   </div>
 </div>
 <%= render "/submissions/questions" %>
-
 <div class="routine-icons container mt-3">
   <%# Food goals based on daily goals %>
   <div class="progress-circle-food" style="background:
@@ -58,6 +57,7 @@
       <%= render "pages/expression" %>
       <%= cl_image_tag current_user.avatar.expression.photo.key, :class => 'avatar-expression' %>
     </div>
+    <%= cl_image_tag @user.avatar.accessories.photo.key , :class => 'avatar-accessories'%>
     <%= cl_image_tag @user.avatar.hair.photo.key , :class => 'avatar-hair'%>
     <%= cl_image_tag @user.avatar.pants.photo.key, :class => 'avatar-pants'%>
     <%= cl_image_tag @user.avatar.shirt.photo.key, :class => 'avatar-shirt' %>
