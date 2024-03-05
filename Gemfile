@@ -79,3 +79,5 @@ end
 
 # Custom added
 gem "cloudinary"
+
+gem "simple_calendar"
