@@ -1,3 +1,16 @@
- 
-<h1>Set Routine</h1>
-<%= render "form" %>
+<div class="block-color d-flex mb-1">
+  <h3>Tasks</h3>
+</div>
+<%= render "task_form" %>
+<% if !@goals.empty? %>
+  <ul class="list-group">
+    <% @goals.each do |goal| %>
+      <li class="list-group-item">
+        <input class="form-check-input me-1" type="checkbox" value="" id="<%= goal.name.gsub(" ", "-") %>">
+        <label class="form-check-label stretched-link" for="<%= goal.name.gsub(" ", "-") %>"><%= goal.name %></label>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No tasks here yet! Create one!</p>
+<% end %>
