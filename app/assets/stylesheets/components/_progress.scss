@@ -38,6 +38,8 @@
 .goal-bar-frame {
   display: flex;
   justify-content: center;
+  position: relative;
+  left: 86px;
 }
 
 
@@ -49,6 +51,6 @@
 }
 
 .goal-bar-inner {
-  height: 18px;
+  height: 15px;
   border-radius: 20px;
 }

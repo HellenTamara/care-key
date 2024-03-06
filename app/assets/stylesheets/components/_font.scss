@@ -65,6 +65,11 @@ p {
 }
 
 #align-left {
-  text-align: left;
+  position: absolute;
   padding-left: 17px;
+}
+
+.dashbar-text {
+  position: relative;
+  left: 7px;
 }
