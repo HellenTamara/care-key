@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center w-100">
+  <div class="reminder-submission-form">
+    <p><%= message %></p>
+    <input type="time" class="clock" name="appt" />
+    <%= simple_form_for current_user.today_sleep_submission do |f| %>
+      <%= f.input :reminder, as: :hidden, input_html: { value: true } %>
+      <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
+      <%= f.submit 'YES', class: 'button-yes' %>
+    <% end %>
+    <%= simple_form_for current_user.today_sleep_submission do |f| %>
+      <%= f.input :reminder, as: :hidden, input_html: { value: false } %>
+      <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
+      <%= f.submit 'NO', class: 'button-no' %>
+    <% end %>
+  </div>
+</div>
