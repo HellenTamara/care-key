@@ -1,4 +1,7 @@
+
+<div class="list-group task-container">
 <%= simple_form_for @goal do |f|%>
   <%= f.input :name %>
-  <%= f.submit  %>
+  <%= f.submit 'Add', class: 'btn btn-primary'   %>
 <% end %>
+</div>

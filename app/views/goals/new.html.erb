@@ -1,21 +1,41 @@
 <div class="block-color d-flex mb-1">
-  <h3>Tasks</h3>
+  <h3>My Goals</h3>
 </div>
-<%= render "task_form" %>
+<p>Daily Tasks</p>
+<div class="task-main mb-2" style= "height: 70px; <%= food_background_border_color(Date.today) %>">
+<h4 style="<%=food_percentage_color_dark(Date.today)%>">Breakfast</h4>
+</div>
+<div class="task-main mb-2" style= "height: 70px; <%= sleep_background_border_color(Date.today) %>">
+<h4 style="<%=sleep_percentage_color_dark(Date.today)%>">Slept 8 hours</h4>
+</div>
+<p>Weekly Task</p>
+<div class="task-main mb-2" style= "height: 70px; <%= exercise_background_border_color(Date.today) %>">
+<h4 style="<%= exercise_percentage_color_dark(Date.today) %>">Exercise</h4>
+</div>
+<p>My Weekly Goals</p>
 <% if !@goals.empty? %>
-  <ul class="list-group">
+  <div class="list-group task-container">
     <% @goals.each do |goal| %>
-      <li class="list-group-item">
-        <div class="d-flex">
+        <div class="list-group-item d-flex task-item">
+          <label class="form-check-label stretched-link" for="<%= goal.name.gsub(" ", "-") %>"><%= goal.name %></label>
           <%= simple_form_for [goal, @submission] do |f| %>
             <%= f.input :achieved, as: :hidden, input_html: { value: true } %>
             <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
-            <%= f.submit 'YES', class: 'button-yes' %>
+            <div>
+            <%= f.submit 'YES', class: 'btn btn-primary' %>
+            <i class="fa-solid fa-trash fa-lg"></i>
+            </div>
           <% end %>
-          <label class="form-check-label stretched-link" for="<%= goal.name.gsub(" ", "-") %>"><%= goal.name %></label>
-        </li>
+        </div>
       <% end %>
-    </ul>
   <% else %>
-    <p>No tasks here yet! Create one!</p>
+    <p>No tasks here yet. Create one!</p>
   <% end %>
+  <div class="wrapper task-item" id="add" >
+  <button type="button" style="color: #008c9bb5; padding-left: 30px;" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fa-solid fa-plus fa-2xl"></i>
+    </button>
+      <h4 style="color: #008c9bb5; padding-right: 100px;">Add New Goal</h4>
+<%= render "task_modal" %>
+</div>
+</div>
