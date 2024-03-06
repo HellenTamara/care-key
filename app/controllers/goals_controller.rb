@@ -49,6 +49,8 @@ class GoalsController < ApplicationController
 
   def dashboard
     @hp_bar_level = current_user.avatar.hp_level
+    @other_goals = Goal.all.where.not(name: "Food").where.not(name: "Sleep").where.not(name: "Exercise")
+    @other_goals = @other_goals.where(user: current_user)
   end
 
   private
