@@ -10,6 +10,7 @@ class GoalsController < ApplicationController
   def new
     @goal = Goal.new
     @goals = Goal.all.where.not(name: "Food").where.not(name: "Sleep").where.not(name: "Exercise")
+    @submission = Submission.new
   end
 
   def create
