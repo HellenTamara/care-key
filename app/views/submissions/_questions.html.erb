@@ -1,21 +1,22 @@
 <%# Get today's date and time %>
 <% today = Date.today %>
 <% current_time = Time.now %>
-
 <%# Time for sleep prompt%>
 <% sleep_prompt_time = Time.new(today.year, today.month, today.day, 10, 0, 0) %>
-
 <%# Time for exercise prompt %>
 <% exercise_prompt_time = Time.new(today.year, today.month, today.day, 21, 0, 0) %>
-
 <%# Time for food prompt %>
 <% breakfast_prompt_time = Time.new(today.year, today.month, today.day, 11, 0, 0) %>
 <% lunch_prompt_time = Time.new(today.year, today.month, today.day, 15, 0, 0) %>
 <% dinner_prompt_time = Time.new(today.year, today.month, today.day, 20, 0, 0) %>
-
 <%# Should only show the form if its %>
-<% if @submission_sleep.nil? && (current_time >= sleep_prompt_time)%>
-    <%= render "submissions/form", goal: @goal_sleep, message: "Did you sleep #{@goal_sleep.duration} hours?" %>
+
+<% if  current_user.today_sleep_submission.present? && !current_user.today_sleep_submission.achieved && !current_user.today_sleep_submission.reminder %>
+  <%# <%= render "submissions/sleep_modal" %>
+  <%= render "submissions/reminder_form", goal: @goal_sleep, message: "Do you want to be reminded?" %>
+<% elsif @submission_sleep.nil? && (current_time >= sleep_prompt_time)%>
+  <%= render "submissions/form", goal: @goal_sleep, message: "Did you sleep #{@goal_sleep.duration} hrs?" %>
+
 <% elsif @submission_exercise.nil? && (current_time >= exercise_prompt_time) %>
   <%= render "submissions/form", goal: @goal_exercise, message: "Did you exercise today?" %>
 <% elsif @submission_eating.length == 0 && (current_time >= breakfast_prompt_time) %>

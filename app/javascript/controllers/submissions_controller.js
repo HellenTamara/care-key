@@ -23,12 +23,16 @@ export default class extends Controller {
     const dinner_prompt_time = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 20, 0, 0);
     const dinnerPromptTime = dinner_prompt_time.getTime();
 
-    if (currentTime > breakfastPromptTime || currentTime > lunchPromptTime || currentTime > dinnerPromptTime ) {
-      this.foodTarget.classList.toggle("hide")
-    } else if (currentTime > sleepPromptTime) {
+    // if (currentTime > breakfastPromptTime || currentTime > lunchPromptTime || currentTime > dinnerPromptTime ) {
+    //   this.foodTarget.classList.toggle("hide")
+    // } else if (currentTime > sleepPromptTime) {
+    //   this.sleepTarget.classList.toggle("hide")
+    // } else if (currentTime > exercisePromptTime) {
+    //   this.exerciseTarget.classList.toggle("hide")
+    // }
+
+    if (currentTime > sleepPromptTime) {
       this.sleepTarget.classList.toggle("hide")
-    } else if (currentTime > exercisePromptTime) {
-      this.exerciseTarget.classList.toggle("hide")
     }
   }
 
@@ -38,7 +42,7 @@ export default class extends Controller {
 
     if (goal === "food") {
       this.foodTarget.classList.toggle("hide")
-    } else if (goal === "sleep") {
+    // } else if (goal === "sleep") {
       this.sleepTarget.classList.toggle("hide")
     } else if (goal === "exercise") {
       this.exerciseTarget.classList.toggle("hide")
