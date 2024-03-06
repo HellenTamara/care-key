@@ -43,7 +43,7 @@ module ApplicationHelper
     if current_user.food_percentage_for(date) < 40
       "background-color: #FFB5BE; border: 4px #FF6073 solid;"
     elsif current_user.food_percentage_for(date) < 80
-      "background-color: #FDF5D0; 4px #FF6073 solid;"
+      "background-color: #FDF5D0; border: 4px #F6DE68 solid;"
     else
       "background-color: #A7E0DE; border: 4px #008C9B solid;"
     end
@@ -53,7 +53,7 @@ module ApplicationHelper
     if current_user.sleep_percentage_for(date) < 40
       "background-color: #FFB5BE; border: 4px #FF6073 solid;"
     elsif current_user.sleep_percentage_for(date) < 80
-      "background-color: #FDF5D0; 4px #FF6073 solid;"
+      "background-color: #FDF5D0; border: 4px #F6DE68 solid;"
     else
       "background-color: #A7E0DE; border: 4px #008C9B solid;"
     end
@@ -63,7 +63,7 @@ module ApplicationHelper
     if current_user.weekly_exercise_percentage_for(date) < 40
       "background-color: #FFB5BE; border: 4px #FF6073 solid;"
     elsif current_user.weekly_exercise_percentage_for(date) < 80
-      "background-color: #FDF5D0; 4px #FF6073 solid;"
+      "background-color: #FDF5D0; border: 4px #F6DE68 solid;"
     else
       "background-color: #A7E0DE; border: 4px #008C9B solid;"
     end
