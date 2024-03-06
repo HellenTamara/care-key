@@ -25,19 +25,24 @@ class User < ApplicationRecord
   end
 
   def current_sleep_goal
-    sleep_goal_for(Date.today) || Goal.create(name: 'Sleep', start_date: Date.today, end_date: Date.today + 6, frequency: 7, user: self, duration: 8)
+    sleep_goal_for(Date.today) || Goal.create(name: "Sleep", start_date: Date.today, end_date: Date.today + 6, frequency: 7, user: self, duration: 8)
   end
 
   def sleep_goal_for(date)
     goals.where(name: "Sleep").find_by("start_date <= :date AND end_date >= :date", date: date)
   end
 
+  def today_sleep_submission
+    goal = sleep_goal_for(Date.today)
+    goal.submissions.find_by(["date = ?", Date.today])
+  end
+
   def current_exercise_goal
-    exercise_goal_for(Date.today) || Goal.create(name: 'Exercise', start_date: Date.today, end_date: Date.today + 6, frequency: 3, user: self)
+    exercise_goal_for(Date.today) || Goal.create(name: "Exercise", start_date: Date.today, end_date: Date.today + 6, frequency: 3, user: self)
   end
 
   def current_eating_goal
-    food_goal_for(Date.today) || Goal.create(name: 'Food', start_date: Date.today, end_date: Date.today + 6, frequency: 21, user: self)
+    food_goal_for(Date.today) || Goal.create(name: "Food", start_date: Date.today, end_date: Date.today + 6, frequency: 21, user: self)
   end
 
   def food_goal_for(date)
@@ -71,5 +76,4 @@ class User < ApplicationRecord
     return 0 unless goal
     goal.submissions.where(["achieved = ? and date = ?", true, date]).count * 100
   end
-
 end
