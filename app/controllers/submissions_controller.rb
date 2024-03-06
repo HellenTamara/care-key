@@ -21,20 +21,29 @@ class SubmissionsController < ApplicationController
 
   # Copy paste this and delete this before pushing (remember you're still on the created-submission-forms-branch)
   def create
-    raise
     @submission = Submission.new(submission_params) # needs to be getting date through some params i think -> Ideally want it to be getting it through the seeded data. Submission.start_date????
 
     # uncomment here later
     @goal = Goal.find(params["goal_id"])
     @submission.goal = @goal
     @submission.user = current_user
+    # @goals = Goal.all.where.not(name: "Food").where.not(name: "Sleep").where.not(name: "Exercise")
+    @goals = current_user.goals_of_the_week
 
     @coins = current_user.avatar.coins
-    if @submission.achieved && @submission.save
+    if @submission.save
       # where do I want to redirect to? home path??
-      current_user.avatar.update(coins: @coins + 50)
-      redirect_to root_path(goal: @submission.goal.name, achieved: @submission.achieved, expression_url: @submission.achieved ? @submission.goal.part_url : ""), notice: "Thank you"
-      # but doesn't change anything
+      if @goal == "Food" && @submission.achieved || @goal == "Sleep" && @submission.achieved || @goal == "Exercise" && @submission.achieved
+        current_user.avatar.update(coins: @coins + 50)
+      elsif @submission.achieved
+        current_user.avatar.update(coins: @coins + 20)
+      end
+
+      respond_to do |format|
+        format.html {redirect_to root_path(goal: @submission.goal.name, achieved: @submission.achieved, expression_url: @submission.achieved ? @submission.goal.part_url : "")}
+
+        format.text { render partial: "submissions/submission_task_form", locals: {goals: @goals, submission: Submission.new}, formats: [:html] }
+      end
     else
       redirect_to root_path, notice: "Sorry we're having issues", status: :unprocessable_entity
       # render the form???

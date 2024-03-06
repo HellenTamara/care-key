@@ -12,10 +12,10 @@ eagerLoadControllersFrom("controllers", application)
 
 
 
-  document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("edit-avatar-link").addEventListener("click", function(event) {
-      event.preventDefault();
-      var form = document.getElementById("edit-avatar-form");
-      form.style.display = (form.style.display === "none") ? "block" : "none";
-    });
-  });
+  // document.addEventListener("DOMContentLoaded", function() {
+  //   document.getElementById("edit-avatar-link").addEventListener("click", function(event) {
+  //     event.preventDefault();
+  //     var form = document.getElementById("edit-avatar-form");
+  //     form.style.display = (form.style.display === "none") ? "block" : "none";
+  //   });
+  // });
