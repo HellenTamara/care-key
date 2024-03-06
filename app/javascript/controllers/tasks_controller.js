@@ -8,6 +8,7 @@ export default class extends Controller {
 
   mark(event) {
     const form = event.currentTarget
+    console.log(form)
 
       fetch(form.action, {
         method: "POST",

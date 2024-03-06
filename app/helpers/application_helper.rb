@@ -41,31 +41,31 @@ module ApplicationHelper
 
   def food_background_border_color(date)
     if current_user.food_percentage_for(date) < 40
-      "background-color: #FFB5BE; border: 4px #FF6073 solid;"
+      "background-color: #FFD2D8; border: 4px #FF6073 solid;"
     elsif current_user.food_percentage_for(date) < 80
-      "background-color: #FDF5D0; 4px #FF6073 solid;"
+      "background-color: #FDF5D0; border: 4px #F6DE68 solid;"
     else
-      "background-color: #A7E0DE; border: 4px #008C9B solid;"
+      "background-color: #CFEDE9; border: 4px #008C9B solid;"
     end
   end
 
   def sleep_background_border_color(date)
     if current_user.sleep_percentage_for(date) < 40
-      "background-color: #FFB5BE; border: 4px #FF6073 solid;"
+      "background-color: #FFD2D8; border: 4px #FF6073 solid;"
     elsif current_user.sleep_percentage_for(date) < 80
-      "background-color: #FDF5D0; 4px #FF6073 solid;"
+      "background-color: #FDF5D0; border: 4px #F6DE68 solid;"
     else
-      "background-color: #A7E0DE; border: 4px #008C9B solid;"
+      "background-color: #CFEDE9; border: 4px #008C9B solid;"
     end
   end
 
   def exercise_background_border_color(date)
     if current_user.weekly_exercise_percentage_for(date) < 40
-      "background-color: #FFB5BE; border: 4px #FF6073 solid;"
+      "background-color: #FFD2D8; border: 4px #FF6073 solid;"
     elsif current_user.weekly_exercise_percentage_for(date) < 80
-      "background-color: #FDF5D0; 4px #FF6073 solid;"
+      "background-color: #FDF5D0; border: 4px #F6DE68 solid;"
     else
-      "background-color: #A7E0DE; border: 4px #008C9B solid;"
+      "background-color: #CFEDE9; border: 4px #008C9B solid;"
     end
   end
 
@@ -82,11 +82,31 @@ module ApplicationHelper
 
   def food_background_color(date)
     if current_user.food_percentage_for(date) < 40
-      "background-color: #FFB5BE; border: 4px #FF6073 solid;"
+      "background-color: #FFB5BE;"
     elsif current_user.food_percentage_for(date) < 80
-      "background-color: #F6DE68; border: 4px #FF6073 solid;"
+      "background-color: #F6DE68;"
     else
-      "background-color: #A7E0DE; border: 4px #008C9B solid;"
+      "background-color: #A7E0DE;"
+    end
+  end
+
+  def exercise_background_color(date)
+    if current_user.weekly_exercise_percentage_for(date) < 40
+      "background-color: #FFB5BE;"
+    elsif current_user.weekly_exercise_percentage_for(date) < 80
+      "background-color: #F6DE68;"
+    else
+      "background-color: #A7E0DE;"
+    end
+  end
+
+  def sleep_background_color(date)
+    if current_user.sleep_percentage_for(date) < 40
+      "background-color: #FFB5BE;"
+    elsif current_user.sleep_percentage_for(date) < 80
+      "background-color: #F6DE68;"
+    else
+      "background-color: #A7E0DE;"
     end
   end
 

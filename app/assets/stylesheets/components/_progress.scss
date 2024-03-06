@@ -33,3 +33,24 @@
     radial-gradient(closest-side, white 79%, transparent 80% 100%),
     conic-gradient(#FF6073 30%, #FFB5BE 0);
 }
+
+
+.goal-bar-frame {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  left: 86px;
+}
+
+
+.goal-bar-outline {
+  border: 3px solid gray;
+  height: 20px;
+  width: 160px;
+  border-radius: 20px;
+}
+
+.goal-bar-inner {
+  height: 15px;
+  border-radius: 20px;
+}

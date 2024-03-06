@@ -25,7 +25,6 @@ class GoalsController < ApplicationController
     @goal.end_date = Date.today + 6
     if @goal.save
       redirect_to new_goal_path
-      flash[:notice] = "New task added!"
     else
       render :new, status: :unprocessable_entity
     end
