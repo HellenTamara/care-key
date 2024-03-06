@@ -1,6 +1,5 @@
-
 .avatar-card {
-  height: 434px;
+  height: 476px;
   width: 290px;
   display: flex;
   justify-content: center;
@@ -8,67 +7,93 @@
 }
 
 .avatar-hair {
+  width: 110%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1%;
+}
+
+
+.avatar-accessories {
   width: 100%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -8%;
+  z-index: 99;
+  bottom: -1%;
+}
+
+.avatar-expression {
+  width: 110%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1%;
 }
 
 .avatar-shoes {
-  width: 100%;
+  width: 110%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -8%;
+  bottom: -1%;
 }
 
 .avatar-skin-color {
-  width: 100%;
+  width: 110%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -8%;
+  bottom: -1%;
 }
 
 .avatar-pants {
-  width: 100%;
+  width: 110%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -8%;
+  bottom: -1%;
 }
 
 .avatar-shirt {
-  width: 100%;
+  width: 110%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -8%;
+  bottom: -1%;
 }
 
 .avatar-grid {
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
+  position: relative;
+  top: -73px;
+  left: 76px;
   background-color: #FDF5D0;
   border: 4px solid #EFB622;
   border-radius: 15px;
-  height: 100px;
+  height: 190px;
+  width: 270px;
   justify-content: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   gap: 5px;
 }
 
 .avatar-option-card {
-  height: 60px;
-  width: 60px;
+  height: 70px;
+  width: 70px;
   background-color: white;
   border-radius: 10px;
+  border: 4px solid #EFB622;
   gap: 5px;
-    .img-card {
-      overflow: hidden;
-    }
+
+  .img-card {
+    overflow: hidden;
+  }
 }
 
 .avatar-edit {
@@ -81,7 +106,27 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5%;
+  bottom: 15%;
+}
+
+
+.avatar-accessories-op {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 15%;
+  z-index: 99
+}
+
+.avatar-expression-op {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 27.5%;
+  z-index: 99;
+
 }
 
 .avatar-shoes-op {
@@ -89,7 +134,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5%;
+  bottom: 15%;
 }
 
 .avatar-skin-color-op {
@@ -97,7 +142,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5%;
+  bottom: 15%;
 }
 
 .avatar-pants-op {
@@ -105,7 +150,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5%;
+  bottom: 15%;
 }
 
 .avatar-shirt-op {
@@ -113,7 +158,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -5%;
+  bottom: 15%;
 }
 
 .avatar-landing-full {

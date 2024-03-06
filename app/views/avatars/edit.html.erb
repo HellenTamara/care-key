@@ -13,18 +13,22 @@
   </div>
   <%= render "avatars/name_modal" %>
   <div class="container d-flex justify-content-center avatar-edit">
-    <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color-op', :style => 'width: 70%;'%>
-    <%= cl_image_tag @user.avatar.hair.photo.key, :class => 'avatar-hair-op', :style => 'width: 70%;'%>
-    <%= cl_image_tag @user.avatar.pants.photo.key, :class => 'avatar-pants-op', :style => 'width: 70%;'%>
-    <%= cl_image_tag @user.avatar.shirt.photo.key, :class => 'avatar-shirt-op', :style => 'width: 70%;' %>
-    <%= cl_image_tag @user.avatar.shoes.photo.key, :class => 'avatar-shoes-op', :style => 'width: 70%;'%>
+    <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color-op', :style => 'width: 50%;'%>
+    <div class="avatar-expression-op">
+      <%= cl_image_tag Part.find_by(name: "expression default").photo.key, :class => 'avatar-expression-op', :style => 'width: 50%;' %>
+    </div>
+    <%= cl_image_tag @user.avatar.accessories.photo.key, :class => 'avatar-accessories-op', :style => 'width: 50%;'%>
+    <%= cl_image_tag @user.avatar.shoes.photo.key, :class => 'avatar-shoes-op', :style => 'width: 50%;'%>
+    <%= cl_image_tag @user.avatar.hair.photo.key, :class => 'avatar-hair-op', :style => 'width: 50%;'%>
+    <%= cl_image_tag @user.avatar.pants.photo.key, :class => 'avatar-pants-op', :style => 'width: 50%;'%>
+    <%= cl_image_tag @user.avatar.shirt.photo.key, :class => 'avatar-shirt-op', :style => 'width: 50%;' %>
   </div>
-  <div data-controller="avatar-options"  data-avatar-options-avatar-value="<%= @user.avatar.id %>" style = "height: 126px;">
+  <div data-controller="avatar-options"  data-avatar-options-avatar-value="<%= @user.avatar.id %>" style = "height: 150px;">
     <div class="avatar-grid">
       <% @categories.each do |category| %>
         <div data-action="click->avatar-options#select" value="<%= category %>">
-          <button data-bs-toggle="modal" data-bs-target="#category-option-<%= category%>" style="border: none;">
-            <%= cl_image_tag @parts.where(category: category).first.photo.key, class: 'avatar-option-card' %></button>
+          <button data-bs-toggle="modal" data-bs-target="#category-option-<%= category%>" style="border: none;" class="bg-transparent">
+            <%= image_tag "avatar_edit_cards/Avatar_edit-cards_#{category}.png", class: 'avatar-option-card'%></button>
           <%= render "avatars/modal", category: category %>
         </div>
       <% end %>

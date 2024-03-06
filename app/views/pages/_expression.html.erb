@@ -1,0 +1,7 @@
+<% if @hp_bar_level < 40 %>
+  <% current_user.avatar.update(expression: Part.where(name: "expression tired").last)%>
+<% elsif @hp_bar_level < 80 %>
+  <% current_user.avatar.update(expression: Part.where(name: "expression default").last)%>
+<% else %>
+  <% current_user.avatar.update(expression: Part.where(name: "expression happy").last)%>
+<% end %>

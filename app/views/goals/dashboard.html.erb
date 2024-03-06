@@ -1,49 +1,74 @@
-<div class="block-color d-flex mb-4">
+<div class="block-color d-flex mb-1">
   <h3>Dashboard</h3>
 </div>
-<h4 id="align-center">My Health Points</h4>
+  <h4 id="align-center">My Health Points</h4>
 <div class="hp-bar-frame">
 <%= render "pages/healthbar" %>
 </div>
 
-<div class="sub-calendar mb-3">
-  <div class="sub-days">
-  </div>
+<div class="sub-calendar mb-1 mt-3">
+    <h4 id="align-center">Today's Progress</h4>
   <div class="sub-progress">
-    <h4>-Dates- Progress</h4>
-    <div class="sub-progress-card d-flex justify-content-center align-items-center" style = "<% if @food_percentage_today < 40 %><%= "background-color: #FFB5BE; border: 4px #FF6073 solid;" %><% elsif @food_percentage_today< 80 %><%= "background-color: #F6DE68; border: 4px #FF6073 solid;" %><% else %><%= "background-color: #A7E0DE; border: 4px #008C9B solid;" %><% end %>">
+    <div class="sub-progress-card" style = "<%= food_background_border_color(Date.today) %>">
       <span id="icon">
-        <i class="fa-solid fa-burger" style="font-size: 2em; color: white;"></i>
+        <i class="fa-solid fa-burger" style="font-size: 2em; <%= food_percentage_color_dark(Date.today) %>"></i>
       </span>
         <div class="hp-bar-dashboard-outline">
-        <div class="hp-bar-inner" style="width: <%= @food_percentage_today%>%; <% if @food_percentage_today < 40 %><%= "background-color: #FF6073;" %><% elsif @food_percentage_today< 80 %><%= "background-color: #FFB5BE;" %><% else %><%= "background-color: #008C9B;" %><% end %>">
+        <div class="hp-bar-inner" style="width: <%= current_user.food_percentage_for(Date.today)%>%; background-<%= food_percentage_color_dark(Date.today)%> ">
         </div>
         </div>
     </div>
-   <div class="sub-progress-card d-flex justify-content-center align-items-center" style = "<% if @food_percentage_today < 40 %><%= "background-color: #FF6073; border: 4px #FF6073 solid;" %><% elsif @food_percentage_today< 80 %><%= "background-color: #FDF5D0; 4px #FF6073 solid;" %><% else %><%= "background-color: #A7E0DE; border: 4px #008C9B solid;" %><% end %>">
+   <div class="sub-progress-card " style = "<%= sleep_background_border_color(Date.today)%>">
       <span id="icon">
-        <i class="fa-solid fa-moon" style="font-size: 2em; color: white;"></i>
+        <i class="fa-solid fa-moon" style="font-size: 2em; <%= sleep_percentage_color_dark(Date.today) %>"></i>
       </span>
         <div class="hp-bar-dashboard-outline">
-          <div class="hp-bar-inner" style="width: <%= @sleep_percentage_today%>%; <% if @sleep_percentage_today < 40 %><%= "background-color: #FFB5BE;" %><% elsif @sleep_percentage_today< 80 %><%= "background-color: #FFB5BE;" %><% else %><%= "background-color: #008C9B;" %><% end %>">
+          <div class="hp-bar-inner" style="width: <%= current_user.sleep_percentage_for(Date.today)%>%; background-<%= sleep_percentage_color_dark(Date.today) %>">
           </div>
         </div>
   </div>
-  <div class="sub-progress-card d-flex justify-content-center align-items-center" style = "<% if @exercise_percentage < 40 %><%= "background-color: #FFB5BE; border: 4px #FF6073 solid;" %><% elsif @exercise_percentage< 80 %><%= "background-color: #FDF5D0; border: 4px #F6DE68 solid;" %><% else %><%= "background-color: #A7E0DE; border: 4px #008C9B solid;" %><% end %>">
+  <div class="sub-progress-card" style = "<%=exercise_background_border_color(Date.today)%>">
       <span id="icon">
-      <i class="fa-solid fa-dumbbell" style="font-size: 2em; color: white;"></i>
+        <i class="fa-solid fa-dumbbell" style="font-size: 2em; <%= exercise_percentage_color_dark(Date.today)%>"></i>
       </span>
       <div class="hp-bar-dashboard-outline">
-        <div class="hp-bar-inner" style= "width: <%= @exercise_percentage%>%;<% if @exercise_percentage < 40 %><%= "background-color: #FF6073;" %><% elsif @exercise_percentage< 80 %><%= "background-color: #F6DE68;" %><% else %><%= "background-color: #008C9B;" %><% end %>">
+        <div class="hp-bar-inner" style= "width: <%= @exercise_percentage%>%; background-<%= exercise_percentage_color_dark(Date.today) %>">
         </div>
       </div>
   </div>
+</div>
+<div class="container mt-3">
+<h4 id="align-center">Overview</h4>
+<%= month_calendar do |date| %>
+<%# iterate over the user goals %>
+<%# load the submissions for that date and goal %>
+
+<%# if current_user.sleep_percentage_for(date) < 40 %>
+<div class="calendar">
+<%if date <= Date.today && current_user.food_percentage_for(date) %>
+<h4><%= date.day %></h4>
+<div style="display: inline-grid;">
+<div class="calendar-card mb-1" style="background-<%= food_percentage_color_dark(date) %>">
+<i class="fa-solid fa-burger" style="font-size: 1em; color: white;"></i>
+</div>
+<div class="calendar-card mb-1" style="background-<%= sleep_percentage_color_dark(date)%>">
+<i class="fa-solid fa-moon" style="font-size: 1em; color: white;"></i>
+</div>
+<div class="calendar-card mb-1" style="background-<%= exercise_daily_percentage_color(date)%>">
+<i class="fa-solid fa-dumbbell" style="font-size: 1em; color: white;"></i>
+</div>
+<% else %>
+<h4><%= date.day %></h4>
+<% end %>
+</div>
+<% end %>
 </div>
     </div>
   </div>
 </div>
 
-<h4 id="align-center">My Achievements</h4>
+
+<%# <h4 id="align-center">My Achievements</h4>
 <div class="container achievement-container mt-1">
   <div class="sub-achievement-grid">
     <div class="achievement-circle">
@@ -61,4 +86,4 @@
       <div class="achievement-circle" id="dashed">
     </div>
   </div>
-</div>
+</div> %>

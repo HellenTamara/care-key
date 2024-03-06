@@ -27,16 +27,21 @@ class SubmissionsController < ApplicationController
     @goal = Goal.find(params["goal_id"])
     @submission.goal = @goal
     @submission.user = current_user
+
     # if Time.now.strftime("%I:%M:%S") == ("11:45:00" || "16:00:00")
     # linebot = LineService.new(ENV["LINE_ID"])
     # message_text = ""
     # linebot.send_message
     # end
 
+
+
+    @coins = current_user.avatar.coins
+
     if @submission.achieved && @submission.save
       # where do I want to redirect to? home path??
       current_user.avatar.update(coins: @coins + 50)
-      redirect_to root_path, notice: "Thank you"
+      redirect_to root_path(goal: @submission.goal.name, achieved: @submission.achieved, expression_url: @submission.achieved ? @submission.goal.part_url : ""), notice: "Thank you"
       # but doesn't change anything
     else
       redirect_to root_path, notice: "Sorry we're having issues", status: :unprocessable_entity

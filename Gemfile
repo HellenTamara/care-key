@@ -79,4 +79,8 @@ end
 
 # Custom added
 gem "cloudinary"
+
 gem "line-bot-api"
+
+gem "simple_calendar"
+

@@ -18,8 +18,7 @@ Part.destroy_all
 User.destroy_all
 
 # Seeding images:
-categories = %w[hair pants shirt shoes skin_color]
-
+categories = %w[hair pants shirt shoes skin_color expressions accessories]
 categories.each do |category|
   image_files = (Dir.entries("app/assets/images/parts/#{category}/") - [".", "..", ".DS_Store"])
   p image_files
@@ -28,6 +27,22 @@ categories.each do |category|
     name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
     part = Part.new(name: name, category: category)
     part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
+    part.price = 0
+    part.save
+  end
+end
+
+shop_categories = %w[hair pants shirt shoes accessories]
+
+shop_categories.each do |category|
+  image_files = (Dir.entries("app/assets/images/shop_parts/#{category}/") - [".", "..", ".DS_Store"])
+  p image_files
+  image_files.each do |img|
+    file = URI.open("app/assets/images/shop_parts/#{category}/#{img}")
+    name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
+    part = Part.new(name: name, category: category)
+    part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
+    part.price = 100
     part.save
   end
 end
