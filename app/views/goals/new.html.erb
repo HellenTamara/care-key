@@ -1,3 +1,21 @@
- 
-<h1>Set Routine</h1>
-<%= render "form" %>
+<div class="block-color d-flex mb-1">
+  <h3>Tasks</h3>
+</div>
+<%= render "task_form" %>
+<% if !@goals.empty? %>
+  <ul class="list-group">
+    <% @goals.each do |goal| %>
+      <li class="list-group-item">
+        <div class="d-flex">
+          <%= simple_form_for [goal, @submission] do |f| %>
+            <%= f.input :achieved, as: :hidden, input_html: { value: true } %>
+            <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
+            <%= f.submit 'YES', class: 'button-yes' %>
+          <% end %>
+          <label class="form-check-label stretched-link" for="<%= goal.name.gsub(" ", "-") %>"><%= goal.name %></label>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No tasks here yet! Create one!</p>
+  <% end %>
