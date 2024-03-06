@@ -53,6 +53,10 @@ class User < ApplicationRecord
     goals.where(name: "Exercise").find_by("start_date <= :date AND end_date >= :date", date: date)
   end
 
+  def goals_of_the_week
+    goals.where("start_date <= :date AND end_date >= :date", date: Date.today).order(:created_at)
+  end
+
   def sleep_percentage_for(date)
     goal = sleep_goal_for(date)
     return 0 unless goal
