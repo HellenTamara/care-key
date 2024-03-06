@@ -30,7 +30,16 @@ class SubmissionsController < ApplicationController
     # @goals = Goal.all.where.not(name: "Food").where.not(name: "Sleep").where.not(name: "Exercise")
     @goals = current_user.goals_of_the_week
 
+    # if Time.now.strftime("%I:%M:%S") == ("11:45:00" || "16:00:00")
+    # linebot = LineService.new(ENV["LINE_ID"])
+    # message_text = ""
+    # linebot.send_message
+    # end
+
+
+
     @coins = current_user.avatar.coins
+    
     if @submission.save
       # where do I want to redirect to? home path??
       if @goal == "Food" && @submission.achieved || @goal == "Sleep" && @submission.achieved || @goal == "Exercise" && @submission.achieved

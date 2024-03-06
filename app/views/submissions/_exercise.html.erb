@@ -1,0 +1,3 @@
+<% if @submission_exercise.nil?%>
+  <%= render "submissions/form", goal: @goal_exercise, message: "Did you exercise today?" %>
+<% end %>
