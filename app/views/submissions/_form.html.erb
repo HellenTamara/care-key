@@ -8,7 +8,7 @@
       <%#= f.submit 'NO', submit_html: { value: false } %>
       <%# end %>
       <%= simple_form_for [goal, @submission] do |f| %>
-        <% f.input :achieved, as: :hidden, input_html: { value: true } %>
+        <%= f.input :achieved, as: :hidden, input_html: { value: true } %>
         <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
         <%= f.submit 'YES', class: 'button-yes' %>
       <% end %>

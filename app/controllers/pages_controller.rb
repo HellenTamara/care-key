@@ -29,15 +29,17 @@ class PagesController < ApplicationController
       @sleep_percentage_today = (@goal_sleep.submissions.where(["achieved = ? and date = ?", true, date]).count * 100) / (@sleep_frequency / 7) #this is based on daily goals
       @food_percentage_today = (@goal_eating.submissions.where(["achieved = ? and date = ?", true, date]).count * 100) / (@food_frequency / 7) #this is based on daily goals
 
-      @sleep_achieved_amount = @goal_sleep.submissions.where(achieved: true)
-      @food_achieved_amount = @goal_eating.submissions.where(achieved: true)
-      @exercise_achieved_amount = @goal_exercise.submissions.where(achieved: true)
+      @sleep_achieved_amount = @goal_sleep.submissions.where(achieved: false)
+      @food_achieved_amount = @goal_eating.submissions.where(achieved: false)
+      @exercise_achieved_amount = @goal_exercise.submissions.where(achieved: false)
 
       @sleep_percentage = (@sleep_achieved_amount.count * 100) / @sleep_frequency
       @food_percentage = (@food_achieved_amount.count * 100) / @food_frequency
       @exercise_percentage = (@exercise_achieved_amount.count * 100) / @exercise_frequency
 
-      @hp_bar_level = (@sleep_percentage + @food_percentage + @exercise_percentage) #this is based on the week goals
+
+      @hp_bar_level = (100 - @sleep_percentage - @food_percentage - @exercise_percentage) #this is based on the week goals
+
       current_user.avatar.update(hp_level: @hp_bar_level)
     end
   end

@@ -7,6 +7,26 @@ class GoalsController < ApplicationController
     @goal_eating = current_user.current_eating_goal
   end
 
+  def new
+    @goal = Goal.new
+    @goals = Goal.all.where.not(name: "Food").where.not(name: "Sleep").where.not(name: "Exercise")
+    @submission = Submission.new
+  end
+
+  def create
+
+    @goal = Goal.new(goal_params)
+    @goal.user = current_user
+    @goal.start_date = Date.today
+    @goal.end_date = Date.today + 6
+    if @goal.save
+      redirect_to new_goal_path
+      flash[:notice] = "New task added!"
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def update
     # @goal_sleep = current_user.current_sleep_goal
     # @goal_exercise = current_user.current_exercise_goal
@@ -42,7 +62,7 @@ class GoalsController < ApplicationController
     @sleep_percentage_today = current_user.sleep_percentage_for(Date.today)
     @food_percentage_today = current_user.food_percentage_for(Date.today)
     @exercise_percentage = current_user.weekly_exercise_percentage_for(Date.today)
-    
+
 
     sleep_achieved_amount = @goal_sleep.submissions.where(achieved: true)
     food_achieved_amount = @goal_eating.submissions.where(achieved: true)
