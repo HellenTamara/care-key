@@ -15,7 +15,7 @@
 
 <%# Should only show the form if its %>
 <% if @submission_sleep.nil? && (current_time >= sleep_prompt_time)%>
-    <%= render "submissions/form", goal: @goal_sleep, message: "Did you sleep #{@goal_sleep.duration} hrs?" %>
+  <%= render "submissions/form", goal: @goal_sleep, message: "Did you sleep #{@goal_sleep.duration} hrs?" %>
 <% elsif @submission_exercise.nil? && (current_time >= exercise_prompt_time) %>
   <%= render "submissions/form", goal: @goal_exercise, message: "Did you exercise today?" %>
 <% elsif @submission_eating.length == 0 && (current_time >= breakfast_prompt_time) %>

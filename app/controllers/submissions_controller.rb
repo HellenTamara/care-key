@@ -37,10 +37,12 @@ class SubmissionsController < ApplicationController
 
 
     @coins = current_user.avatar.coins
-
-    if @submission.achieved && @submission.save
+    
+    if @submission.save
       # where do I want to redirect to? home path??
-      current_user.avatar.update(coins: @coins + 50)
+      if @submission.achieved
+        current_user.avatar.update(coins: @coins + 50)
+      end
       redirect_to root_path(goal: @submission.goal.name, achieved: @submission.achieved, expression_url: @submission.achieved ? @submission.goal.part_url : ""), notice: "Thank you"
       # but doesn't change anything
     else
