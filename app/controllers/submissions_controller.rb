@@ -21,6 +21,7 @@ class SubmissionsController < ApplicationController
 
   # Copy paste this and delete this before pushing (remember you're still on the created-submission-forms-branch)
   def create
+    raise
     @submission = Submission.new(submission_params) # needs to be getting date through some params i think -> Ideally want it to be getting it through the seeded data. Submission.start_date????
 
     # uncomment here later
