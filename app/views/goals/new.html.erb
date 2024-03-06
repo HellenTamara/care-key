@@ -1,18 +1,6 @@
 <div class="block-color d-flex mb-1">
   <h3>My Goals</h3>
 </div>
-<p>Daily Tasks</p>
-<div class="task-main mb-2" style= "height: 70px; <%= food_background_border_color(Date.today) %>">
-<h4 style="<%=food_percentage_color_dark(Date.today)%>">Breakfast</h4>
-</div>
-<div class="task-main mb-2" style= "height: 70px; <%= sleep_background_border_color(Date.today) %>">
-<h4 style="<%=sleep_percentage_color_dark(Date.today)%>">Slept 8 hours</h4>
-</div>
-<p>Weekly Task</p>
-<div class="task-main mb-2" style= "height: 70px; <%= exercise_background_border_color(Date.today) %>">
-<h4 style="<%= exercise_percentage_color_dark(Date.today) %>">Exercise</h4>
-</div>
-<p>My Weekly Goals</p>
 <% if !@goals.empty? %>
   <div class="list-group task-container" data-controller="tasks">
     <%= render "submissions/submission_task_form", goals: @goals,  submission: @submission %>

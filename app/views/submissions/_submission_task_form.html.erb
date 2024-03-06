@@ -3,26 +3,24 @@
     <% if  goal.name == "Food" %>
       <% [true, true, true].zip(goal.submissions.first(3)).each do |(achieved_value, saved_submission)|%>
         <% if saved_submission %>
-          <p>Done</p>
+          <h4><s><%= goal.name %></s></h4>
         <% else %>
-          <label for="<%= goal.name.gsub(" ", "-") %>"><%= goal.name %></label>
           <%= simple_form_for [goal, Submission.new], html: {data: {action: "change->tasks#mark"}} do |f| %>
             <%= f.input :achieved, input_html: { value: true } %>
             <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
-            <i class="fa-solid fa-trash fa-lg"></i>
           <% end %>
         <% end %>
       <% end %>
     <% elsif goal.submissions.any? %>
-      <p><%= goal.name %></p>
+      <div>
+      <h4><s><%= goal.name %></s></h4>
+      </div>
     <% else %>
-      <label for="<%= goal.name.gsub(" ", "-") %>"><%= goal.name %></label>
+      <h4><%= goal.name %></h4>
       <%= simple_form_for [goal, Submission.new], html: {data: {action: "change->tasks#mark"}} do |f| %>
-        <%= f.input :achieved, input_html: { value: true } %>
+        <%= f.input :achieved, label: false, input_html: { value: true } %>
         <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
-        <i class="fa-solid fa-trash fa-lg"></i>
       <% end %>
-      <p><%= goal.name %></p>
     <% end %>
   </div>
 <% end %>
