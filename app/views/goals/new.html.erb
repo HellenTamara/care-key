@@ -1,16 +1,21 @@
 <div class="block-color d-flex mb-1">
   <h3>Tasks</h3>
 </div>
+<%= render "task_form" %>
 <% if !@goals.empty? %>
   <ul class="list-group">
     <% @goals.each do |goal| %>
       <li class="list-group-item">
-        <%= simple_form_for [goal, @submission] ,html: { data: { controller: "checkbox" } } do |f| %>
-          <%= f.input :achieved, as: :check_boxes, collection: [[goal.name, goal.id]], label: false, input_html: { class: "form-check-input me-1 checkbox", id: goal.name.gsub(" ", "-"), data: { target: "checkbox.checkbox" } } %>
+        <div class="d-flex">
+          <%= simple_form_for [goal, @submission] do |f| %>
+            <%= f.input :achieved, as: :hidden, input_html: { value: true } %>
+            <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
+            <%= f.submit 'YES', class: 'button-yes' %>
+          <% end %>
+          <label class="form-check-label stretched-link" for="<%= goal.name.gsub(" ", "-") %>"><%= goal.name %></label>
         </li>
       <% end %>
-    <% end %>
-  </ul>
-<% else %>
-  <p>No tasks here yet! Create one!</p>
-<% end %>
+    </ul>
+  <% else %>
+    <p>No tasks here yet! Create one!</p>
+  <% end %>
