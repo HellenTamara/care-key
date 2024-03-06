@@ -9,12 +9,16 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
-    @goals = Goal.all.where.not(name: "Food").where.not(name: "Sleep").where.not(name: "Exercise")
+
+    @goals = current_user.goals_of_the_week
     @submission = Submission.new
+
+
+
+    # @main_goals = [current_user.current_eating_goal, current_user.current_exercise_goal, current_user.current_sleep_goal]
   end
 
   def create
-
     @goal = Goal.new(goal_params)
     @goal.user = current_user
     @goal.start_date = Date.today

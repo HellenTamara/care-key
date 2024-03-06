@@ -3,19 +3,9 @@
 </div>
 <%= render "task_form" %>
 <% if !@goals.empty? %>
-  <ul class="list-group">
-    <% @goals.each do |goal| %>
-      <li class="list-group-item">
-        <div class="d-flex">
-          <%= simple_form_for [goal, @submission] do |f| %>
-            <%= f.input :achieved, as: :hidden, input_html: { value: true } %>
-            <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
-            <%= f.submit 'YES', class: 'button-yes' %>
-          <% end %>
-          <label class="form-check-label stretched-link" for="<%= goal.name.gsub(" ", "-") %>"><%= goal.name %></label>
-        </li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>No tasks here yet! Create one!</p>
-  <% end %>
+  <ul class="list-group" data-controller="tasks">
+    <%= render "submissions/submission_task_form", goals: @goals,  submission: @submission%>
+  </ul>
+<% else %>
+  <p>No tasks here yet! Create one!</p>
+<% end %>

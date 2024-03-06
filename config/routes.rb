@@ -10,11 +10,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-
   # get "/home", to: "pages#home", as: :home
   get "/goals/dashboard", to: "goals#dashboard", as: :dashboard
   get "/avatars/shop", to: "avatars#shop", as: :shop
-
 
   # get "/avatar/edit", to: "pages#edit", as: :edit_avatar
   # patch "/avatar", to: "pages#update"
@@ -22,4 +20,5 @@ Rails.application.routes.draw do
   resources :goals, only: [:new, :create, :index, :update] do
     resources :submissions, only: [:create, :index]
   end
+  resources :submissions, only: [:update]
 end

@@ -27,24 +27,31 @@ class SubmissionsController < ApplicationController
     @goal = Goal.find(params["goal_id"])
     @submission.goal = @goal
     @submission.user = current_user
+    # @goals = Goal.all.where.not(name: "Food").where.not(name: "Sleep").where.not(name: "Exercise")
+    @goals = current_user.goals_of_the_week
 
     # if Time.now.strftime("%I:%M:%S") == ("11:45:00" || "16:00:00")
-    # linebot = LineService.new(ENV["LINE_ID"])
+    # linebot = LineService.new(ENV["LINE_ID"]
     # message_text = ""
     # linebot.send_message
     # end
-
-
 
     @coins = current_user.avatar.coins
 
     if @submission.save
       # where do I want to redirect to? home path??
-      if @submission.achieved
+      if @goal == "Food" && @submission.achieved || @goal == "Sleep" && @submission.achieved || @goal == "Exercise" && @submission.achieved
         current_user.avatar.update(coins: @coins + 50)
+      elsif @submission.achieved
+        current_user.avatar.update(coins: @coins + 20)
       end
-      redirect_to root_path(goal: @submission.goal.name, achieved: @submission.achieved, expression_url: @submission.achieved ? @submission.goal.part_url : ""), notice: "Thank you"
-      # but doesn't change anything
+
+      respond_to do |format|
+        format.html {redirect_to root_path(goal: @submission.goal.name, achieved: @submission.achieved, expression_url: @submission.achieved ? @submission.goal.part_url : "")}
+
+        format.text { render partial: "submissions/submission_task_form", locals: {goals: @goals, submission: Submission.new}, formats: [:html] }
+      end
+
     else
       redirect_to root_path, notice: "Sorry we're having issues", status: :unprocessable_entity
       # render the form???
@@ -52,10 +59,24 @@ class SubmissionsController < ApplicationController
     end
   end
 
+  def update
+    @submission = Submission.find(params[:id])
+    if @submission.update(submission_params)
+      # fire a line message IF @submission.reminder == true
+      linebot = LineService.new(ENV["LINE_ID"])
+      linebot.send_sticker
+      linebot.send_alert
+      # backgroundjob.set().perform_later
+      redirect_to root_path(goal: @submission.goal.name, achieved: @submission.achieved, expression_url: @submission.achieved ? @submission.goal.part_url : ""), notice: "Alarm set"
+    else
+      redirect_to root_path, notice: "Sorry we're having issues", status: :unprocessable_entity
+    end
+  end
+
   private
 
   def submission_params
-    params.require(:submission).permit(:achieved, :date)
+    params.require(:submission).permit(:achieved, :date, :reminder)
   end
 
   # def create

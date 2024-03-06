@@ -1,33 +1,36 @@
 <div class="block-color d-flex mb-1">
   <h3>Dashboard</h3>
 </div>
-  <h4 id="align-center">My Health Points</h4>
+<% @other_goals.each do |goal| %>
+  <%= goal.name %>
+  <%= goal.submissions.count %>
+<% end %>
+<h4 id="align-center">My Health Points</h4>
 <div class="hp-bar-frame">
-<%= render "pages/healthbar" %>
+  <%= render "pages/healthbar" %>
 </div>
-
 <div class="sub-calendar mb-1 mt-3">
-    <h4 id="align-center">Today's Progress</h4>
+  <h4 id="align-center">Today's Progress</h4>
   <div class="sub-progress">
     <div class="sub-progress-card" style = "<%= food_background_border_color(Date.today) %>">
       <span id="icon">
         <i class="fa-solid fa-burger" style="font-size: 2em; <%= food_percentage_color_dark(Date.today) %>"></i>
       </span>
-        <div class="hp-bar-dashboard-outline">
+      <div class="hp-bar-dashboard-outline">
         <div class="hp-bar-inner" style="width: <%= current_user.food_percentage_for(Date.today)%>%; background-<%= food_percentage_color_dark(Date.today)%> ">
         </div>
-        </div>
+      </div>
     </div>
-   <div class="sub-progress-card " style = "<%= sleep_background_border_color(Date.today)%>">
+    <div class="sub-progress-card " style = "<%= sleep_background_border_color(Date.today)%>">
       <span id="icon">
         <i class="fa-solid fa-moon" style="font-size: 2em; <%= sleep_percentage_color_dark(Date.today) %>"></i>
       </span>
-        <div class="hp-bar-dashboard-outline">
-          <div class="hp-bar-inner" style="width: <%= current_user.sleep_percentage_for(Date.today)%>%; background-<%= sleep_percentage_color_dark(Date.today) %>">
-          </div>
+      <div class="hp-bar-dashboard-outline">
+        <div class="hp-bar-inner" style="width: <%= current_user.sleep_percentage_for(Date.today)%>%; background-<%= sleep_percentage_color_dark(Date.today) %>">
         </div>
-  </div>
-  <div class="sub-progress-card" style = "<%=exercise_background_border_color(Date.today)%>">
+      </div>
+    </div>
+    <div class="sub-progress-card" style = "<%=exercise_background_border_color(Date.today)%>">
       <span id="icon">
         <i class="fa-solid fa-dumbbell" style="font-size: 2em; <%= exercise_percentage_color_dark(Date.today)%>"></i>
       </span>
@@ -35,39 +38,36 @@
         <div class="hp-bar-inner" style= "width: <%= @exercise_percentage%>%; background-<%= exercise_percentage_color_dark(Date.today) %>">
         </div>
       </div>
+    </div>
   </div>
-</div>
-<div class="container mt-3">
-<h4 id="align-center">Overview</h4>
-<%= month_calendar do |date| %>
-<%# iterate over the user goals %>
-<%# load the submissions for that date and goal %>
-
-<%# if current_user.sleep_percentage_for(date) < 40 %>
-<div class="calendar">
-<%if date <= Date.today && current_user.food_percentage_for(date) %>
-<h4><%= date.day %></h4>
-<div style="display: inline-grid;">
-<div class="calendar-card mb-1" style="background-<%= food_percentage_color_dark(date) %>">
-<i class="fa-solid fa-burger" style="font-size: 1em; color: white;"></i>
-</div>
-<div class="calendar-card mb-1" style="background-<%= sleep_percentage_color_dark(date)%>">
-<i class="fa-solid fa-moon" style="font-size: 1em; color: white;"></i>
-</div>
-<div class="calendar-card mb-1" style="background-<%= exercise_daily_percentage_color(date)%>">
-<i class="fa-solid fa-dumbbell" style="font-size: 1em; color: white;"></i>
-</div>
-<% else %>
-<h4><%= date.day %></h4>
-<% end %>
-</div>
-<% end %>
-</div>
+  <div class="container mt-3">
+    <h4 id="align-center">Overview</h4>
+    <%= month_calendar do |date| %>
+      <%# iterate over the user goals %>
+      <%# load the submissions for that date and goal %>
+      <%# if current_user.sleep_percentage_for(date) < 40 %>
+      <div class="calendar">
+        <%if date <= Date.today && current_user.food_percentage_for(date) %>
+          <h4><%= date.day %></h4>
+          <div style="display: inline-grid;">
+            <div class="calendar-card mb-1" style="background-<%= food_percentage_color_dark(date) %>">
+              <i class="fa-solid fa-burger" style="font-size: 1em; color: white;"></i>
+            </div>
+            <div class="calendar-card mb-1" style="background-<%= sleep_percentage_color_dark(date)%>">
+              <i class="fa-solid fa-moon" style="font-size: 1em; color: white;"></i>
+            </div>
+            <div class="calendar-card mb-1" style="background-<%= exercise_daily_percentage_color(date)%>">
+              <i class="fa-solid fa-dumbbell" style="font-size: 1em; color: white;"></i>
+            </div>
+          <% else %>
+            <h4><%= date.day %></h4>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-
-
+</div>
 <%# <h4 id="align-center">My Achievements</h4>
 <div class="container achievement-container mt-1">
   <div class="sub-achievement-grid">
