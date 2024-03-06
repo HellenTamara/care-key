@@ -29,14 +29,16 @@ h4 {
   font-weight: 300;
   font-style: normal;
   font-size: 20px;
+  margin-bottom: 0;
 }
 
 p {
   font-family: "Poppins", sans-serif;
   font-weight: 200;
   font-style: normal;
-  font-size: 16px;
+  // font-size: 16px;
   text-align: center;
+    margin-bottom: 0;
 }
 
 #dashboard-headers {
@@ -61,4 +63,14 @@ p {
 
 #align-center {
   text-align: center;
+}
+
+#align-left {
+  position: absolute;
+  padding-left: 17px;
+}
+
+.dashbar-text {
+  position: relative;
+  left: 7px;
 }
