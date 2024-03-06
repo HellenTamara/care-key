@@ -1,0 +1,9 @@
+<% today = Date.today %>
+<% current_time = Time.now %>
+
+<%# Time for sleep prompt%>
+<% sleep_prompt_time = Time.new(today.year, today.month, today.day, 10, 0, 0) %>
+
+<% if @submission_sleep.nil? %>
+  <%= render "submissions/form", goal: @goal_sleep, message: "Did you sleep #{@goal_sleep.duration} hrs?" %>
+<% end %>
