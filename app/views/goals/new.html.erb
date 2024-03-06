@@ -2,7 +2,7 @@
   <h3>My Goals</h3>
 </div>
 <% if !@goals.empty? %>
-  <div class="list-group task-container" data-controller="tasks">
+  <div class="task-container" data-controller="tasks">
     <%= render "submissions/submission_task_form", goals: @goals,  submission: @submission %>
   <div class="wrapper task-item" id="add" >
   <button type="button" style="color: #008c9bb5; padding-left: 30px;" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">

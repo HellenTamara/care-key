@@ -8,11 +8,10 @@
   border-top-width: 4px !important;
   color: #008C9B;
   border-radius: 15px;
-  justify-content: space-between;
   align-items: center;
   height: 70px;
   display: flex;
-  justify-items: center;
+  justify-items: space-between;
 }
 
 .task-container {
@@ -36,14 +35,14 @@
 }
 
 .task-main {
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
   margin-left: 30px;
   margin-right: 30px;
   margin-bottom: 10px;
   margin-top: 10px;
   padding-left: 20px;
   border-radius: 15px;
-  justify-content: space-between;
-  align-items: center;
+  // justify-content: space-between;
+  // align-items: center;
 }
