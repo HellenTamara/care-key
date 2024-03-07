@@ -21,7 +21,8 @@ export default class extends Controller {
           //   // beforeend could also be dynamic with Stimulus values
           //   form.insertAdjacentHTML("beforeend", data.inserted_item)
           // }
-          this.element.innerHTML = data
+          document.querySelector(".goals-container").innerHTML = data
+          // this.element.innerHTML = data
         })
   }
 }
