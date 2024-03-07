@@ -61,11 +61,9 @@
   <div class="avatar-card" data-controller="expressions" data-expressions-goal-value="<%= params[:goal] %>" data-expressions-url-value="<%= params[:achieved] %>">
     <div data-expressions-target="coin50" class="coin50 hide">
       <%= image_tag "pop_up/coins_50.png"%>
-
-  <div class="avatar-card" data-controller="expressions" data-expressions-goal-value="<%= params[:goal] %>" data-expressions-url-value="<%= params[:expression_url] %>">
+    </div>
     <div class="bubble-home hide" data-expressions-target="bubble">
       <p>Speech bubble</p>
-
     </div>
     <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color'%>
     <div class="facial-expression-submission show">
