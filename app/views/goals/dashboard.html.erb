@@ -1,10 +1,10 @@
 <div class="block-color d-flex mb-1">
   <h3>Dashboard</h3>
 </div>
-<h4 id="align-center">My Health Points</h4>
-<div class="hp-bar-frame">
+<div class="hp-bar-frame mt-4">
   <%= render "pages/healthbar" %>
 </div>
+<h4 id="align-center" class="weekly-hp-title">Your weekly Health Points</h4>
 <div class="sub-calendar mb-1 mt-3">
   <h4 id="align-center">Today's Progress</h4>
   <div class="sub-progress">
@@ -63,9 +63,7 @@
     </div>
   </div>
 </div>
-
-
- <%# <h4 id="align-center">My Achievements</h4>
+<%# <h4 id="align-center">My Achievements</h4>
 </div>
 <%# <h4 id="align-center">My Achievements</h4>
 <div class="container achievement-container mt-1">
@@ -86,16 +84,15 @@
     </div>
   </div>
 </div>  %>
-
-<h4 id="align-center">My Personal Goals</h4>
+<h4 id="align-center">My Weekly Progress</h4>
 <% @other_goals.each do |goal| %>
-<div class="goal-progress">
-<p id="align-left" class="dashbar-text"> <%= goal.name %></p>
-<div class="goal-bar-frame">
-<div class="goal-bar-outline">
-<div class="goal-bar-inner" style= "width: <%= (goal.submissions.count * 100) / 7 %>%; background-color: #38C6C2;"></div>
-</div>
-</div>
-</div>
+  <div class="goal-progress">
+    <p id="align-left" class="dashbar-text"> <%= goal.name %></p>
+    <div class="goal-bar-frame">
+      <div class="goal-bar-outline">
+        <div class="goal-bar-inner" style= "width: <%= (goal.submissions.count * 100) / 7 %>%; background-color: #38C6C2;"></div>
+      </div>
+    </div>
+  </div>
 <% end %>
 <div class="space"></div>
