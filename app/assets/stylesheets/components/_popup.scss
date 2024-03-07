@@ -1,0 +1,13 @@
+.popup {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  z-index: 999999;
+  // background-color: white;
+  img {
+    width: 100%;
+  }
+}
