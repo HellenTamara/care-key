@@ -11,7 +11,8 @@
     </button>
   </div>
   <%= render "avatars/name_modal" %>
-  <div class="bubble hide" data-avatar-options-target="bubble">
+  <div class="bubble-edit hide" data-avatar-options-target="bubble">
+    <%= image_tag "speech_bubbles/speech_bubble_update(#{rand(1...3)}).png"%>
   </div>
   <div class="container d-flex justify-content-center avatar-edit">
     <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color-op', :style => 'width: 50%;'%>
@@ -39,10 +40,10 @@
     </div>
   </div>
 </div>
-  <div class="shop-icon">
+<div class="shop-icon">
   <%= link_to shop_path do %>
     <div style="font-size: 2em; color: white;">
       <i class="fa-solid fa-shop"></i>
     </div>
   <%end%>
-  </div>
+</div>

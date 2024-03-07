@@ -6,19 +6,20 @@ export default class extends Controller {
 
   static values = {
     goal: String,
-    url: String
+    url: String,
+    status: String
   }
 
   connect() {
-    // if (this.urlValue !== "") {
-    //   const original = this.photoTarget.src
+    if (this.urlValue !== "") {
+      const original = this.photoTarget.src
 
-    //   this.setSrc(this.photoTarget, this.urlValue);
-    //   setTimeout(this.setSrc, 2000, this.photoTarget, original);
+      this.setSrc(this.photoTarget, this.urlValue);
+      setTimeout(this.setSrc, 2000, this.photoTarget, original);
 
-    // }
+    }
 
-    if (this.urlValue == "true") {
+    if (this.statusValue == "true") {
       setTimeout(() => {
       this.coin50Target.classList.toggle("hide");
       }, 2000);
@@ -34,7 +35,7 @@ export default class extends Controller {
   avatar() {
     setTimeout(() => {
       const part = this.bubbleTarget.classList.toggle("hide");
-      }, 3000);
+      }, 1000);
       const part = this.bubbleTarget.classList.toggle("hide");
   }
 }
