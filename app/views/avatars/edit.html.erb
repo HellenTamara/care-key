@@ -1,4 +1,4 @@
-<div class="avatar-edit-bg">
+<div class="avatar-edit-bg" data-controller="avatar-options" data-avatar-options-url-value="<%= params[:message] %>">
   <div class="block-color">
     <%= link_to shop_path do %>
       <div class="setting-icon" id="shop" style="font-size: 2em; color: white;">
@@ -16,6 +16,9 @@
     </button>
   </div>
   <%= render "avatars/name_modal" %>
+  <div class="bubble hide" data-avatar-options-target="bubble">
+    <p>Speech bubble</p>
+  </div>
   <div class="container d-flex justify-content-center avatar-edit">
     <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color-op', :style => 'width: 50%;'%>
     <div class="avatar-expression-op">
@@ -30,10 +33,10 @@
   <div class="edit-page-text-container">
     <p class="mt-3 edit-page-text">Select a category to change your avatar</p>
   </div>
-  <div data-controller="avatar-options"  data-avatar-options-avatar-value="<%= @user.avatar.id %>" style = "height: 150px;">
+  <div style = "height: 150px;">
     <div class="avatar-grid">
       <% @categories.each do |category| %>
-        <div data-action="click->avatar-options#select" value="<%= category %>">
+        <div value="<%= category %>">
           <button data-bs-toggle="modal" data-bs-target="#category-option-<%= category%>" style="border: none;" class="bg-transparent">
             <%= image_tag "avatar_edit_cards/Avatar_edit-cards_#{category}.png", id: @purchased_category == category ? 'notification' : '' , class: 'avatar-option-card'%></button>
           <%= render "avatars/modal", category: category %>
