@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   def create_avatar
     avatar = Avatar.create(user: self)
+    avatar.hp_level = 100
     avatar.coins = 1000
     avatar.hair = Part.where(category: "hair").first
     avatar.accessories = Part.where(category: "accessories").first
