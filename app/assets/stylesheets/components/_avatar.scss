@@ -96,6 +96,15 @@
   }
 }
 
+.shop-item-card {
+  height: 90px;
+  width: 90px;
+  border-radius: 10px;
+  .img-card {
+    overflow: hidden;
+  }
+}
+
 .avatar-edit {
   position: relative;
   flex-grow: 1;
@@ -115,7 +124,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 15%;
+  bottom: 16.5%;
   z-index: 99
 }
 
@@ -124,7 +133,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 27.5%;
+  bottom: 26.5%;
   z-index: 99;
 
 }
@@ -188,5 +197,5 @@
 
 .avatar-option-wrapper {
   display: grid;
-  
+
 }

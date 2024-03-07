@@ -6,11 +6,10 @@
           <%= hidden_field_tag 'name', 'purchased_parts' %>
           <%= f.radio_button "#{category}_id", part.id, class: "image-radio" %>
           <%= cl_image_tag part.photo.key, height: 200 %>
-          <%= "$#{part.price}" %>
+          <%= image_tag 'coins/coin.png', style: "width: 18px; height: 18px;"%> <%="#{part.price}" %>
         <% end %>
       <% end %>
     </div>
   </fieldset>
   <%= f.submit 'Purchase', class: 'btn btn-primary' %>
 <% end %>
-
