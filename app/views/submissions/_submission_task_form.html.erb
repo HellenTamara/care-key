@@ -65,7 +65,6 @@
             <i class="fa-solid fa-book"></i>
           <% end %>
           <%= goal.name %></h4>
-        <i class="fa-solid fa-check fa-2xl" id="check"style="color:white;"></i>
         <%= simple_form_for [goal, Submission.new], html: {data: {action: "change->tasks#mark"}}, wrapper_html: { style: "margin-bottom: 0 !important" } do |f| %>
           <%= f.input :achieved, label: false, input_html: { value: true }, wrapper_html: { style: "margin-bottom: 0 !important; margin-right: 8px" }%>
           <%= f.input :date, as: :hidden, input_html: { value: Date.today }, wrapper_html: { style: "margin-bottom: 0 !important" } %>
