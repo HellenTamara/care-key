@@ -20,9 +20,9 @@ module ApplicationHelper
   end
 
   def exercise_percentage_color_dark(date)
-    if current_user.weekly_exercise_percentage_for(date) < 40
+    if current_user.daily_exercise_percentage_for(date) < 40
       "color: #FF6073;"
-    elsif current_user.weekly_exercise_percentage_for(date) < 80
+    elsif current_user.daily_exercise_percentage_for(date) < 80
       "color: #EFB622"
     else
       "color: #008C9B"
@@ -60,9 +60,9 @@ module ApplicationHelper
   end
 
   def exercise_background_border_color(date)
-    if current_user.weekly_exercise_percentage_for(date) < 40
+    if current_user.daily_exercise_percentage_for(date) < 40
       "background-color: #FFD2D8; border: 4px #FF6073 solid;"
-    elsif current_user.weekly_exercise_percentage_for(date) < 80
+    elsif current_user.daily_exercise_percentage_for(date) < 80
       "background-color: #FDF5D0; border: 4px #F6DE68 solid;"
     else
       "background-color: #CFEDE9; border: 4px #008C9B solid;"
