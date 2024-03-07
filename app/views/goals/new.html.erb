@@ -1,10 +1,11 @@
 <div class="block-color d-flex mb-1">
   <h3>My Goals</h3>
 </div>
+<h4 class="daily-tasks-title">Daily tasks:</h4>
 <% if !@goals.empty? %>
   <div class="task-container" data-controller="tasks">
     <%= render "submissions/submission_task_form", goals: @goals,  submission: @submission %>
-    <div class="wrapper task-item" id="add" >
+    <div class="wrapper task-item add"  >
       <button type="button" style="color: #008c9bb5; padding-left: 30px;" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <i class="fa-solid fa-plus fa-2xl"></i>
       </button>
@@ -13,6 +14,11 @@
     </div>
   <% else %>
     <p>No tasks here yet! Create one!</p>
+  <% end %>
+</div>
+<div class="see-progress">
+  <%= link_to dashboard_path do  %>
+    <p>See your weekly progress <i class="fa-solid fa-arrow-right"></i></p>
   <% end %>
 </div>
 <div class="space"></div>
