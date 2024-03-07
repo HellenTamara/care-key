@@ -40,7 +40,7 @@ class SubmissionsController < ApplicationController
 
     if @submission.save
       # where do I want to redirect to? home path??
-      if @goal == "Food" && @submission.achieved || @goal == "Sleep" && @submission.achieved || @goal == "Exercise" && @submission.achieved
+      if @goal.name == "Food" && @submission.achieved || @goal.name == "Sleep" && @submission.achieved || @goal.name == "Exercise" && @submission.achieved
         current_user.avatar.update(coins: @coins + 50)
       elsif @submission.achieved
         current_user.avatar.update(coins: @coins + 20)
