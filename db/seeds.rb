@@ -54,20 +54,21 @@ go.save!
 hellen = User.new(email: "hellen.tamara@outlook.com", password: "123456", name: "Hellen")
 hellen.save!
 
-today = Date.today
 # Add sleep goals for this week March 5th
 # Sleep goal randomization
 
-# This week - needs to be touched up
 puts "Creating sleep goals......."
-start_date25 = Date.new(2024, 3, 1)
+start_date25 = Date.new(2024, 3, 2)
 end_date25 = start_date25 + 6
 goal25 = Goal.new(name: "Sleep", start_date: start_date25, end_date: end_date25, frequency: 7 )
 goal25.user = go
 goal25.save!
 
+# Last week submissions has to be done day by day
+
+# Don't want to include the 7th day
 puts "Creating sleep submissions"
-(goal25.start_date..goal25.end_date).each do |date| # creates a range for start date to end date
+(goal25.start_date..(goal25.end_date - 2)).each do |date| # creates a range for start date to end date
   (rand(0..1)).times do
     submission = Submission.new(date: date)
     submission.achieved = true
@@ -78,8 +79,10 @@ puts "Creating sleep submissions"
 end
 
 
+# -------------------------------------------------------------------------------->
+
 puts "Creating sleep goals......."
-start_date1 = Date.new(2024, 2, 23)
+start_date1 = Date.new(2024, 2, 24)
 end_date1 = start_date1 + 6
 goal1 = Goal.new(name: "Sleep", start_date: start_date1, end_date: end_date1, frequency: 7 )
 goal1.user = go
@@ -96,7 +99,7 @@ puts "Creating sleep submissions"
   end
 end
 
-start_date2 = Date.new(2024, 2, 16)
+start_date2 = Date.new(2024, 2, 17)
 end_date2 = start_date2 + 6
 goal2 = Goal.new(name: "Sleep", start_date: start_date2, end_date: end_date2, frequency: 7 )
 goal2.user = go
@@ -112,7 +115,7 @@ goal2.save!
   end
 end
 
-start_date3 = Date.new(2024, 2, 9)
+start_date3 = Date.new(2024, 2, 10)
 end_date3 = start_date3 + 6
 goal3 = Goal.new(name: "Sleep", start_date: start_date3, end_date: end_date3, frequency: 7 )
 goal3.user = go
@@ -128,7 +131,7 @@ goal3.save!
   end
 end
 
-start_date4 = Date.new(2024, 2, 2)
+start_date4 = Date.new(2024, 2, 3)
 end_date4 = start_date4 + 6
 goal4 = Goal.new(name: "Sleep", start_date: start_date4, end_date: end_date4, frequency: 7 )
 goal4.user = go
@@ -145,7 +148,7 @@ goal4.save!
 end
 
 
-start_date5 = Date.new(2024, 1, 26)
+start_date5 = Date.new(2024, 1, 27)
 end_date5 = start_date5 + 6
 goal5 = Goal.new(name: "Sleep", start_date: start_date5, end_date: end_date5, frequency: 7 )
 goal5.user = go
@@ -162,7 +165,7 @@ goal5.save!
 end
 
 
-start_date6 = Date.new(2024, 1, 19)
+start_date6 = Date.new(2024, 1, 20)
 end_date6 = start_date6 + 6
 goal6 = Goal.new(name: "Sleep", start_date: start_date6, end_date: end_date6, frequency: 7 )
 goal6.user = go
@@ -179,7 +182,7 @@ goal6.save!
 end
 
 
-start_date7 = Date.new(2024, 1, 12)
+start_date7 = Date.new(2024, 1, 13)
 end_date7 = start_date7 + 6
 goal7 = Goal.new(name: "Sleep", start_date: start_date7, end_date: end_date7, frequency: 7 )
 goal7.user = go
@@ -195,7 +198,7 @@ goal7.save!
   end
 end
 
-start_date8 = Date.new(2024, 1, 5)
+start_date8 = Date.new(2024, 1, 6)
 end_date8 = start_date8 + 6
 goal8 = Goal.new(name: "Sleep", start_date: start_date8, end_date: end_date8, frequency: 7 )
 goal8.user = go
@@ -213,15 +216,16 @@ end
 
 # Seeds for foods -------------------------->
 puts "Creating food goals............"
-start_date26 = Date.new(2024, 3, 1)
-end_date26 = Date.today - 1
+start_date26 = Date.new(2024, 3, 2)
+end_date26 = start_date26 + 6
 goal26 = Goal.new(name: "Food", start_date: start_date26, end_date: end_date26, frequency: 21)
 goal26.user = go
 goal26.save!
 
+# Submissions for food for last week needs to be done daily                    ------------------------------->
 puts "Creating food submissions........."
-(goal26.start_date..goal26.end_date).each do |date| # creates a range for start date to end date
-  rand(1..3).times do
+(goal26.start_date..(goal26.end_date - 2)).each do |date| # creates a range for start date to end date
+  3.times do
     submission = Submission.new(date: date)
     submission.achieved = true
     submission.goal= goal26
@@ -230,9 +234,10 @@ puts "Creating food submissions........."
   end
 end
 
+# -------------------------------------------------------------------->
 
 puts "Creating food goals............"
-start_date9 = Date.new(2024, 2, 23)
+start_date9 = Date.new(2024, 2, 24)
 end_date9 = start_date9 + 6
 goal9 = Goal.new(name: "Food", start_date: start_date9, end_date: end_date9, frequency: 21)
 goal9.user = go
@@ -240,7 +245,7 @@ goal9.save!
 
 puts "Creating food submissions........."
 (goal9.start_date..goal9.end_date).each do |date| # creates a range for start date to end date
-  rand(1..3).times do
+  3.times do
     submission = Submission.new(date: date)
     submission.achieved = true
     submission.goal= goal9
@@ -249,14 +254,14 @@ puts "Creating food submissions........."
   end
 end
 
-start_date10 = Date.new(2024, 2, 16)
+start_date10 = Date.new(2024, 2, 17)
 end_date10 = start_date10 + 6
 goal10 = Goal.new(name: "Food", start_date: start_date10, end_date: end_date10, frequency: 21)
 goal10.user = go
 goal10.save!
 
 (goal10.start_date..goal10.end_date).each do |date| # creates a range for start date to end date
-  rand(1..3).times do
+  3.times do
     submission = Submission.new(date: date)
     submission.achieved = true
     submission.goal= goal10
@@ -265,14 +270,14 @@ goal10.save!
   end
 end
 
-start_date11 = Date.new(2024, 2, 9)
+start_date11 = Date.new(2024, 2, 10)
 end_date11 = start_date11 + 6
 goal11 = Goal.new(name: "Food", start_date: start_date11, end_date: end_date11, frequency: 21)
 goal11.user = go
 goal11.save!
 
 (goal11.start_date..goal11.end_date).each do |date| # creates a range for start date to end date
-  rand(1..3).times do
+  3.times do
     submission = Submission.new(date: date)
     submission.achieved = true
     submission.goal= goal11
@@ -282,14 +287,14 @@ goal11.save!
 end
 
 
-start_date12 = Date.new(2024, 2, 2)
+start_date12 = Date.new(2024, 2, 3)
 end_date12 = start_date12 + 6
 goal12 = Goal.new(name: "Food", start_date: start_date12, end_date: end_date12, frequency: 21)
 goal12.user = go
 goal12.save!
 
 (goal12.start_date..goal12.end_date).each do |date| # creates a range for start date to end date
-  rand(1..3).times do
+  3.times do
     submission = Submission.new(date: date)
     submission.achieved = true
     submission.goal= goal12
@@ -299,7 +304,7 @@ goal12.save!
 end
 
 
-start_date13 = Date.new(2024, 1, 26)
+start_date13 = Date.new(2024, 1, 27)
 end_date13 = start_date13 + 6
 goal13 = Goal.new(name: "Food", start_date: start_date13, end_date: end_date13, frequency: 21)
 goal13.user = go
@@ -316,7 +321,7 @@ goal13.save!
 end
 
 
-start_date14 = Date.new(2024, 1, 19)
+start_date14 = Date.new(2024, 1, 20)
 end_date14 = start_date14 + 6
 goal14 = Goal.new(name: "Food", start_date: start_date14, end_date: end_date14, frequency: 21)
 goal14.user = go
@@ -333,7 +338,7 @@ goal14.save!
 end
 
 
-start_date15 = Date.new(2024, 1, 12)
+start_date15 = Date.new(2024, 1, 13)
 end_date15 = start_date15 + 6
 goal15 = Goal.new(name: "Food", start_date: start_date15, end_date: end_date15, frequency: 21)
 goal15.user = go
@@ -350,7 +355,7 @@ goal15.save!
 end
 
 
-start_date16 = Date.new(2024, 1, 5)
+start_date16 = Date.new(2024, 1, 6)
 end_date16 = start_date16 + 6
 goal16 = Goal.new(name: "Food", start_date: start_date16, end_date: end_date16, frequency: 21)
 goal16.user = go
@@ -371,14 +376,15 @@ end
 
 # Exercise seeds randomization
 puts "Creating exercise goals............"
-start_date27 = Date.new(2024, 3, 1)
-end_date27 = Date.today - 1
+start_date27 = Date.new(2024, 3, 2)
+end_date27 = start_date27 + 6
 goal27 = Goal.new(name: "Exercise", start_date: start_date27, end_date: end_date27, frequency: 3, duration: 30)
 goal27.user = go
 goal27.save!
 
+# Exercise goal submission for last week          neeeds to be made one by one----->
 puts "Creating exercise submissions........."
-(goal27.start_date..goal27.end_date).each do |date|
+(goal27.start_date..(goal27.end_date)-1).each do |date|
   (rand(0..1)).times do
     submission = Submission.new(date: date)
     submission.achieved = true
@@ -388,10 +394,8 @@ puts "Creating exercise submissions........."
   end
 end
 
-
-
 puts "Creating exercise goals............"
-start_date17 = Date.new(2024, 2, 23)
+start_date17 = Date.new(2024, 2, 24)
 end_date17 = start_date17 + 6
 goal17 = Goal.new(name: "Exercise", start_date: start_date17, end_date: end_date17, frequency: 3, duration: 30)
 goal17.user = go
@@ -411,7 +415,7 @@ end
 
 
 puts "Creating exercise goals............"
-start_date18 = Date.new(2024, 2, 16)
+start_date18 = Date.new(2024, 2, 17)
 end_date18 = start_date18 + 6
 goal18 = Goal.new(name: "Exercise", start_date: start_date18, end_date: end_date18, frequency: 3, duration: 30)
 goal18.user = go
@@ -431,7 +435,7 @@ end
 
 
 puts "Creating exercise goals............"
-start_date19 = Date.new(2024, 2, 9)
+start_date19 = Date.new(2024, 2, 10)
 end_date19 = start_date19 + 6
 goal19 = Goal.new(name: "Exercise", start_date: start_date19, end_date: end_date19, frequency: 3, duration: 30)
 goal19.user = go
@@ -449,7 +453,7 @@ puts "Creating exercise submissions........."
 end
 
 puts "Creating exercise goals............"
-start_date20 = Date.new(2024, 2, 2)
+start_date20 = Date.new(2024, 2, 3)
 end_date20 = start_date20 + 6
 goal20 = Goal.new(name: "Exercise", start_date: start_date20, end_date: end_date20, frequency: 3, duration: 30)
 goal20.user = go
@@ -468,7 +472,7 @@ end
 
 
 puts "Creating exercise goals............"
-start_date21 = Date.new(2024, 1, 26)
+start_date21 = Date.new(2024, 1, 27)
 end_date21 = start_date21 + 6
 goal21 = Goal.new(name: "Exercise", start_date: start_date21, end_date: end_date21, frequency: 3, duration: 30)
 goal21.user = go
@@ -486,7 +490,7 @@ puts "Creating exercise submissions........."
 end
 
 puts "Creating exercise goals............"
-start_date22 = Date.new(2024, 1, 19)
+start_date22 = Date.new(2024, 1, 20)
 end_date22 = start_date22 + 6
 goal22 = Goal.new(name: "Exercise", start_date: start_date22, end_date: end_date22, frequency: 3, duration: 30)
 goal22.user = go
@@ -504,7 +508,7 @@ puts "Creating exercise submissions........."
 end
 
 puts "Creating exercise goals............"
-start_date23 = Date.new(2024, 1, 12)
+start_date23 = Date.new(2024, 1, 13)
 end_date23 = start_date23 + 6
 goal23 = Goal.new(name: "Exercise", start_date: start_date23, end_date: end_date23, frequency: 3, duration: 30)
 goal23.user = go
@@ -522,7 +526,7 @@ puts "Creating exercise submissions........."
 end
 
 puts "Creating exercise goals............"
-start_date24 = Date.new(2024, 1, 5)
+start_date24 = Date.new(2024, 1, 6)
 end_date24 = start_date24 + 6
 goal24 = Goal.new(name: "Exercise", start_date: start_date24, end_date: end_date24, frequency: 3, duration: 30)
 goal24.user = go
@@ -538,3 +542,72 @@ puts "Creating exercise submissions........."
     submission.save!
   end
 end
+
+
+# Hard coded goals - for meditation
+start_date31 = Date.new(2024, 3, 4)
+end_date31 = Date.today - 1
+goal31 = Goal.new(name: "Meditate", start_date: start_date31, end_date: end_date31, frequency: 7, duration:10 )
+goal31.user = go
+goal31.save!
+
+(goal31.start_date..goal31.end_date).each do |date| # creates a range for start date to end date
+  (rand(0..5)).times do
+    submission = Submission.new(date: date)
+    submission.achieved = true
+    submission.goal= goal31
+    submission.user= go
+    submission.save!
+  end
+end
+
+
+# Hard coded goals - for reading
+start_date31 = Date.new(2024, 3, 4)
+end_date31 = Date.today - 1
+goal31 = Goal.new(name: "Reading", start_date: start_date31, end_date: end_date31, frequency: 7, duration:5 )
+goal31.user = go
+goal31.save!
+
+(goal31.start_date..goal31.end_date).each do |date| # creates a range for start date to end date
+  rand((0..5)).times do
+    submission = Submission.new(date: date)
+    submission.achieved = true
+    submission.goal= goal31
+    submission.user= go
+    submission.save!
+  end
+end
+
+
+# Hard coded goals for Stretch
+start_date32 = Date.new(2024, 3, 4)
+end_date32 = Date.today - 1
+goal32 = Goal.new(name: "Stretch", start_date: start_date32, end_date: end_date32, frequency: 7, duration:5 )
+goal32.user = go
+goal32.save!
+
+(goal32.start_date..goal32.end_date).each do |date| # creates a range for start date to end date
+  rand((0..1)).times do
+    submission = Submission.new(date: date)
+    submission.achieved = true
+    submission.goal= goal32
+    submission.user= go
+    submission.save!
+  end
+end
+
+
+# start_date32 = Date.new(2024, 3, 4)
+# end_date32 = Date.today - 1
+
+# # Have to submit daily
+# (goal32.start_date..goal32.end_date).each do |date| # creates a range for start date to end date
+#   (rand(0..1)).times do
+#     submission = Submission.new(date: date)
+#     submission.achieved = true
+#     submission.goal= goal32
+#     submission.user= go
+#     submission.save!
+#   end
+# end

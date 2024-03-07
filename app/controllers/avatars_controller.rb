@@ -6,7 +6,6 @@ class AvatarsController < ApplicationController
     @categories = ["hair", "pants", "shirt", "skin_color", "shoes", "accessories"]
     @parts = Part.all
     @hp_bar_level = @user.avatar.hp_level
-
     # respond_to do |format|
     #   format.html
     #   format.text { render partial: "form", locals: {category: params[:category], parts: @parts}, formats: [:html] }
