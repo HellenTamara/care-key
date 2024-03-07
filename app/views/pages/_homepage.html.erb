@@ -11,12 +11,16 @@
   <%# HP bar works based on hp_bar_level (weekly goals) %>
   <div class="hp-bar ms-3" style="flex-grow: 7">
     <%= render "healthbar" %>
+    <p class="text-start ms-2">Health points</p>
   </div>
-  <span style="flex-grow: 1"></span>
-  <div class="point-bar me-3">
-    <%= image_tag 'coins/coin.png', class: "coin-icon"%>
-    <%# placeholder text below, can interpolate %>
-    <p><%= current_user.avatar.coins %></p>
+  <div>
+    <div class="point-bar me-3">
+      <span style="flex-grow: 1"></span>
+      <%= image_tag 'coins/coin.png', class: "coin-icon"%>
+      <%# placeholder text below, can interpolate %>
+      <p><%= current_user.avatar.coins %></p>
+    </div>
+    <p class="text-start ms-3">coins</p>
   </div>
 </div>
 <div class="submission-box" data-controller="submissions">

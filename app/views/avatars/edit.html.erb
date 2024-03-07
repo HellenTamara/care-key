@@ -1,8 +1,7 @@
 <div class="avatar-edit-bg">
   <div class="block-color">
-    <h3>Update Your Avatar</h3>
+    <h3>Profile</h3>
   </div>
-  <p class="mt-3">Select a category to change your avatar</p>
   <%# name of user needs to be implemented here %>
   <%# pen icon should link to updating name (pop-up?)%>
   <div class="name-container">
@@ -22,6 +21,9 @@
     <%= cl_image_tag @user.avatar.hair.photo.key, :class => 'avatar-hair-op', :style => 'width: 50%;'%>
     <%= cl_image_tag @user.avatar.pants.photo.key, :class => 'avatar-pants-op', :style => 'width: 50%;'%>
     <%= cl_image_tag @user.avatar.shirt.photo.key, :class => 'avatar-shirt-op', :style => 'width: 50%;' %>
+  </div>
+  <div class="edit-page-text-container">
+    <p class="mt-3 edit-page-text">Select a category to change your avatar</p>
   </div>
   <div data-controller="avatar-options"  data-avatar-options-avatar-value="<%= @user.avatar.id %>" style = "height: 150px;">
     <div class="avatar-grid">
