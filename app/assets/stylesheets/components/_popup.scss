@@ -29,3 +29,19 @@
   left: -64px;
   bottom: 69px;
 }
+
+.bubble-home img{
+  height: 140px;
+  top: -43px;
+  right: 199px;
+  position: absolute;
+  z-index: 999;
+}
+
+.bubble-edit img{
+  height: 140px;
+  top: 174px;
+  right: 270px;
+  position: absolute;
+  z-index: 999;
+}
