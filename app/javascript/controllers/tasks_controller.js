@@ -10,18 +10,20 @@ export default class extends Controller {
     const form = event.currentTarget
     console.log(form)
 
-      fetch(form.action, {
-        method: "POST",
-        headers: { "Accept": "text/plain" },
-        body: new FormData(form)
-      })
+    fetch(form.action, {
+      method: "POST",
+      headers: { "Accept": "text/plain" },
+      body: new FormData(form)
+    })
         .then(response => response.text())
         .then((data) => {
           // if (data.inserted_item) {
           //   // beforeend could also be dynamic with Stimulus values
           //   form.insertAdjacentHTML("beforeend", data.inserted_item)
           // }
-          this.element.innerHTML = data
+          document.querySelector(".goals-container").innerHTML = data
+          // this.element.innerHTML = data
         })
+
   }
 }

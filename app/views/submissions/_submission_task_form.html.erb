@@ -1,28 +1,76 @@
-<% goals.each do |goal| %>
-  <div class="d-flex task-item" >
+<div class= "goals-container">
+  <% counter = 0 %>
+  <% goals.each do |goal| %>
     <% if  goal.name == "Food" %>
       <% [true, true, true].zip(goal.submissions.first(3)).each do |(achieved_value, saved_submission)|%>
-        <% if saved_submission %>
-          <div class="achieved">
-            <h4 style="color: white;"><%= goal.name %></h4>
-          </div>
-        <% else %>
-          <%= simple_form_for [goal, Submission.new], html: {data: {action: "change->tasks#mark"}} do |f| %>
-            <%= f.input :achieved, input_html: { value: true } %>
-            <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
+        <div class="d-flex task-item" >
+          <% if saved_submission %>
+            <div class="achieved">
+              <h4 style="color: white;"><i class="fa-solid fa-utensils"></i>
+                <% if counter == 0 %>
+                  Breakfast
+                <% elsif counter == 1 %>
+                  Lunch
+                <% else %>
+                  Dinner
+                <% end %>
+              </h4>
+              <i class="fa-solid fa-check fa-2xl" id="check"style="color:white;"></i>
+            </div>
+          <% else %>
+            <h4 style="padding-left:25px;" class="d-flex"><i class="fa-solid fa-utensils me-2"></i>
+              <% if counter == 0 %>
+                Breakfast
+              <% elsif counter == 1 %>
+                Lunch
+              <% else %>
+                Dinner
+              <% end %>
+            </h4>
+            <%= simple_form_for [goal, Submission.new], html: {data: {action: "change->tasks#mark"}}, wrapper_html: { style: "margin-bottom: 0 !important" } do |f| %>
+              <%= f.input :achieved, label: false, input_html: { value: true }, wrapper_html: { style: "margin-bottom: 0 !important; margin-right: 8px" }%>
+              <%= f.input :date, as: :hidden, input_html: { value: Date.today }, wrapper_html: { style: "margin-bottom: 0 !important" } %>
+            <% end %>
           <% end %>
-        <% end %>
+          <% counter += 1 %>
+        </div>
       <% end %>
     <% elsif goal.submissions.any? %>
-      <div class="achieved">
-      <h4 style="color: white;"><%= goal.name %></h4><i class="fa-solid fa-check fa-2xl" id="check"style="color:white;"></i>
+      <div class="d-flex task-item" >
+        <div class="achieved">
+          <h4 style="color: white;">
+            <% if goal.name == "Exercise" %>
+              <i class="fa-solid fa-dumbbell"></i>
+            <% elsif goal.name == "Sleep"%>
+              <i class="fa-solid fa-moon"></i>
+            <% elsif goal.name == "Reading"%>
+              <i class="fa-solid fa-book-open-reader"></i>
+            <% elsif goal.name == "Meditation"%>
+              <i class="fa-regular fa-face-smile-beam"></i>
+            <% else %>
+              <i class="fa-solid fa-book"></i>
+            <% end %>
+            <%= goal.name %></h4>
+          <i class="fa-solid fa-check fa-2xl" id="check"style="color:white;"></i>
+        </div>
       </div>
     <% else %>
-      <h4 style="padding-left:25px;"><%= goal.name %></h4>
-      <%= simple_form_for [goal, Submission.new], html: {data: {action: "change->tasks#mark"}} do |f| %>
-        <%= f.input :achieved, label: false, input_html: { value: true } %>
-        <%= f.input :date, as: :hidden, input_html: { value: Date.today } %>
-      <% end %>
+      <div class="d-flex task-item" >
+        <h4 style="padding-left:25px;">
+          <% if goal.name == "Exercise" %>
+            <i class="fa-solid fa-dumbbell"></i>
+          <% elsif goal.name == "Sleep"%>
+            <i class="fa-solid fa-moon"></i>
+          <% else %>
+            <i class="fa-solid fa-book"></i>
+          <% end %>
+          <%= goal.name %></h4>
+        <i class="fa-solid fa-check fa-2xl" id="check"style="color:white;"></i>
+        <%= simple_form_for [goal, Submission.new], html: {data: {action: "change->tasks#mark"}}, wrapper_html: { style: "margin-bottom: 0 !important" } do |f| %>
+          <%= f.input :achieved, label: false, input_html: { value: true }, wrapper_html: { style: "margin-bottom: 0 !important; margin-right: 8px" }%>
+          <%= f.input :date, as: :hidden, input_html: { value: Date.today }, wrapper_html: { style: "margin-bottom: 0 !important" } %>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>

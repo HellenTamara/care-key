@@ -4,6 +4,8 @@ class AvatarsController < ApplicationController
     @user = current_user
     @avatar = @user.avatar
     @categories = ["hair", "pants", "shirt", "skin_color", "shoes", "accessories"]
+    @purchased_part = Part.find_by(name: @avatar.purchased_parts.last)
+    @purchased_category = @purchased_part&.category
     @parts = Part.all
     @hp_bar_level = @user.avatar.hp_level
     # respond_to do |format|
@@ -27,7 +29,7 @@ class AvatarsController < ApplicationController
     end
 
     if @avatar.update(strong_params)
-      redirect_to edit_avatar_path(@avatar)
+      redirect_to edit_avatar_path(@avatar, message: "Hi")
     end
   end
 

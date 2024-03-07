@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   position: relative;
+  margin-top: 74px;
 }
 
 .avatar-hair {
@@ -21,7 +22,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 9;
-  bottom: -1%;
+  bottom: 7%;
 }
 
 .avatar-expression {
@@ -96,6 +97,15 @@
   }
 }
 
+.shop-item-card {
+  height: 90px;
+  width: 90px;
+  border-radius: 10px;
+  .img-card {
+    overflow: hidden;
+  }
+}
+
 .avatar-edit {
   position: relative;
   flex-grow: 1;
@@ -115,7 +125,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 15%;
+  bottom: 16.5%;
   z-index: 99
 }
 
@@ -124,7 +134,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 27.5%;
+  bottom: 26.5%;
   z-index: 99;
 
 }
@@ -165,4 +175,28 @@
   width: 70%;
   position: absolute;
   transform: translatey(-5%);
+}
+
+#notification {
+  border: 4px solid #FF6073;
+}
+
+.shop-icon {
+  display: flex;
+  position: relative;
+  top: -205px;
+  left: 359px;
+  background-color: #EFB622;
+  border: 4px solid #EFB622;
+  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.avatar-option-wrapper {
+  display: grid;
+
 }
