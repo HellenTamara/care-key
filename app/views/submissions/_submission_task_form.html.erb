@@ -14,7 +14,7 @@
                 Dinner
               <% end %>
             </h4>
-            <i class="fa-solid fa-check fa-lg" id="check"style="color:white;"></i>
+            <i class="fa-solid fa-check fa-2xl" id="check"style="color:white;"></i>
           </div>
         <% else %>
           <h4 style="padding-left:25px;" class="d-flex"><i class="fa-solid fa-utensils me-2"></i>
@@ -37,7 +37,19 @@
   <% elsif goal.submissions.any? %>
     <div class="d-flex task-item" >
       <div class="achieved">
-        <h4 style="color: white;"><%= goal.name %></h4>
+        <h4 style="color: white;">
+          <% if goal.name == "Exercise" %>
+            <i class="fa-solid fa-dumbbell"></i>
+          <% elsif goal.name == "Sleep"%>
+            <i class="fa-solid fa-moon"></i>
+          <% elsif goal.name == "Reading"%>
+            <i class="fa-solid fa-book-open-reader"></i>
+          <% elsif goal.name == "Meditation"%>
+            <i class="fa-regular fa-face-smile-beam"></i>
+          <% else %>
+            <i class="fa-solid fa-book"></i>
+          <% end %>
+          <%= goal.name %></h4>
         <i class="fa-solid fa-check fa-2xl" id="check"style="color:white;"></i>
       </div>
     </div>
