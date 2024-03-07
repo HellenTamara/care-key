@@ -1,19 +1,28 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["photo", "bubble"]
+
+  static targets = ["photo", "coin50", "bubble"]
+
   static values = {
     goal: String,
     url: String
   }
 
   connect() {
+    // if (this.urlValue !== "") {
+    //   const original = this.photoTarget.src
+
+    //   this.setSrc(this.photoTarget, this.urlValue);
+    //   setTimeout(this.setSrc, 2000, this.photoTarget, original);
+
+    // }
+
     if (this.urlValue !== "") {
-      const original = this.photoTarget.src
-
-      this.setSrc(this.photoTarget, this.urlValue);
-      setTimeout(this.setSrc, 2000, this.photoTarget, original);
-
+      setTimeout(() => {
+      this.coin50Target.classList.toggle("hide");
+      }, 2000);
+      this.coin50Target.classList.toggle("hide");
     }
   }
 
