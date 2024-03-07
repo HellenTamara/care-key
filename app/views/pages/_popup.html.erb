@@ -1,8 +1,9 @@
 <div data-controller = "popup" class="popup">
   <%# <%= image_tag "pop_up/achievement.png" %>
+  <button class= btn btn-primary data-action = "click->popup#close">Close</button>
   <%= link_to shop_path do %>
-    <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/NmOJyHHkFR34CPbsTf" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <div>
+      <%= image_tag "pop_up/30_day_streak.gif" %>
     </div>
   <% end %>
-  <button class= btn btn-primary data-action = "click->popup#close">Close</button>
 </div>
