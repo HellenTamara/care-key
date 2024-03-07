@@ -2,11 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="tasks"
 export default class extends Controller {
-  static targets = ["coin20", "coin50"]
-
   connect() {
     console.log("connected");
-    const coin20 = this.coin20Target
   }
 
   mark(event) {
