@@ -23,7 +23,7 @@
     <%= cl_image_tag @user.avatar.shirt.photo.key, :class => 'avatar-shirt-op', :style => 'width: 50%;' %>
   </div>
   <div class="edit-page-text-container">
-    <p class="mt-3 edit-page-text">Select a category to change your avatar</p>
+    <p class="mt-3 edit-page-text">Select a category option below</p>
   </div>
   <div data-controller="avatar-options"  data-avatar-options-avatar-value="<%= @user.avatar.id %>" style = "height: 150px;">
     <div class="avatar-grid">
