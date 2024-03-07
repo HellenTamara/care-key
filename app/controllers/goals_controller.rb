@@ -9,12 +9,8 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
-
     @goals = current_user.goals_of_the_week
     @submission = Submission.new
-
-
-
     # @main_goals = [current_user.current_eating_goal, current_user.current_exercise_goal, current_user.current_sleep_goal]
   end
 
