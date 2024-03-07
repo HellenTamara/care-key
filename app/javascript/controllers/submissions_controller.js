@@ -43,7 +43,7 @@ export default class extends Controller {
     if (goal === "food") {
       this.foodTarget.classList.toggle("hide")
     // } else if (goal === "sleep") {
-      this.sleepTarget.classList.toggle("hide")
+      // this.sleepTarget.classList.toggle("hide")
     } else if (goal === "exercise") {
       this.exerciseTarget.classList.toggle("hide")
     }
