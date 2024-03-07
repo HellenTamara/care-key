@@ -30,7 +30,7 @@ class AvatarsController < ApplicationController
     end
 
     if @avatar.update(strong_params)
-      redirect_to edit_avatar_path(@avatar)
+      redirect_to edit_avatar_path(@avatar, message: "Hi")
     end
   end
 
