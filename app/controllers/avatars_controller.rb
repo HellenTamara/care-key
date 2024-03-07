@@ -5,7 +5,7 @@ class AvatarsController < ApplicationController
     @avatar = @user.avatar
     @categories = ["hair", "pants", "shirt", "skin_color", "shoes", "accessories"]
     @purchased_part = Part.find_by(name: @avatar.purchased_parts.last)
-    @purchased_category = @purchased_part.category
+    @purchased_category = @purchased_part&.category
     @parts = Part.all
     @hp_bar_level = @user.avatar.hp_level
 
