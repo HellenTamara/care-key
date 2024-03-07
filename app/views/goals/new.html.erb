@@ -4,15 +4,15 @@
 <% if !@goals.empty? %>
   <div class="task-container" data-controller="tasks">
     <%= render "submissions/submission_task_form", goals: @goals,  submission: @submission %>
-  <div class="wrapper task-item" id="add" >
-  <button type="button" style="color: #008c9bb5; padding-left: 30px;" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      <i class="fa-solid fa-plus fa-2xl"></i>
-    </button>
+    <div class="wrapper task-item" id="add" >
+      <button type="button" style="color: #008c9bb5; padding-left: 30px;" class="btn bg-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa-solid fa-plus fa-2xl"></i>
+      </button>
       <h4 style="color: #008c9bb5; padding-right: 100px;">Add New Goal</h4>
-<%= render "task_modal" %>
-</div>
-<% else %>
-  <p>No tasks here yet! Create one!</p>
-<% end %>
+      <%= render "task_modal" %>
+    </div>
+  <% else %>
+    <p>No tasks here yet! Create one!</p>
+  <% end %>
 </div>
 <div class="space"></div>
