@@ -2,12 +2,22 @@
   position: absolute;
   display: none;
   top: 50%;
-  left:50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 100vw;
+  width: 103vw;
+  height: 108vh;
   z-index: 999999;
-  // background-color: white;
+  padding-top: 55%;
+  background-color: rgba(	0,0,0,0.7 );
   img {
     width: 100%;
+  }
+  button {
+    padding-top: 30%;
+    float: right;
+    color: white;
+    font-size: large;
+    position: absolute;
+    left: 80%;
   }
 }
