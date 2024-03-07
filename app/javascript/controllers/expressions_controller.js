@@ -18,7 +18,7 @@ export default class extends Controller {
 
     // }
 
-    if (this.urlValue !== "") {
+    if (this.urlValue == "true") {
       setTimeout(() => {
       this.coin50Target.classList.toggle("hide");
       }, 2000);
