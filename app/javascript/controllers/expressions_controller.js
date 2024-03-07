@@ -34,7 +34,7 @@ export default class extends Controller {
   avatar() {
     setTimeout(() => {
       const part = this.bubbleTarget.classList.toggle("hide");
-      }, 3000);
+      }, 1000);
       const part = this.bubbleTarget.classList.toggle("hide");
   }
 }
