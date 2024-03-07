@@ -37,7 +37,7 @@
     </div>
   </div>
   <div class="container mt-3">
-    <h4 id="align-center">Overview</h4>
+    <h4 id="align-center" style="margin-bottom: 15px;">Overview</h4>
     <%= month_calendar do |date| %>
       <%# iterate over the user goals %>
       <%# load the submissions for that date and goal %>
@@ -84,7 +84,7 @@
     </div>
   </div>
 </div>  %>
-<h4 id="align-center">My Weekly Progress</h4>
+<h4 id="align-center" style="margin-top:15px;">My Weekly Progress</h4>
 <% @other_goals.each do |goal| %>
   <div class="goal-progress">
     <p id="align-left" class="dashbar-text"> <%= goal.name %></p>

@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @pop_up = session[:pop_up] || true
     if user_signed_in?
       @user = current_user
 
@@ -42,7 +41,7 @@ class PagesController < ApplicationController
       # binding.irb
       # exercise = 3 *100 / 3 (total is 300/3 = 100)
 
-      @exercise_display_percentage =(@exercise_achieved_amount.count * 100) / 3
+      @exercise_display_percentage = (@exercise_achieved_amount.count * 100) / 3
 
       @hp_bar_level = (100 - @sleep_percentage - @food_percentage - @exercise_percentage) #this is based on the week goals
 

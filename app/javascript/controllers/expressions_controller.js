@@ -1,7 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["photo", "coin50"]
+
+  static targets = ["photo", "coin50", "bubble"]
+
   static values = {
     goal: String,
     url: String
@@ -27,5 +29,12 @@ export default class extends Controller {
   setSrc(element, url){
     console.log(url)
     element.src = url
+  }
+
+  avatar() {
+    setTimeout(() => {
+      const part = this.bubbleTarget.classList.toggle("hide");
+      }, 3000);
+      const part = this.bubbleTarget.classList.toggle("hide");
   }
 }

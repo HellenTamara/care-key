@@ -19,6 +19,8 @@
 .routine-icons {
   display: flex;
   justify-content: space-evenly;
+  position: absolute;
+  z-index: 95;
 }
 
 .coin-icon {

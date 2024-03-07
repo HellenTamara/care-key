@@ -2,21 +2,17 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   // static targets = ["form"]
+  static targets = ["bubble"]
   static values = {
-    user: String
+    url: String
   }
 
   connect() {
+    if (this.urlValue !== "") {
+      setTimeout(() => {
+      const part = this.bubbleTarget.classList.toggle("hide");
+      }, 3000);
+      const part = this.bubbleTarget.classList.toggle("hide");
+    }
   }
-
-  select(event) {
-  //   const selected = event.target
-  //   const part = selected.parentElement.getAttribute("value")
-  //   const url = `edit?category=${part}`;
-  //   fetch(url, {headers: {"Accept": "text/plain"}})
-  //     .then(response => response.text())
-  //     .then((data) => {
-  //       this.formTarget.outerHTML = data
-      // })
-}
 }
