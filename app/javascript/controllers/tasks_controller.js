@@ -15,32 +15,18 @@ export default class extends Controller {
 
     fetch(form.action, {
       method: "POST",
-      headers: { "Accept": "application/json" },
+      headers: { "Accept": "text/plain" },
       body: new FormData(form)
     })
-      .then(response => response.json())
-      .then((data) => {
+        .then(response => response.text())
+        .then((data) => {
+          // if (data.inserted_item) {
+          //   // beforeend could also be dynamic with Stimulus values
+          //   form.insertAdjacentHTML("beforeend", data.inserted_item)
+          // }
+          document.querySelector(".goals-container").innerHTML = data
+          // this.element.innerHTML = data
+        })
 
-        // if (data.inserted_item) {
-        //   // beforeend could also be dynamic with Stimulus values
-        //   form.insertAdjacentHTML("beforeend", data.inserted_item)
-        // }
-
-        this.element.innerHTML = data.html
-
-        // if (data.score == 50) {
-        //   setTimeout(() => {
-        //     this.coin50Target.classList.toggle("hide");
-        //   }, 2000);
-        //   this.coin50Target.classList.toggle("hide");
-        // }
-
-        // if (data.score == 20) {
-        //   setTimeout(() => {
-        //     coin20.classList.toggle("hide");
-        //   }, 2000);
-        //   coin20.classList.toggle("hide");
-        // }
-      })
   }
 }
