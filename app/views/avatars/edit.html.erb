@@ -33,7 +33,7 @@
       <% @categories.each do |category| %>
         <div data-action="click->avatar-options#select" value="<%= category %>">
           <button data-bs-toggle="modal" data-bs-target="#category-option-<%= category%>" style="border: none;" class="bg-transparent">
-            <%= image_tag "avatar_edit_cards/Avatar_edit-cards_#{category}.png", class: 'avatar-option-card'%></button>
+            <%= image_tag "avatar_edit_cards/Avatar_edit-cards_#{category}.png", id: @purchased_category == category ? 'notification' : '' , class: 'avatar-option-card'%></button>
           <%= render "avatars/modal", category: category %>
         </div>
       <% end %>

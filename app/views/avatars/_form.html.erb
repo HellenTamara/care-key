@@ -12,8 +12,8 @@
       <% end %>
       <% available.each do |part| %>
         <%= f.label "#{category}_id_#{part.id}" do %>
-          <%= f.radio_button "#{category}_id", part.id, class: "image-radio" %>
-          <%= cl_image_tag part.photo.key, height: 200 %>
+          <%= f.radio_button "#{category}_id", part.id, class: "image-radio"%>
+          <%= cl_image_tag part.photo.key, height: 200, id: @purchased_part == part ? 'notification' : '' %>
         <% end %>
       <% end %>
     </div>
