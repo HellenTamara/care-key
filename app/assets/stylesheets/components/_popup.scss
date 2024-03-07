@@ -1,12 +1,14 @@
 .popup {
   position: absolute;
-  display: none;
+  display: block;
+  padding-top: 65%;
   top: 50%;
-  left:50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 100vw;
+  width: 103vw;
+  height: 108vh;
   z-index: 999999;
-  // background-color: white;
+  background-color: rgba(	0,0,0,0.7 );
   img {
     width: 100%;
   }
