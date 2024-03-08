@@ -11,7 +11,7 @@ export default class extends Controller {
     if (this.urlValue !== "") {
       setTimeout(() => {
       const part = this.bubbleTarget.classList.toggle("hide");
-      }, 1000);
+      }, 2000);
       const part = this.bubbleTarget.classList.toggle("hide");
     }
   }
