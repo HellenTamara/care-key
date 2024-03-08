@@ -35,7 +35,7 @@
           <% counter += 1 %>
         </div>
       <% end %>
-    <% elsif goal.submissions.any? %>
+    <% elsif goal.submissions.select {|sub| sub.date == Date.today}.any? %>
       <div class="d-flex task-item" >
         <div class="achieved">
           <h4 style="color: white;">

@@ -13,46 +13,48 @@ require "open-uri"
 # User.destroy_all
 Submission.destroy_all
 Goal.destroy_all
-Avatar.destroy_all
-Part.destroy_all
-User.destroy_all
+# Avatar.destroy_all
+# Part.destroy_all
+# User.destroy_all
 
 # Seeding images:
-categories = %w[hair pants shirt shoes skin_color expressions accessories]
-categories.each do |category|
-  image_files = (Dir.entries("app/assets/images/parts/#{category}/") - [".", "..", ".DS_Store"])
-  p image_files
-  image_files.each do |img|
-    file = URI.open("app/assets/images/parts/#{category}/#{img}")
-    name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
-    part = Part.new(name: name, category: category)
-    part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
-    part.price = 0
-    part.save
-  end
-end
+# categories = %w[hair pants shirt shoes skin_color expressions accessories]
+# categories.each do |category|
+#   image_files = (Dir.entries("app/assets/images/parts/#{category}/") - [".", "..", ".DS_Store"])
+#   p image_files
+#   image_files.each do |img|
+#     file = URI.open("app/assets/images/parts/#{category}/#{img}")
+#     name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
+#     part = Part.new(name: name, category: category)
+#     part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
+#     part.price = 0
+#     part.save
+#   end
+# end
 
-shop_categories = %w[hair pants shirt shoes accessories]
+# shop_categories = %w[hair pants shirt shoes accessories]
 
-shop_categories.each do |category|
-  image_files = (Dir.entries("app/assets/images/shop_parts/#{category}/") - [".", "..", ".DS_Store"])
-  p image_files
-  image_files.each do |img|
-    file = URI.open("app/assets/images/shop_parts/#{category}/#{img}")
-    name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
-    part = Part.new(name: name, category: category)
-    part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
-    part.price = 100
-    part.save
-  end
-end
+# shop_categories.each do |category|
+#   image_files = (Dir.entries("app/assets/images/shop_parts/#{category}/") - [".", "..", ".DS_Store"])
+#   p image_files
+#   image_files.each do |img|
+#     file = URI.open("app/assets/images/shop_parts/#{category}/#{img}")
+#     name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
+#     part = Part.new(name: name, category: category)
+#     part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
+#     part.price = 100
+#     part.save
+#   end
+# end
 
-puts "Creating main users..."
-go = User.new(email: "go.suz55@gmail.com", password: "123456", name: "Go")
-go.save!
+# puts "Creating main users..."
+# go = User.new(email: "go.suz55@gmail.com", password: "123456", name: "Go")
+# go.save!
 
-hellen = User.new(email: "hellen.tamara@outlook.com", password: "123456", name: "Hellen")
-hellen.save!
+# hellen = User.new(email: "hellen.tamara@outlook.com", password: "123456", name: "Hellen")
+# hellen.save!
+
+go = User.first
 
 # Add sleep goals for this week March 5th
 # Sleep goal randomization
@@ -561,7 +563,7 @@ goal31 = Goal.new(name: "Meditate", start_date: start_date31, end_date: end_date
 goal31.user = go
 goal31.save!
 
-(goal31.start_date..(goal31.end_date)-1).each do |date| # creates a range for start date to end date
+(goal31.start_date..((goal31.end_date)-1)).to_a.each do |date| # creates a range for start date to end date
   (rand(0..1)).times do
     submission = Submission.new(date: date)
     submission.achieved = true
@@ -574,11 +576,11 @@ end
 # Hard coded goals - for reading
 start_date33 = Date.new(2024, 3, 2)
 end_date33 = start_date33 + 6
-goal33 = Goal.new(name: "Reading", start_date: start_date31, end_date: end_date31, frequency: 7, duration:5 )
+goal33 = Goal.new(name: "Reading", start_date: start_date33, end_date: end_date33, frequency: 7, duration:5 )
 goal33.user = go
 goal33.save!
 
-(goal33.start_date..(goal33.end_date)-1).each do |date| # creates a range for start date to end date
+(goal33.start_date..((goal33.end_date) - 1)).to_a.each do |date| # creates a range for start date to end date
   rand((0..1)).times do
     submission = Submission.new(date: date)
     submission.achieved = true
@@ -596,7 +598,7 @@ goal32 = Goal.new(name: "Stretch", start_date: start_date32, end_date: end_date3
 goal32.user = go
 goal32.save!
 
-(goal32.start_date..(goal32.end_date)-1).each do |date| # creates a range for start date to end date
+(goal32.start_date..((goal32.end_date) - 1)).to_a.each do |date| # creates a range for start date to end date
   rand((0..1)).times do
     submission = Submission.new(date: date)
     submission.achieved = true
