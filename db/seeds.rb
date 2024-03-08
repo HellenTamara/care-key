@@ -13,48 +13,48 @@ require "open-uri"
 # User.destroy_all
 Submission.destroy_all
 Goal.destroy_all
-# Avatar.destroy_all
-# Part.destroy_all
-# User.destroy_all
+Avatar.destroy_all
+Part.destroy_all
+User.destroy_all
 
-# Seeding images:
-# categories = %w[hair pants shirt shoes skin_color expressions accessories]
-# categories.each do |category|
-#   image_files = (Dir.entries("app/assets/images/parts/#{category}/") - [".", "..", ".DS_Store"])
-#   p image_files
-#   image_files.each do |img|
-#     file = URI.open("app/assets/images/parts/#{category}/#{img}")
-#     name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
-#     part = Part.new(name: name, category: category)
-#     part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
-#     part.price = 0
-#     part.save
-#   end
-# end
+Seeding images:
+categories = %w[hair pants shirt shoes skin_color expressions accessories]
+categories.each do |category|
+  image_files = (Dir.entries("app/assets/images/parts/#{category}/") - [".", "..", ".DS_Store"])
+  p image_files
+  image_files.each do |img|
+    file = URI.open("app/assets/images/parts/#{category}/#{img}")
+    name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
+    part = Part.new(name: name, category: category)
+    part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
+    part.price = 0
+    part.save
+  end
+end
 
-# shop_categories = %w[hair pants shirt shoes accessories]
+shop_categories = %w[hair pants shirt shoes accessories]
 
-# shop_categories.each do |category|
-#   image_files = (Dir.entries("app/assets/images/shop_parts/#{category}/") - [".", "..", ".DS_Store"])
-#   p image_files
-#   image_files.each do |img|
-#     file = URI.open("app/assets/images/shop_parts/#{category}/#{img}")
-#     name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
-#     part = Part.new(name: name, category: category)
-#     part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
-#     part.price = 100
-#     part.save
-#   end
-# end
+shop_categories.each do |category|
+  image_files = (Dir.entries("app/assets/images/shop_parts/#{category}/") - [".", "..", ".DS_Store"])
+  p image_files
+  image_files.each do |img|
+    file = URI.open("app/assets/images/shop_parts/#{category}/#{img}")
+    name = img.downcase.gsub(/(avatar_|.png)/, "").gsub("_", " ")
+    part = Part.new(name: name, category: category)
+    part.photo.attach(io: file, filename: "img.png", content_type: "image/png")
+    part.price = 100
+    part.save
+  end
+end
 
-# puts "Creating main users..."
-# go = User.new(email: "go.suz55@gmail.com", password: "123456", name: "Go")
-# go.save!
+puts "Creating main users..."
+go = User.new(email: "go.suz55@gmail.com", password: "123456", name: "Go")
+go.save!
 
 # hellen = User.new(email: "hellen.tamara@outlook.com", password: "123456", name: "Hellen")
 # hellen.save!
 
-go = User.first
+# go = User.first
 
 # Add sleep goals for this week March 5th
 # Sleep goal randomization
