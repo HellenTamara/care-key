@@ -13,6 +13,7 @@ label {
 }
 
 .submission-form {
+  animation:pop-in 0.3s;
   position: absolute;
   display: flex;
   background-color: #fdf5d0;
@@ -48,6 +49,11 @@ label {
     padding-bottom: 8px;
     color: white;
   }
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.1); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 .form-check {
@@ -117,4 +123,8 @@ label {
     padding-bottom: 8px;
     color: white;
   }
+}
+
+.form-login {
+  margin-top: 20px;
 }

@@ -133,7 +133,7 @@ class LineService
               "type": "button",
               "action": {
                 "type": "uri",
-                "uri": "https://care-key-3e477239e95c.herokuapp.com/",
+                "uri": "https://www.carekey.beauty/",
                 "label": "Open App",
               },
             },

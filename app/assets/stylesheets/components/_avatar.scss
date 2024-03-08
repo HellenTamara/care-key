@@ -179,6 +179,16 @@
 
 #notification {
   border: 4px solid #FF6073;
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -5px #FF6073;
+  }
+  to {
+    box-shadow: 0 0 10px 5px #FF6073;
+  }
 }
 
 .shop-icon {
