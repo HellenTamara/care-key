@@ -4,7 +4,7 @@
 <% sleep_prompt_time = Time.new(today.year, today.month, today.day, 10, 0, 0) %>
 <% if  current_user.today_sleep_submission.present? && !current_user.today_sleep_submission.achieved && !current_user.today_sleep_submission.reminder %>
   <%# <%= render "submissions/sleep_modal" %>
-  <%= render "submissions/reminder_form", goal: @goal_sleep, message: "Would you like to set a bedtime reminder?" %>
+  <%= render "submissions/reminder_form", goal: @goal_sleep, message: "I noticed you didn't get enough sleep last night, want to set a reminder?" %>
 <% elsif @submission_sleep.nil? %>
   <%= render "submissions/form", goal: @goal_sleep, message: "Did you sleep 8 hours?" %>
 <% end %>
