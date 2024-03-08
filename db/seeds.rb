@@ -571,7 +571,6 @@ goal31.save!
   end
 end
 
-
 # Hard coded goals - for reading
 start_date33 = Date.new(2024, 3, 2)
 end_date33 = start_date33 + 6
