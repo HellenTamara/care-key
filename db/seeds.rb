@@ -17,7 +17,7 @@ Avatar.destroy_all
 Part.destroy_all
 User.destroy_all
 
-Seeding images:
+# Seeding images:
 categories = %w[hair pants shirt shoes skin_color expressions accessories]
 categories.each do |category|
   image_files = (Dir.entries("app/assets/images/parts/#{category}/") - [".", "..", ".DS_Store"])
