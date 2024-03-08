@@ -1,4 +1,5 @@
 <%= render "popup" if params[:show_streak] == "true"%>
+<div class="shop-background" style="background-image: url('<%= image_path 'backgrounds/homepage_background.png'%>');">
 <div class="block-color d-flex mb-4">
   <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
     <div class="setting-icon" id="setting" style="font-size: 2em; color: white;">
@@ -66,11 +67,11 @@
       <%= image_tag "speech_bubbles/speech_bubble_hmpg_2.png"%>
     </div>
     <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color'%>
+    <%= render "pages/expression" %>
     <div class="facial-expression-submission show">
       <%= cl_image_tag current_user.avatar.expression.photo.key, :class => 'avatar-expression', data: {expressions_target: "photo"}%>
     </div>
     <div class="facial-expression-regular hide" data-expressions-target="container">
-      <%= render "pages/expression" %>
       <%= cl_image_tag current_user.avatar.expression.photo.key, :class => 'avatar-expression' %>
     </div>
     <%= cl_image_tag @user.avatar.accessories.photo.key , :class => 'avatar-accessories', data:{action: "click->expressions#avatar"}%>
@@ -80,4 +81,4 @@
     <%= cl_image_tag @user.avatar.shoes.photo.key, :class => 'avatar-shoes'%>
   </div>
 </div>
-<div class="routine-icons container mt-1">
+</div>
