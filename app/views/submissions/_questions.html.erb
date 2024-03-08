@@ -13,16 +13,16 @@
 
 <% if  current_user.today_sleep_submission.present? && !current_user.today_sleep_submission.achieved && !current_user.today_sleep_submission.reminder %>
   <%# <%= render "submissions/sleep_modal" %>
-  <%= render "submissions/reminder_form", goal: @goal_sleep, message: "Do you want to be reminded?" %>
+  <%= render "submissions/reminder_form", goal: @goal_sleep, message: "Would you like to set a reminder?" %>
 <% elsif @submission_sleep.nil? && (current_time >= sleep_prompt_time)%>
-  <%= render "submissions/form", goal: @goal_sleep, message: "Did you sleep #{@goal_sleep.duration} hrs?" %>
+  <%= render "submissions/form", goal: @goal_sleep, message: "Did you sleep 8 hours?" %>
 
 <% elsif @submission_exercise.nil? && (current_time >= exercise_prompt_time) %>
   <%= render "submissions/form", goal: @goal_exercise, message: "Did you exercise today?" %>
 <% elsif @submission_eating.length == 0 && (current_time >= breakfast_prompt_time) %>
-  <%= render "submissions/form", goal: @goal_eating, message: "Did you eat breakfast today?" %>
+  <%= render "submissions/form", goal: @goal_eating, message: "Did you eat breakfast?" %>
 <% elsif @submission_eating.length == 1 && (current_time >= lunch_prompt_time) %>
-  <%= render "submissions/form", goal: @goal_eating, message: "Did you eat lunch today?" %>
+  <%= render "submissions/form", goal: @goal_eating, message: "Did you eat lunch?" %>
 <% elsif @submission_eating.length == 2 &&  (current_time >= dinner_prompt_time) %>
-  <%= render "submissions/form", goal: @goal_eating, message: "Did you eat dinner today?" %>
+  <%= render "submissions/form", goal: @goal_eating, message: "Did you eat dinner?" %>
 <% end %>
