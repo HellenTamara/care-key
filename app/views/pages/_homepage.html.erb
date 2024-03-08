@@ -1,4 +1,4 @@
-<%= render "popup" %>
+<%= render "popup" if params[:show_streak] == "true"%>
 <div class="block-color d-flex mb-4">
   <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
     <div class="setting-icon" id="setting" style="font-size: 2em; color: white;">
@@ -58,7 +58,7 @@
   </div>
 </div>
 <div class="container d-flex justify-content-center mt-5">
-   <div class="avatar-card" data-controller="expressions" data-expressions-goal-value="<%= params[:goal] %>" data-expressions-status-value="<%= params[:achieved] %>" data-expressions-url-value="<%= params[:expression_url] %>">
+  <div class="avatar-card" data-controller="expressions" data-expressions-goal-value="<%= params[:goal] %>" data-expressions-status-value="<%= params[:achieved] %>" data-expressions-url-value="<%= params[:expression_url] %>">
     <div data-expressions-target="coin50" class="coin50 hide">
       <%= image_tag "pop_up/coins_50.png"%>
     </div>
@@ -66,8 +66,6 @@
       <%= image_tag "speech_bubbles/speech_bubble_hmpg_2.png"%>
     </div>
     <%= cl_image_tag @user.avatar.skin_color.photo.key, :class => 'avatar-skin-color'%>
-
-
     <div class="facial-expression-submission show">
       <%= cl_image_tag current_user.avatar.expression.photo.key, :class => 'avatar-expression', data: {expressions_target: "photo"}%>
     </div>
@@ -75,8 +73,6 @@
       <%= render "pages/expression" %>
       <%= cl_image_tag current_user.avatar.expression.photo.key, :class => 'avatar-expression' %>
     </div>
-
-
     <%= cl_image_tag @user.avatar.accessories.photo.key , :class => 'avatar-accessories', data:{action: "click->expressions#avatar"}%>
     <%= cl_image_tag @user.avatar.hair.photo.key , :class => 'avatar-hair'%>
     <%= cl_image_tag @user.avatar.pants.photo.key, :class => 'avatar-pants'%>

@@ -47,18 +47,17 @@ class SubmissionsController < ApplicationController
         current_user.avatar.update(coins: @coins + 20)
         @score = 20
       end
-
+      show_streak = @goal.name == "Food" && @submission.achieved
       respond_to do |format|
-        format.html {redirect_to root_path(goal: @submission.goal.name, achieved: @submission.achieved, expression_url: @submission.achieved ? @submission.goal.part_url : "")}
+        format.html { redirect_to root_path(goal: @submission.goal.name, achieved: @submission.achieved, expression_url: @submission.achieved ? @submission.goal.part_url : "", show_streak: show_streak) }
 
-        format.json { render json: {
-          html: render_to_string(partial: "submissions/submission_task_form", locals: {goals: @goals, submission: Submission.new}, formats: [:html]),
-          score: @score
+        format.json {
+          render json: {
+                   html: render_to_string(partial: "submissions/submission_task_form", locals: { goals: @goals, submission: Submission.new }, formats: [:html]),
+                   score: @score,
+                 }
         }
-      }
-
       end
-
     else
       redirect_to root_path, notice: "Sorry we're having issues", status: :unprocessable_entity
       # render the form???
