@@ -42,14 +42,21 @@ class SubmissionsController < ApplicationController
       # where do I want to redirect to? home path??
       if @goal.name == "Food" && @submission.achieved || @goal.name == "Sleep" && @submission.achieved || @goal.name == "Exercise" && @submission.achieved
         current_user.avatar.update(coins: @coins + 50)
+        @score = 50
       elsif @submission.achieved
         current_user.avatar.update(coins: @coins + 20)
+        @score = 20
       end
 
       respond_to do |format|
         format.html {redirect_to root_path(goal: @submission.goal.name, achieved: @submission.achieved, expression_url: @submission.achieved ? @submission.goal.part_url : "")}
 
-        format.text { render partial: "submissions/submission_task_form", locals: {goals: @goals, submission: Submission.new}, formats: [:html] }
+        format.json { render json: {
+          html: render_to_string(partial: "submissions/submission_task_form", locals: {goals: @goals, submission: Submission.new}, formats: [:html]),
+          score: @score
+        }
+      }
+
       end
 
     else
