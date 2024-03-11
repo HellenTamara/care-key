@@ -5,7 +5,7 @@
 
 ## Introduction
 
-Welcome to Care Key, your personal companion for self-care and motivation. Care Key is designed to help you take better care of yourself by providing reminders, motivation, and tracking for essential daily tasks such as sleep, nutrition, exercise, and more. With customizable features and a rewarding system, Care Key makes self-care fun and engaging.
+Welcome to Care Key, your personal companion for self-care and motivation. Care Key is designed to help you take better care of yourself by providing reminders, motivation, and tracking for essential daily tasks such as sleep, nutrition, exercise, and more. With customizable features and a reward system, Care Key makes self-care fun and engaging.
 
 ## Demo
 
