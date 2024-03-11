@@ -1,6 +1,6 @@
 # Care Key
 
-![image](https://github.com/HellenTamara/care-key/assets/105838459/f834c6a1-6075-41b1-b882-34ce74213a1e)
+<a href="https://ibb.co/M6Jx3LZ"><img src="https://i.ibb.co/YZVFqGP/Design-sem-nome-1.png" alt="Design-sem-nome-1" border="0" width="100%"></a>
 
 
 ## Introduction
