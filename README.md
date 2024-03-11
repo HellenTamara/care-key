@@ -36,6 +36,20 @@ Check out the live demo of Care Key [here](https://www.carekey.beauty/).
 5. Use coins to purchase items from the shop and further customize your avatar.
 6. Track your progress and stay motivated on your self-care journey!
 
+## Future Updates
+
+We're continuously working on improving Care Key to provide you with the best self-care experience. Here are some features we plan to implement in future updates:
+
+- **Responsiveness:** Enhance the responsiveness of the application to ensure optimal user experience across various devices and screen sizes.
+- **Additional Features:** Introduce new features and functionalities to further enhance the self-care experience, such as personalized moos tracker, water reminder and so on.
+- **Line Notifications:** Implement Line notifications to provide users with timely reminders and motivational messages directly to their Line accounts.
+- **Badges:** Introduce a badge system to reward users for achieving milestones and staying consistent with their self-care routines.
+
+Stay tuned for these exciting updates!
+
+If you have any feature requests or suggestions for future updates, feel free to share them with us. Your feedback is invaluable in shaping the future of Care Key.
+
+
 ## Team
 
 Meet the team behind Care Key:
