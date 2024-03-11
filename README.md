@@ -7,6 +7,10 @@
 
 Welcome to Care Key, your personal companion for self-care and motivation. Care Key is designed to help you take better care of yourself by providing reminders, motivation, and tracking for essential daily tasks such as sleep, nutrition, exercise, and more. With customizable features and a rewarding system, Care Key makes self-care fun and engaging.
 
+## Demo
+
+Check out the live demo of Care Key [here](https://www.carekey.beauty/).
+
 ## Features
 
 - **Task Reminders:** Receive timely reminders for essential tasks like sleeping properly, eating meals, and exercising.
@@ -16,16 +20,44 @@ Welcome to Care Key, your personal companion for self-care and motivation. Care 
 - **Personalized Avatar:** Choose from a variety of customization options to create a character that represents you.
 - **In-App Shop:** Explore the shop to find new items and customize your character using the coins you earn.
 
-## Technologies Used
+## Getting Started
+### Setup
 
-- **Frontend:** HTML, SCSS, Bootstrap, JavaScript
-- **Backend:** Ruby on Rails
-- **Database:** PostgreSQL
-- **Additional Libraries:** Stimulus JS, Devise
+Install gems
+```
+bundle install
+```
 
-## Demo
+### ENV Variables
+Create `.env` file
+```
+touch .env
+```
+Inside `.env`, set these variables. For any APIs, see group Slack channel.
+```
+CLOUDINARY_URL=your_own_cloudinary_url_key
+```
 
-Check out the live demo of Care Key [here](https://www.carekey.beauty/).
+### DB Setup
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+### Run a server
+```
+rails s
+```
+
+## Built with
+
+- **Frontend:** Figma, HTML, [SCSS](https://sass-lang.com/guide/), [Bootstrap](https://getbootstrap.com/)
+- **Backend:** [Rails 7](https://guides.rubyonrails.org/)
+- **Deployment:** [Heroku](https://heroku.com/)
+- **Database:** [PostgreSQL](https://www.postgresql.org/)
+- **Additional Libraries:** [Stimulus JS](https://stimulus.hotwired.dev/), [Devise](https://github.com/heartcombo/devise)
+
 
 ## Usage
 
@@ -59,7 +91,7 @@ Meet the team behind Care Key:
 - **Hellen Tamara Naito** - *Lead Developer*
   - LinkedIn: [Hellen's LinkedIn Profile](https://www.linkedin.com/in/hellen-tamara-naito/)
 - **Go Suzuki** - *Back-end*
-  - LinkedIn: [Go's Github Profile](https://github.com/gosuz)
+  - Github: [Go's Github Profile](https://github.com/gosuz)
 - **Karenina Wongsordjo** - *Api Specialist*
   - LinkedIn: [Karenina's LinkedIn Profile](https://www.linkedin.com/in/karenina-wongsordjo-b38501176/)
 
