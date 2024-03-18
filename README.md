@@ -9,7 +9,9 @@ Welcome to Care Key, your personal companion for self-care and motivation. Care 
 
 ## Demo
 
-Check out the live demo of Care Key [here](https://www.carekey.beauty/).
+Check out the live demo of Care Key [here*](https://www.carekey.beauty/). 
+
+*Mobile ONLY, please use inspector
 
 ## Features
 
